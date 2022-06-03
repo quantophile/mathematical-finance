@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      16 min read
     
 </span></p>
 
@@ -290,11 +290,14 @@ $$F_X(x) = \frac{e^x}{1 + e^x}, \quad x \in \mathbf{R}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To get the PDF, we differentiate the CDF, which gives:</p>
+<p>
 \begin{align*}
 f(x) &amp;= \frac{(1+e^x)e^x - e^x\cdot e^x}{(1+e^x)^2}\\
 &amp;=\frac{e^x + e^{2x} -e^{2x}}{(1+e^x)^2}\\
 &amp;=\frac{e^x}{(1+e^x)^2}
 \end{align*}
+</p>
+
 </div>
 </div>
 </div>
@@ -761,6 +764,7 @@ Since the PDF of $U$ is the constant $\frac{1}{b-a}$ on $(a,b)$, the area under 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>Proof.</em> For $u$ in $(c,d)$, the conditional CDF at the point $U=u$ is :</p>
+<p>
 $$
 \begin{align*}
 P(U \leq u|U \in (c,d)) &amp;= \frac{P(U \leq u, c &lt; U &lt; d)}{P(U \in (c,d))}\\
@@ -769,6 +773,8 @@ P(U \leq u|U \in (c,d)) &amp;= \frac{P(U \leq u, c &lt; U &lt; d)}{P(U \in (c,d)
 &amp;= \frac{u-c}{d-c}
 \end{align*}
 $$
+</p>
+
 </div>
 </div>
 </div>
@@ -969,7 +975,20 @@ $$Var(\tilde{U}) = \frac{(b-a)^2}{12}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's make sure we understand what each part of the theorem is saying. The first part of the theorem says that if we start with $U \sim Uniform(0,1)$ random variable and a CDF $F$, then we can create a random varaible whose CDF is $F$ by plugging $U$ into the inverse  CDF $F^{-1}$. Since $F^{-1}$ is a function (known as <em>the quantile function</em>), $U$ is a</p>
+<p>Let's make sure we understand what each part of the theorem is saying. The first part of the theorem says that if we start with $U \sim Uniform(0,1)$ random variable and a CDF $F$, then we can create a random variable whose CDF is $F$ by plugging $U$ into the inverse  CDF $F^{-1}$. Since $F^{-1}$ is a function (known as <em>the quantile function</em>), $U$ is a random variable, and a function of a random variable is a random variable, $F^{-1}(U)$  is a random variable; universality of the uniform says its CDF is $F$.</p>
+<p>The second part of the theorem goes in the reverse direction, starting from a random variable $X$ whose CDF is $F$ and then creating a $Uniform(0,1)$ random variable again. Again, $F$ is a function, $X$ is a random variable, and a function of a random variable is a random varaible, so $F(X)$ is a random variable. Since, any CDF is between $0$ and $1$ everywhere, $F(X)$ must take values between $0$ and $1$. Universality of the uniform says that the distribution of $F(X)$ is Uniform on $(0,1)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>The second part of the universality of the Uniform involves plugging a random variable $X$ into its own CDF $F$. This may seem strangely self-referential, but it makes sense because $F$ is a just a function (that satisfies the properties of a valid CDF). There is a potential notational confusion, however : $F(x) = P(X \leq x)$ by definition, but it would be incorrect to say $F(X) = P(X \leq X) = 1$. Rather, we should first find an expression for the CDF as a function of $x$, then replace $x$ with $X$ to obtain a random variable. For example, if the CDF of $X$ is $F(x) = 1 - e^{-x}$ for $x &gt; 0$, then $F(X) = 1 - e^{-X}$.
+</div>
 
 </div>
 </div>
