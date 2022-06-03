@@ -293,11 +293,13 @@ $$F_X(x) = \frac{e^x}{1 + e^x}, \quad x \in \mathbf{R}$$
 <p>{::nomarkdown}</p>
 <p></p>
 <div>
+$$
 \begin{align*}
 f(x) &amp;= \frac{(1+e^x)e^x - e^x\cdot e^x}{(1+e^x)^2}\\
 &amp;=\frac{e^x + e^{2x} -e^{2x}}{(1+e^x)^2}\\
 &amp;=\frac{e^x}{(1+e^x)^2}
 \end{align*}
+$$
 </div>
 {:/}
 
@@ -319,12 +321,14 @@ $$P(-2 &lt; X &lt; 2) = \int_{-2}^{2} \frac{e^x}{(1 + e^x)^2} dx = F(2) - F(-2) 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The integral was easy to evaluate since we already knew that $F$ was an antiderivative for $f$ and we had a nice expression for $F$. Otherwise, we could have made the substitution $u = 1 + e^x$, so that $e^x dx = du$. This gives:</p>
+$$
 \begin{align*}
 P(-2 &lt; X &lt; 2) &amp;= \int_{1+e^{-2}}^{1+e^2} \frac{du}{u^2}\\
 &amp;= -\left[\frac{1}{u}\right]_{1+e^{-2}}^{1+e^2}\\
 &amp;= \frac{e^2}{1 + e^2} - \frac{1}{1+e^2}\\
 &amp;= \frac{e^2 - 1}{e^2 + 1}
 \end{align*}
+$$
 </div>
 </div>
 </div>
