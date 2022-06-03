@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The Binomial and Poisson Distributions - Exercise Problems. | Summary notes on Mathematical Finance</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="The Binomial and Poisson Distributions - Exercise Problems." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Solved exercise problems" />
+<meta property="og:description" content="Solved exercise problems" />
+<link rel="canonical" href="https://quantophile.github.io/mathematical-finance/jupyter/2022/03/06/Binomial-And-Poisson-Exercise-Set.html" />
+<meta property="og:url" content="https://quantophile.github.io/mathematical-finance/jupyter/2022/03/06/Binomial-And-Poisson-Exercise-Set.html" />
+<meta property="og:site_name" content="Summary notes on Mathematical Finance" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Binomial and Poisson Distributions - Exercise Problems." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-06T00:00:00-06:00","datePublished":"2022-03-06T00:00:00-06:00","description":"Solved exercise problems","headline":"The Binomial and Poisson Distributions - Exercise Problems.","mainEntityOfPage":{"@type":"WebPage","@id":"https://quantophile.github.io/mathematical-finance/jupyter/2022/03/06/Binomial-And-Poisson-Exercise-Set.html"},"url":"https://quantophile.github.io/mathematical-finance/jupyter/2022/03/06/Binomial-And-Poisson-Exercise-Set.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/mathematical-finance/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://quantophile.github.io/mathematical-finance/feed.xml" title="Summary notes on Mathematical Finance" /><link rel="shortcut icon" type="image/x-icon" href="/mathematical-finance/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/mathematical-finance/">Summary notes on Mathematical Finance</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/mathematical-finance/about/">About Me</a><a class="page-link" href="/mathematical-finance/search/">Search</a><a class="page-link" href="/mathematical-finance/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">The Binomial and Poisson Distributions - Exercise Problems.</h1><p class="page-description">Solved exercise problems</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      23 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/mathematical-finance/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/quantophile/mathematical-finance/tree/master/_notebooks/2022-03-06-Binomial-And-Poisson- Exercise-Set.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/mathematical-finance/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/quantophile/mathematical-finance/master?filepath=_notebooks%2F2022-03-06-Binomial-And-Poisson-+Exercise-Set.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/quantophile/mathematical-finance/blob/master/_notebooks/2022-03-06-Binomial-And-Poisson- Exercise-Set.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fquantophile%2Fmathematical-finance%2Fblob%2Fmaster%2F_notebooks%2F2022-03-06-Binomial-And-Poisson-+Exercise-Set.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-06-Binomial-And-Poisson- Exercise-Set.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>1.Assuming all sex distributions to be equally probable,  what proportion of families with exactly six children should be expected to have three boys and three girls?</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>Let us identify success with the child being a girl, and failure as the child being a boy. Let the r.v. $X$ be the number of successes in $n=6$ trials. The required probability is,</p>
+\begin{align*}
+P(X=3) &amp;= {6 \choose 3}\left(\frac{1}{2}\right)^3\left(1-\frac{1}{2}\right)^3\\
+&amp;={6 \choose 3}\left(\frac{1}{2}\right)^6 \\
+&amp;=0.3125
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Distributions</span>
+
+<span class="n">binomial</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">^</span><span class="mi">6</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.3125</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>2.A bridge player had no ace in three consecutive hands. Did he have reason to complain of ill luck?</p>
+<hr>
+<p><em>Solution</em>.</p>
+<p>Let us identify success with getting one or more aces in drawing a bridge card hand. The probability $q$ of no ace in a bridge card hand is given by,</p>
+\begin{align*}
+q &amp;= \frac4852\\
+&amp;= 0.3038175
+\end{align*}<p>If the $3$ bridge card hands are drawn with replacement, then these are independent Bernoulli trials. So, the probability of no ace in three consecutive hands is $q^3 = 0.028043$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span><span class="o">/</span><span class="n">binomial</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.30381752701080433</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">q</span><span class="o">^</span><span class="mi">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.028043904088925094</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>3.How long has a series of random digits to be in order for the probability of the digit $7$ appearing to be atleast $\frac{9}{10}$?</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>Let us identify success with the appearance of the digit $7$. The probability $p$ of success is $\frac{1}{10}$. Since each digit is randomly drawn from $\{0,1,2,3,4,5,6,7,8,9\}$ with replacement, these are independent Bernoulli trials. Let $X$ be the number of successes in $n$ Bernoulli trials. $X$ follows the binomial distribution.</p>
+\begin{align*}
+P(X=k) = {n \choose k}p^k {q^{n-k}}
+\end{align*}<p>We are interested to find $k$ such that,</p>
+\begin{align*}
+P(X=0) &amp;\leq \left(1-\frac{9}{10}\right)\\
+q^n &amp;\leq 0.1\\
+\left(\frac{9}{10}\right)^n &amp;\leq 0.1 \\
+n \log(0.9) &amp;\leq \log 0.1 \\
+n &amp;\geq \frac{\log 0.1}{\log 0.9}\\
+&amp;= 21.85434
+\end{align*}<p>So, $n \geq 22$ trials.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>21.854345326782834</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>4.How many independent bridge dealings are required in order for the probability of a preassigned player having four aces at least once to be $\frac{1}{2}$ or better? Solve again for some player instead of a given one.</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>(a) Let us identify success as a pre-assigned player (e.g. North) getting four aces in a bridge card hand. The probability $p$ of success is ${48 \choose 9}/{52 \choose 13}$. Since each dealing is independent, these are independent Bernoulli trials. Let $X$ be the number of successes in $n$ independent dealings.</p>
+<p>We are interested to have,</p>
+\begin{align*}
+P(X \geq 1) &amp;\geq \frac{1}{2}\\
+1 - P(X \geq 1) &amp;\leq \frac{1}{2}\\
+P(X = 0) &amp;\leq 0.50 \\
+\left(1-\frac{48 \choose 9}{52 \choose 13}\right)^n  &amp;\leq 0.50 \\
+0.9973589^n &amp; \leq 0.50 \\
+n &amp;\geq \frac{\log 0.50}{\log 0.9973589}\\
+n &amp;\geq 262.10
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="mi">1</span><span class="o">-</span><span class="n">binomial</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="n">binomial</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9973589435774309</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span><span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="mf">0.9973589435774309</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>262.10400156654214</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) Let us identify success as some player getting four aces in a bridge card hand. The probability $p$ of success is</p>
+<p>Repeating the calculations as above,</p>
+<p>$\begin{align*}
+(1 - 0.01056422)^n &amp;\leq 0.50 \\
+(0.98943578)^n &amp;\leq 0.50 \\
+n &amp;\geq \frac{\log 0.50}{\log 0.98943578}\\
+n &amp;\geq 66
+\end{align*}$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">binomial</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span> <span class="o">/</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.01056422569027611</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="mi">1</span><span class="o">-</span><span class="mf">0.01056422</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.98943578</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="mf">0.50</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="mf">0.98943578</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>65.26553027090138</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>5.If the probability of hitting a target is $\frac{1}{5}$ and ten shots are fired independently, what is the probability of the target's being hit at least twice?</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>Let us identify success as the target being hit by a shot. Let $X$ be the number of shots hitting the target. $X$ follows the binomial distribution. We have,</p>
+\begin{align*}
+P(X \geq 2) &amp;= 1 - P(X=0) - P(X=1)\\
+&amp;= 1 - {10 \choose 0}(0.8)^{10} - {10 \choose 1}(0.2)^{1}(0.8)^{9} \\
+&amp;= 0.624190
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p₀</span> <span class="o">=</span> <span class="mf">0.8</span><span class="o">^</span><span class="mi">10</span>
+<span class="n">p₁</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.2</span><span class="o">*</span><span class="mf">0.8</span><span class="o">^</span><span class="mi">9</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">p₀</span> <span class="o">-</span> <span class="n">p₁</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6241903615999997</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>6.In problem 5, find the conditional probability of the target's being hit atleast twice, assuming that atleast one hit is scored.</p>
+<hr>
+<p><em>Solution.</em> 
+\begin{align*}
+P(X \geq 2 | X \geq 1) &amp;= \frac{P(X \geq 2, X \geq 1)}{P(X \geq 1)} \\
+&amp;= \frac{P(X \geq 2)}{P(X \geq 1)}\\
+&amp;= \frac{1 - P(X=0) - P(X=1)}{1 - P(X=0)}\\
+&amp;= \frac{0.6241903}{0.8926258}\\
+&amp;= 0.6992743
+\end{align*}</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">p₀</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.8926258175999999</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p₀</span> <span class="o">-</span> <span class="n">p₁</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p₀</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6992743759958213</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>7.Find the probability that a hand of thirteen bridge cards selected at random contains exactly two red cards. Compare it with the corresponding probability in Bernoulli trials with $p=\frac{1}{2}$.</p>
+<hr>
+<p><em>Solution.</em>
+When drawing a bridge hand, the cards are sampled without replacement. So, they are not independent Bernoulli trials. Actually the number of red cards follows a hypergeometric distribution. The probability that a hand of thirteen bridge cards selected at random contains exactly two red cards is given by,</p>
+<p>
+\begin{align*}
+P(X_R = 2) &amp;= \frac{{26 \choose 2} {26 \choose 11}} {52 \choose 13}\\
+&amp;= 0.0039542
+\end{align*}
+</p>
+<p>In comparison, if these cards are drawn with replacement, i.e. these were independent Bernoulli trials, then</p>
+\begin{align*}
+P(X_R = 2) &amp;= {13 \choose 2}2^{-13}\\
+&amp;= 0.0095214
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p₂</span> <span class="o">=</span> <span class="p">(</span><span class="n">binomial</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span><span class="o">/</span><span class="n">binomial</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.003954249420408755</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p_binom</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.009521484375</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>8.What is the probability that the birthdays of six people fall in two calendar months leaving exactly ten calendar months free? (Assume independence and equal probabilities for all months.)</p>
+<hr>
+<p><em>Solution.</em>
+We think of the six people as balls and the 12 calendar months as cells. We are placing six balls into twelve cells. We can choose the two calendar months in ${12 \choose 2}$ distinguishable ways.</p>
+<p>Six people can fall into 2 calendar months leaving exactly ten calendar months free in $2^6$ distinguishable ways.</p>
+<p>And six people can be assigned to the twelve calendar months in $12^6$ distinguishable ways.</p>
+<p>The required probability should be,</p>
+<p>
+\begin{align*}
+\frac{{12 \choose 2}2^6}{12^6}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="p">(</span><span class="n">binomial</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="o">^</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="o">^</span><span class="mi">6</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0014146090534979425</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, we would like to leave exactly ten calendar months free, so we must exclude the possibility that six people's birthdays fall only in the first calendar month or only in the second calendar month. Thus, the desired probability is,</p>
+\begin{align*}
+{12 \choose 2}\left(\frac{2^6}{12^6} - 2\cdot \frac{1}{12^6}\right) \approx 0.001370
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">binomial</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">^</span><span class="mi">6</span><span class="o">/</span><span class="mi">12</span><span class="o">^</span><span class="mi">6</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span><span class="o">^</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0013704025205761316</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>9.In rolling six true dice, find the probability of obtaining (a)at least one(b)exactly one (c)exactly two, aces. Compare with poisson approximations.</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>Let us identify success as getting an ace in a dice roll. Since each dice roll is independent, we have a sequence of $6$ independent Bernoulli trials. Let $X$ be the number of aces in the $6$ Bernoulli trials. $X$ follows the binomial distribution. The probability of success $p=1/6$.</p>
+<p>(a) $\begin{align*}
+P(X \geq 1) &amp;= 1 - P(X=0)\\
+&amp;= 1 - q^6\\
+&amp;\approx 0.665102
+\end{align*}$</p>
+<p>(b) $\begin{align*}
+P(X = 1) &amp;= {6 \choose 1}pq^5\\
+&amp;\approx 0.401877
+\end{align*}$</p>
+<p>(c) $\begin{align*}
+P(X = 2) &amp;= {6 \choose 2}p^2 q^4\\
+&amp;\approx 0.200938
+\end{align*}$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="o">/</span><span class="mi">6</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">q</span><span class="o">^</span><span class="mi">6</span><span class="p">,</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">^</span><span class="mi">5</span><span class="p">),</span> <span class="n">binomial</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">^</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.6651020233196159, 0.401877572016461, 0.2009387860082305)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">λ</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span>
+<span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="n">λ</span><span class="p">)),(</span><span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="n">λ</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">λ</span><span class="o">/</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="n">λ</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">λ</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.6321205588285577, 0.36787944117144233, 0.18393972058572117)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>10.If there are on the average 1 per cent left-handers, estimate the chances of having at least four left-handers among 200 people.</p>
+<hr>
+<p><em>Solution.</em>
+We have, $\lambda = np = 0.01*200 = 2$. Here $n$ is large, $p$ is small. Let $X$ be the number of left handers among the 200 people. $X$ is a poisson random variable.</p>
+\begin{align*}
+P(X \geq 4) &amp;= 1 - P(X=0) - P(X=1) - P(X=2) - P(X=3)\\
+&amp;= 1 - e^{-\lambda}\left[1+\frac{\lambda}{1}+\frac{\lambda^2}{2!} + \frac{\lambda^3}{3!}\right]\\
+&amp;\approx 0.1428765
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">poisson</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">λ</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="n">λ</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">λ</span><span class="o">^</span><span class="n">k</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="n">poisson</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.1353352832366127, 0.2706705664732254, 0.2706705664732254, 0.18044704431548358)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.1428765395014529</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>11.A book of 500 pages contains 500 misprints. Estimate the chances that a given page contains atleast three misprints.</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>Here, the total number of misprints $T = 500$, and the experiment is performed $N=500$ times. On an average, the number of misprints per page $\lambda t = T/N = 500/500 = 1$.</p>
+\begin{align*}
+P(X \geq 3) &amp;= 1 - P(X \leq 2)\\
+&amp;=1 - (P(X=0) + P(X=1) + P(X=3))\\
+&amp;\approx 0.080301
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">poisson</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">poisson</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">poisson</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.36787944117144233, 0.36787944117144233, 0.18393972058572117)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">poisson</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.08030139707139416</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>12.Colorblindness appears in 1 per cent of the people in a certain population. How large must a random sample (with replacements) be if the probability of its containing a colorblind person is to be 0.95 or more?</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>We are given that $P(X\ge 1) \geq 0.95$. Consequently,</p>
+\begin{align*}
+P(X = 0) &amp;\leq 0.05\\
+e^{-\lambda} &amp;\leq 0.05 \\
+-\lambda &amp;\leq \log 0.05\\
+\lambda &amp;\geq 2.9957322\\
+n(0.01) &amp;\geq 2.9957322\\
+n &amp;\geq 300
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="o">-</span><span class="n">log</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.995732273553991</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>13.In the preceding exercise, what is the probability that a sample of $100$ people will contain (a)no (b) two or more, colorblind people?</p>
+<hr>
+<p><em>Solution.</em>
+We have, $\lambda = np = 100 \cdot 0.01 = 1$.</p>
+<p>(a) $\begin{align*}
+P(X=0) &amp;= e^{-1} = 0.36787
+\end{align*}$</p>
+<p>(b) $\begin{align*}
+P(X \geq 2) &amp;= 1 - P(X &lt; 2)\\
+&amp;= 1 - P(X=0) - P(X=1)\\
+&amp;= 1 - e^{-1} - e^{-1}/2\\
+&amp;\approx 0.44818
+\end{align*}$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.36787944117144233, 0.18393972058572117)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">ℯ</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.4481808382428365</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>14.Estimate the number of raisins which a cookie should contain on the average if it is desired that the probability of a cookie to contain atleast one raisin be 0.99 or more.</p>
+<hr>
+<p><em>Solution.</em>
+Let $X$ be the number of raisins in a cookie. $X \sim Poisson(k;\lambda)$.</p>
+\begin{align*}
+P(X \geq 1 ) &amp;\geq 0.99 \\
+1 - P(X \geq 1) &amp;\leq 1 - 0.99 \\
+P(X=0) &amp;\leq 0.01 \\
+e^{-\lambda} &amp;\leq 0.01\\
+-\lambda &amp;\leq \log 0.01\\
+\lambda &amp;\geq 4.60517
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-4.605170185988091</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>15.The probability of a royal flush in poker is $p=1/649740$. How large has $n$ to be to render the probability of no royal flush in $n$ hands smaller than $1/e \approx \frac{1}{3}$? (<em>Note:</em> No calculations are necessary for the solution).</p>
+<hr>
+<p><em>Solution.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A royal flush is an ace, king, queen, jack and ten of a suit.</p>
+<p>The probability of a royal flush is  $p = \frac{{4 \choose 1}}{52 \choose 5} = \frac{1}{649740}$ .</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">binomial</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">binomial</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="mi">649740</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1.5390771693292702e-6, 1.5390771693292702e-6)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X$ be the number of royal flushes in $n$ hands. $X \sim Poisson(k;\lambda)$.</p>
+\begin{align*}
+P(X = 0) &amp;\leq \frac{1}{e}\\
+e^{-\lambda} &amp;\leq e^{-1}\\
+\lambda &amp;\geq 1\\
+n\cdot \frac{1}{649470} &amp;\geq 1\\
+n &amp;\geq 649470
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>16.A book of $n$ pages contains on the average $\lambda$ misprints per page. Estimate the probability that at least one page will contain more than $k$ misprints.</p>
+<hr>
+<p><em>Solution.</em>
+Let $X$ be the number of misprints per page. $X \sim Poisson(k;\lambda)$.</p>
+\begin{align*}
+P(X &gt; k) &amp;=  e^{-\lambda} \left[\frac{\lambda^{k+1}}{(k+1)!} + \ldots \right]
+\end{align*}<p>This gives us the probability that a page will contain more than $k$ misprints.</p>
+<p>Let us identify success as a page containing more than $k$ misprints. Let $Y$ be the number of pages containing more than $k$ misprints. Then, $Y \sim Binomial(m;n,p)$ where $p = e^{-\lambda} \left[\frac{\lambda^{k+1}}{(k+1)!} + \ldots \right]$. The probability of atleast one success equals one minus the probability that no page contains more than $k$ misprints.</p>
+\begin{align*}
+P(Y \geq 1) &amp;= 1 - P(Y=0)\\
+&amp;= 1 - (1-p)^n
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>17.Suppose that there exist two kinds of stars(or raisins in a cake, or flaws in a material). The probability that a given volume contains $j$ stars of the first kind is $p(j;a)$ and the probability that it contains $k$ stars of the second kind is $p(k;b)$; the two events are assumed to be independent. Prove that the probability that the volume contains a total of $n$ stars is $p(n;a + b)$. (Interprete the assertion and the assumptions abstractly.)</p>
+<hr>
+<p><em>Solution.</em></p>
+<p>Let $X$ be the number of stars of the first kind in a unit volume. $X \sim Poisson(j;a)$. $a$ is the average density of the stars of the first kind in a unit volume.</p>
+<p>Let $Y$ be the number of stars of the second kind in a unit volume. $X \sim Poisson(k;b)$. $b$ is the average density of the stars of the second kind in a unit volume.</p>
+<p>$X$ and $Y$ are independent Poisson r.v.'s, the occurrence of the stars of one kind, reveals no additional information about the occurrence of the other kind.</p>
+<p>We are actually interested to find the probability distribution of the total number of stars $X + Y$, in a unit volume.</p>
+\begin{align*}
+P(X + Y = n) &amp;= \sum_{j=0}^{n} P(X + Y = n|X=j) \cdot P(X=j)\\
+&amp;= \sum_{j=0}^{n} P(Y=n-j|X=j) \cdot P(X=j)\\
+&amp;= \sum_{j=0}^{n} P(Y=n-j) \cdot P(X=j) \quad \{ X \text{ and } Y \text{ are independent } \}\\
+&amp;= \sum_{j=0}^{n} e^{-a} \cdot \frac{a^{n-j}}{(n-j)!} \cdot e^{-b} \cdot \frac{b^j}{j!}\\
+&amp;= \frac{e^{-(a+b)}}{n!}\sum_{j=0}^{n} {n \choose j} a^{n-j} b^j \\
+&amp;= e^{-(a+b)} \cdot \frac{(a+b)^n}{n!}
+\end{align*}<p>Thus, $X + Y \sim Poisson(n,a+b)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>18.<em>A traffic problem.</em> The flow of traffic at a certain street crossing is described by saying that the probability of a car's passing during any given second is a constant $p$; and that there is no interaction between the passing of cars at different seconds. Treating seconds as indivisible time unit, the model of Bernoulli trials applies. Suppose that a pedestrian can cross the street only if no car is to pass during the next three seconds. Find the probability that the pedestrian has to wait for exactly $k=0,1,2,3,4$ seconds.
+(The corresponding general formulas are not obvious and will be derived in connection with the theory of success runs in a later topic.)</p>
+<hr>
+<p><em>Solution.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>19.Two people toss a true coin $n$ times each. Find the probability that they will score the same number of heads.</p>
+<hr>
+<p><em>Solution.</em>
+Let $X$ be the number of heads scored by the first person. And let $Y$ be the number of heads scored by the second person. We are interested to find the probability of the event $X=Y$.</p>
+\begin{align*}
+P(X=Y) &amp;= P(X=Y|X=0) \cdot P(X=0) + P(X=Y|X=1) \cdot P(X = 1) + P(X = Y|X = 2) \cdot P(X=2) + \ldots \\
+&amp;= P(Y=0) \cdot P(X = 0) + P(Y=1)\cdot P(X=1) + P(Y=2) \cdot P(X=2)\\
+&amp;=\left(\frac{1}{2}\right)^{2n}\left[{n \choose 0}^2 + {n \choose 1}^2 + {n \choose 2}^2 + \ldots \right]
+\end{align*}<p>But we know using the story proof that, if we have $n$ white balls and $n$ black balls, then the number of ways of constructing a sample of size $n$ from a population of size $2n$ is,</p>
+\begin{align*}
+{n \choose 0}{n \choose n} + {n \choose 1}{n \choose {n-1}} + {n \choose 2}{n \choose n-2} + \ldots &amp;= {2n \choose n}\\
+\sum_k {n \choose k}{n \choose n - k} &amp;= {2n \choose n}\\
+\sum_k {n \choose k}^2 = {2n \choose n}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>20.In a sequence of Bernoulli trials with probability $p$ for success, find the probability that $a$ successes will occur before $b$ failures. (Note: The issue is decided after at most $a+b-1$ trials. This probem playerd a role in the classical theory of games in connection with the question of how to divide the pot when the game is interrupted at a moment when one player lacks $a$ points to victory, the other $b$ points.)</p>
+<hr>
+<p><em>Solution.</em>
+The probability that $a$ successes occur before $b$ failures is given by,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>21.In Banach's match box problem find the probability that at the moment when the first box is emptied (not found empty) the other contains exactly $r$  matches (where $r = 1,2,3,\ldots,N$)</p>
+<hr>
+<p><em>Solution.</em> Let us identify success with drawing a match from the first box. We are interested to find the probability that the $N$th success occurs at the $(2N-r)$th trial. That, is $N-1$ successes must occur in the preceding $2N - r - 1$ trials. Therefore the desired probability is:</p>
+<p>
+\begin{align*}
+{{2N - r - 1} \choose {N - 1}}\left(\frac{1}{2}\right)^{N-1}\left(\frac{1}{2}\right)^{N-r}
+\end{align*}
+</p>
+<p>We would like the $N$th success to occur at the $(2N-r)$th trial. That gives us,</p>
+<p>
+\begin{align*}
+{{2N - r - 1} \choose {N - 1}}\left(\frac{1}{2}\right)^{N}\left(\frac{1}{2}\right)^{N-r}
+\end{align*}
+</p>
+<p>Because of symmetry, we can relabel the left box as the second box and right box as the first box. Hence, the desired probability is,</p>
+<p>
+\begin{align*}
+&amp;2{{2N - r - 1} \choose {N - 1}}\left(\frac{1}{2}\right)^{2N-r}\\
+=&amp;{{2N - r - 1} \choose {N - 1}}\left(\frac{1}{2}\right)^{2N-r-1}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>22.<em>(Continuation)</em> Using the preceding result, find the probability $x$ that the box first emptied is not the one first found to be empty. Show that the expression thus obtained reduces to $x = {2N \choose N}2^{-2N-1}$ or $\frac{1}{2}(N\pi)^{-\frac{1}{2}}$, approximately.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution</em>. Let us identify success with selecting the first box. Let us label the match box in the left pocket as 1 and the right pocket as 2. We would like to ensure that there are no more $N$ successes in the first $2N-1$ trials. Thus, the first box is emptied (but not found empty). The $2N$th trial must be a failure, so the second box is emptied after the first. Further, the $(2N+1)$st trial must result in a failure. So, the box that was emptied first is not the first one to be found empty.
+Thus the required probability is,</p>
+<p>
+\begin{align*}
+{2N-1 \choose N}\left(\frac{1}{2}\right)^{2N-1} \cdot \left(\frac{1}{2}\right)\cdot \left(\frac{1}{2}\right)
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By symmetry, the same applies if we relabel the match box in the left pocket as 2 and the right pocket as 1. Thus, we have:</p>
+<p>
+\begin{align*}
+{2N-1 \choose N}\left(\frac{1}{2}\right)^{2N-1} \cdot \left(\frac{1}{2}\right)\cdot \left(\frac{1}{2}\right)
+\end{align*}
+</p>
+<p>The total probability is:</p>
+<p>
+\begin{align*}
+&amp;{2N-1 \choose N}\left(\frac{1}{2}\right)^{2N-1} \cdot \left(\frac{1}{2}\right)\\
+=&amp;\frac{(2N-1)!}{N!(N-1)!} \left(\frac{1}{2}\right)^{2N}\\
+=&amp;\frac{1}{2}\cdot\frac{2N(2N-1)!}{N!N(N-1)!}\left(\frac{1}{2}\right)^{2N}\\
+=&amp;{2N \choose N} \left(\frac{1}{2}\right)^{2N+1}\\
+=&amp;{2N \choose N} 2^{-2N-1}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>23.Proofs in a certain book were read independenty by two proofreaders who found, respectively, $k_1$ and $k_2$ misprints; $k_{12}$ misprints were found by both. Give a reasonable estimate of the unknown number, $n$ of misprints in the proof. (Assume that proofreading corresponds to Bernoulli trials in which the two proof readers have, respectively, probabilities $p_1$ and $p_2$ of catching a misprint. Use the law of large numbers).</p>
+<hr>
+<p><em>Solution.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By the law of large numbers, if a large number of identical and independent Bernoulli trials are performed, the fraction of the number of successes $S_n$ in $n$ trials, $\frac{S_n}{n}$ nears $p$. Let $I_1$ be the indicator rv that the first proof reader catches a mispint and $I_2$ be the indicator rv that the second proof-reader catches a misprint. We have,</p>
+\begin{align*}
+P(I_1 = 1) &amp;=\frac{k_1}{n}\\
+P(I_2 = 1) &amp;=\frac{k_2}{n}\\
+P(I_1 = 1, I_2 = 1) &amp;= \frac{k_{12}}{n}
+\end{align*}<p>Since $\{I_1 = 1\}$ and $\{I_2 = 1\}$ are independent events, $P\{I_1 = 1, I_2 = 1\} = P\{I_1 = 1\} \cdot P\{I_2 = 1\}$. That gives us,</p>
+\begin{align*}
+\frac{k_{12}}{n} &amp;= \frac{k_1 k_2}{n^2} \\
+n &amp;= \frac{k_1 k_2}{k_{12}}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>24.To estimate the size of an animal population by trapping, traps are set $r$ times in succession. Assuming that each animal has the same probability $q$ of being trapped, that originally there were $n$ animals in all, and that the only changes in the situation between successive settings of traps are that animals have been trapped (and thus removed); find the probability that the $r$ trappings yield, repectively $n_1,n_2\ldots,n_r$ animals.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If $n_1$ animals are trapped by the first trial, they are removed and the size of the animal population for the second trial is $n - n_1$. So, the $r$ trappings are not independent. We are sampling without replacement.</p>
+<p>Let</p>
+<p>$X_1$ be the number of animals trapped in the first trial,</p>
+<p>$X_2$ be the number of animals trapped in the second trial,</p>
+<p>$\vdots$</p>
+<p>$X_r$ be the number of animals trapped in the $r$th trial.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+\begin{align*}
+P\{X_1 = n_1, X_2 = n_2, \ldots, X_r= n_r\} &amp;= P\{X_1 = n_1\} \cdot P\{X_2 = n_2 | X_1 = n_1 \} \cdots P\{X_r = n_r | X_1 = n_1, X_2 =n_2 \ldots X_{r-1} = n_{r-1}\}\\
+&amp;= {n \choose n_1} q^{n_1}(1-q)^{n-n_1} {n-n_1 \choose n_2} q^{n_2}(1-q)^{n-n_1-n_2} \cdots \\
+&amp;= \frac{n!}{n_1!n_2!\dots n_r!} q^{n_1 + n_2 + \ldots + n_r} (1-q)^{n-(n_1 + n_2 + \ldots + n_r)}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>25.People are arriving at a party one at a time. While waiting for more people to arrive they entertain themselves by comparing their birthdays. Let $X$ be the number people needed to obtain a birthday match i.e. before person $X$ arrives, no two people have the same birthday, but when person $X$ arrives there is a match. Find the PMF of $X$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>We are interested to form an ordered $k$-tuple from the population $\{1,2,3,\ldots,365\}$. There's a total of $365^{k-1}$ birthday-tuples of length $(k-1)$. Each sample is equally likely. There are $(365)_{k-1}$ distinguishable birthday-tuples that can be formed, if we sample without replacement, that is, no birthday is repeated. Therefore, the probability that no two people share the same birthday amongst a group of $(k-1)$ people is,</p>
+\begin{align*}
+\frac{(365)_{k-1}}{365^{k-1}}
+\end{align*}<p>The $k$-th person can have his birthday fall on $k-1$ out of $365$ days, so that when he arrives there is a match. So, the PMF of $X$ is,</p>
+\begin{align*}
+P(X = k) = \frac{(k-1)(365)_{k-1}}{365^k}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>26.(a)Independent Bernoulli trials are performed, with probability $1/2$ of success, until there has been atleast one success. Find the PMF of the number of trials performed.</p>
+<p>(b)Independent Bernoulli trials are performed, with probability $1/2$ of success, until there has been at least one success and at least one failure. Find the PMF of the number of trials performed.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>Let $X$ be the waiting time until the first success. We would have to wait for $r$ trials, if there is a string of $(r-1)$ failures and the first success occurs at the $r$th trial; that is, we are looking at the sequence $\underbrace{FFF\ldots F}_{r-1 \text{ trials }}S$. Therefore, the probability that we need to wait till time $r$ to observe the first success is,</p>
+\begin{align*}
+P(X=r) &amp;= \left(\frac{1}{2}\right)^{r-1} \left(\frac{1}{2}\right) = 2^{-r}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $Y$ be the waiting time until atleast one success and atleast one failure. We would have to wait for $r$ trials, if there is a string of $(r-1)$ failures followed by a success at the $r$th trial, or there is a string of $(r-1)$ successes followed by a failure at the $r$th trial. Therefore, the probability that we must wait until time $r$ is,</p>
+\begin{align*}
+P(Y=r) &amp;= 2 \cdot 2^{-r} = 2^{-r+1}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>27.Let $X$ be an r.v. with CDF $F$, and $Y = \mu + \sigma X$, where $\mu$ and $\sigma$ are real numbers with $\sigma &gt; 0$. (Then, $Y$ is called the location-scale transformation of $X$; we will encounter this concept many times in chapter 5 and beyond). Find the CDF of $Y$ in terms of $F$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>
+\begin{align*}
+F_Y(y) &amp;= P(Y \leq y)\\
+&amp;= P(\mu + \sigma X \leq y) \\
+&amp;= P(\sigma X \leq y - \mu) \\
+&amp;= P\left\{X \leq \frac{y - \mu}{\sigma} \right\}\\
+&amp;= F_X\left(\frac{y - \mu}{\sigma}\right)
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>28.Let $n$ be a positive integer and 
+\begin{align*}
+F(x) &amp;= \frac{[[x]]}{n}
+\end{align*}</p>
+<p>for $0 \leq x \leq n$, $F(x) = 0$ for $x &lt; 0$ and $F(x) = 1$ for $x &gt; n$, where $[[x]]$ is greater integer less than or equal to $x$. Show that $F$ is a CDF and find the PMF that it corresponds to.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>We assume that $F$ is the CDF of a discrete random variable.</p>
+<p>(i) Non-decreasing. If $x_1 &gt; x_2$, then $\frac{[[x_1]]}{n} \geq \frac{[[x_2]]}{n} $, so $F_X(x_1) \geq F_X(x_2)$.</p>
+<p>(ii) Right continuous.</p>
+<p>Let $k \in \mathbf{N}$. Let's prove that the function $f(x)=[[x]]$ is right-continuous at $k$.</p>
+<p>Consider an arbitrary sequence $(x_n) \to k$, such that $x_n &gt; k$. Since, $(x_n) \to k$, for all $\delta &gt; 0$, there exists $N \in\mathbf{N}$, such that $|x_n - k|&lt;\delta$ for all $n \geq N$. Pick $\delta &gt; 1$. Then, there exists $N$, such that $x_n \in (k,k+1)$ for all $n \geq N$.</p>
+<p>Let $\epsilon &gt; 0$ be arbitrary. Then, for all $x_n \in (k,k+1)$, $|f(x_n) - f(k)| = |[[x_n]]-[[k]]|=k - k = 0 &lt;\epsilon$. So, for all $\epsilon &gt; 0$, there exists $\delta &gt; 0$, such that $|f(x_n) - f(k)| &lt; \epsilon$. Thus, $f(x_n) \to f(k)$. Since, $(x_n)$ was arbitrary, this is true for all sequences $(x_n) \to k$. Thus, $f(x) =[[x]]$ is right-continuous at $k\in\mathbf{N}$.</p>
+<p>Moreover, $f(x) = [[x]]$ is continuous at any point $x=c$ where $c\in [k+\xi,k+1)$, $k \in\mathbf{N}$, $0&lt;\xi&lt;1$.</p>
+<p>Therefore, $\lim_{x \to a} F_X(x) = \lim_{x \to a} \frac{[[x]]}{n} = \frac{[[a]]}{n} = F_X(a)$.</p>
+<p>(iii) $\lim_{x \to -\infty} F_X(x) = 0$, since $F_X(x) = 0$ for $x &lt; 0$. Also, $\lim_{x \to \infty} F_X(x) = 1$, since $F_X(x) = 1$ for $x &gt; n$.</p>
+<p>Thus, $F$ is a CDF.</p>
+<p>Let $k \in\mathbf{N}$. The PMF of $X$ is given by :</p>
+\begin{align*}
+P(X = k) &amp;= F_X(k + 1) - F_X(k) \\
+&amp;= \frac{k+1}{n} - \frac{k}{n}\\
+&amp;= \frac{1}{n}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>29.(a) Show that $p(n) = \left(\frac{1}{2}\right)^{n+1}$ for $n=0,1,2,\ldots$ is a valid PMF for a discrete r.v.</p>
+<p>(b) Find the CDF of a random variable with the PMF from (a).</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>(a) Clearly, $p(n) \geq 0$  for all $n=0,1,2,\ldots$. So, the probabilities are non-negative.</p>
+<p>Moreover, $\sum_{n=0}^{\infty}p(n) = \sum_{n=0}^{\infty}\left(\frac{1}{2}\right)^{n+1} = \frac{1}{2} \sum_{n=0}^{\infty}\left(\frac{1}{2}\right)^n = \frac{1}{2}\cdot \frac{1}{1-\frac{1}{2}}=1$.</p>
+<p>Hence, $p(n)$ is a valid PMF.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) The CDF of $X$ is given by</p>
+\begin{align*}
+P(X \leq x) &amp;= \left(\frac{1}{2}\right)\sum_{n=0}^{x}\left(\frac{1}{2}\right)^x\\
+&amp;= \frac{1}{2}\cdot\frac{1-\left(\frac{1}{2}\right)^{x+1}}{\left(1 - \frac{1}{2}\right)}\\
+F_X(x)&amp;=1-\left(\frac{1}{2}\right)^{x+1}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>30.Benford's law states that in a very large variety of real-life datasets, the first digit approximately follows a particular distribution with about a $30$\% chance of a $1$, an $18$\% chance of a $2$, and in general</p>
+\begin{align*}
+P(D=j)=\log_{10} \left(\frac{j+1}{j}\right), \quad \text{ for } j\in \{1,2,3,\ldots,9\}
+\end{align*}<p>where $D$ is the first digit of a randomly chosen element. Check that this is indeed a valid PMF(using properties of logs).</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+\begin{align*}
+\log_{10}x \geq 0 \quad \text{ for all } x \geq 1
+\end{align*}<p>so the PMF takes non-negative values.</p>
+<p>Moreover,</p>
+\begin{align*}
+\sum_{j=1}^{9}P(D=j) &amp;= \sum_{j=1}^{9} \log_{10} \left(\frac{j+1}{j}\right)\\
+&amp;= \log_{10} \left(\frac{2}{1}\right) + \log_{10} \left(\frac{3}{2}\right) + \log_{10} \left(\frac{4}{3}\right) + \ldots + \log_{10} \left(\frac{10}{9}\right)\\
+&amp;= \log_{10} \left(\frac{2}{1}\cdot \frac{3}{2}\cdot \frac{4}{3} \cdots \frac{10}{9}\right) \\
+&amp;= \log_{10} 10\\
+&amp;= 1
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>31.Bob is playing a video-game that has $7$ levels. He starts at level $1$ and has the probability $p_1$ of reaching level $2$. In general, given that he reaches level $j$, he has the probability $p_j$ of reaching level $j+1$, for $1 \leq j \leq 6$. Let $X$ be the highest level that he reaches. Find the PMF of $X$ (in terms of $p_1,p_2,\ldots,p_6$).</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em>
+\begin{align*}
+P(X = j) = \prod_{i=1,i \leq j}p_i
+\end{align*}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>32.There are $100$ prizes with one worth $1$ dollar, one worth $2$ dollars, $\ldots$ and one worth $100$ dollars. There are $100$ boxes, each of which contains one of the prizes. You get $5$ prizes by picking random boxes one at a time, without replacement. Find the PMF of how much your most valuable prize is worth (as a simple expression in terms of binomial coefficients).</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>If the value of the highest prize is $x$, the remaining $4$ prizes must be chosen from $(x-1)$ random boxes.</p>
+<p>
+\begin{align*}
+P(X =x) &amp;= \frac{{x-1} \choose 4}{100 \choose 5}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="quantophile/mathematical-finance"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/mathematical-finance/jupyter/2022/03/06/Binomial-And-Poisson-Exercise-Set.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/mathematical-finance/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/mathematical-finance/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>This blog is a repository of review notes, projects and solved exercise problems on various topics in Probability, Mathematical Finance, PDEs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

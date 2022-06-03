@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Probability and Counting Methods. | Summary notes on Mathematical Finance</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Probability and Counting Methods." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Summary notes on Probability and Counting Methods." />
+<meta property="og:description" content="Summary notes on Probability and Counting Methods." />
+<link rel="canonical" href="https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Probability-and-Counting-Methods.html" />
+<meta property="og:url" content="https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Probability-and-Counting-Methods.html" />
+<meta property="og:site_name" content="Summary notes on Mathematical Finance" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Probability and Counting Methods." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-06T00:00:00-06:00","datePublished":"2022-03-06T00:00:00-06:00","description":"Summary notes on Probability and Counting Methods.","headline":"Probability and Counting Methods.","mainEntityOfPage":{"@type":"WebPage","@id":"https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Probability-and-Counting-Methods.html"},"url":"https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Probability-and-Counting-Methods.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/mathematical-finance/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://quantophile.github.io/mathematical-finance/feed.xml" title="Summary notes on Mathematical Finance" /><link rel="shortcut icon" type="image/x-icon" href="/mathematical-finance/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/mathematical-finance/">Summary notes on Mathematical Finance</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/mathematical-finance/about/">About Me</a><a class="page-link" href="/mathematical-finance/search/">Search</a><a class="page-link" href="/mathematical-finance/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Probability and Counting Methods.</h1><p class="page-description">Summary notes on Probability and Counting Methods.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      37 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/mathematical-finance/categories/#probability-theory">probability-theory</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/quantophile/mathematical-finance/tree/master/_notebooks/2022-03-06-Probability-and-Counting-Methods.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/mathematical-finance/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/quantophile/mathematical-finance/master?filepath=_notebooks%2F2022-03-06-Probability-and-Counting-Methods.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/quantophile/mathematical-finance/blob/master/_notebooks/2022-03-06-Probability-and-Counting-Methods.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fquantophile%2Fmathematical-finance%2Fblob%2Fmaster%2F_notebooks%2F2022-03-06-Probability-and-Counting-Methods.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Introduction.">Introduction. </a></li>
+<li class="toc-entry toc-h2"><a href="#The-Sample-Space.">The Sample Space. </a></li>
+<li class="toc-entry toc-h2"><a href="#Relation-amongst-events.">Relation amongst events. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#De-Morgan's-Laws">De-Morgan&#39;s Laws </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Discrete-Sample-Space.">Discrete Sample Space. </a></li>
+<li class="toc-entry toc-h2"><a href="#Basic-definitions-and-conventions.">Basic definitions and conventions. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Boole's-Inequality.">Boole&#39;s Inequality. </a></li>
+<li class="toc-entry toc-h3"><a href="#Inclusion-Exclusion-Principle.">Inclusion-Exclusion Principle. </a></li>
+<li class="toc-entry toc-h3"><a href="#Naive-definition-of-Probability.">Naive definition of Probability. </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Elements-of-Combinatorial-Analysis.">Elements of Combinatorial Analysis. </a></li>
+<li class="toc-entry toc-h2"><a href="#Ordered-samples.">Ordered samples. </a></li>
+<li class="toc-entry toc-h2"><a href="#Examples.">Examples. </a></li>
+<li class="toc-entry toc-h2"><a href="#Subpopulations-or-subsets.">Subpopulations or subsets. </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-06-Probability-and-Counting-Methods.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Introduction.">
+<a class="anchor" href="#Introduction." aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction.<a class="anchor-link" href="#Introduction."> </a>
+</h2>
+<p>The mathematical theory of probability gains practical value and an intuitive meaning in connection with real or conceptual experiments such as tossing a coin once, tossing a coin one hundred times, throwing three dice, arranging a deck of cards, matching two decks of cards, playing roulette, observing the life-span of a radio-active atom or a person, the number of busy trunklines in a telephone exchange, a random noise in an electrical communication system, routine quality control of a production process, frequency of accidents, the position of a particle under diffusion.</p>
+<p>All these descriptions are rather vague, and in, order to render the theory meaningful, we have to agree on what we mean by possible results of the experiment or observation in question.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition.</strong> (Event) The results of an experiment or observations are called <em>events</em>.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We speak of the event that (i) rolling a dice resulted in face value $6$, (ii) tossing a coin resulted in a heads, (iii) of five coins tossed more than three fell heads.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We shall distinguish between compound(decomposable) and simple(elementary) events. For example, saying that a throw with two dice resulted in "sum six" amounts to saying that it resulted in</p>
+<p>
+$$\{(1,5),(2,4),(3,3),(4,2),(5,1)\}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and this enumeration decomposes the event "sum six" into five simple events. Similarly, the event "two odd faces" admits of the decomposition</p>
+<p>
+$$\begin{align*}\{&amp;(1,1),(1,3),(1,5),\\&amp;(3,1),(3,3),(3,5)\\&amp;(5,1),(5,3),(5,5)\}\end{align*}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>into nine simple events. Note that if a throw results in $(3,3)$, then the same throw also results in the events "sum six" and "two odd faces"; these events are not mutually exclusive and hence may occur simultaneously.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Sample-Space.">
+<a class="anchor" href="#The-Sample-Space." aria-hidden="true"><span class="octicon octicon-link"></span></a>The Sample Space.<a class="anchor-link" href="#The-Sample-Space."> </a>
+</h2>
+<p>(a) Distribution of three balls in three cells.</p>
+$$\begin{bmatrix}
+abc &amp; - &amp; - \\
+- &amp; abc &amp; - \\
+- &amp; - &amp; abc \\
+ab &amp; c &amp; -\\
+ac &amp; b &amp; - \\
+bc &amp; a &amp; - \\
+ab &amp; - &amp; c\\
+ac &amp; - &amp; b \\
+bc &amp; - &amp; a
+\end{bmatrix}\quad\begin{bmatrix}
+a &amp; bc &amp; - \\
+b &amp; ac &amp; - \\
+c &amp; ab &amp; - \\
+a &amp; - &amp; bc\\
+b &amp; - &amp; ca \\
+c &amp; - &amp; ab \\
+- &amp; a &amp; bc\\
+- &amp; b &amp; ca \\
+- &amp; c &amp; ab
+\end{bmatrix}\quad\begin{bmatrix}
+- &amp; ab &amp; c \\
+- &amp; ac &amp; b \\
+- &amp; bc &amp; a \\
+a &amp; b &amp; c\\
+a &amp; c &amp; b \\
+b &amp; a &amp; c \\
+b &amp; c &amp; a\\
+c &amp; a &amp; b \\
+c &amp; b &amp; a
+\end{bmatrix}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we want to speak about experiements or observations in a theoretical way and without ambiguity, we must first agree on the simple events representing the thinkable outcomes; they define the idealized experiment. It is usual to refer to a simple event such as $\{a|b|c\}$ as <strong>sample points</strong> or <strong>points</strong> for short.</p>
+<hr>
+<p><strong>Definition.</strong>(Sample point) Every indecomposable result of an experiment is a simple event, and is called a sample point.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When distributing $3$ balls to $3$ cells, each ball $i=1,2,3$ can be assigned to one of three cells, so there are $3 \times 3 \times 3 = 3^3$ sample points. All events connected with the experiment with this experiement can be described in terms of the sample points. For example, the event "each cell is singly occupied" can be described by collection of the following $6$ sample points:</p>
+<p>
+$$\{(a,b,c),(a,c,b),(b,a,c),(b,c,a),(c,a,b),(c,b,a)$$
+</p>
+<p>The experiment of distributing $10$ balls to $10$ has $10^{10}$ outcomes or sample points.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition.</strong> (Sample space) The sample $S$ of an experiment is the collection of all possible outcomes of the experiment, i.e. all the sample points.</p>
+<hr>
+<p>The sample space of an experiment can be finite, countably infinite (similar to the set $\mathbf{N}$) or uncountable (similar to the set $\mathbf{R})$. When the sample space is finite, we can visualize it, enumerate it like in the example above of the distribution of $3$ balls in $3$ cells.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) Distribution of $r$ balls in $n$ cells. THe more general case of distributing $r$ balls to $n$ cells can be studied in the same manner. Each ball $i=1,2,\ldots,r$ can be assigned one of $1,2,3,...n$ cells. So, this experiment has $\underbrace{n \times n \times \ldots n}_{r\text{ terms}} = n^r$ outcomes or sample points.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To us, the sample space defines the idealized experiment. We use the <em>picturesque language</em> of balls and cells, but the same sample space admits a great variety of different practical interpretations. To clarify this point, we list here a number of situations in which the intuitive background varies; all are however, abstractly equivalent to the scheme of placing $r$ balls into $n$ cells, in the sense that the outcomes differ only in their verbal description.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b,1) <em>Birthdays.</em> The possible configurations of the the birthdays of $r$ people correspond to the different arrangements of $r$ balls in $n=365$ cells. (assuming one calendar year to have $365$ days).</p>
+<p>(b,2) <em>Accidents.</em> Classifying $r$ accidents according to the week days when they occurred is equivalent to placing $r$ balls into $n=7$ cells.</p>
+<p>(b,3) In <em>firing</em> at $n$ targets, the hits correspond to the balls, and the targets to the cells.</p>
+<p>(b,4) <em>Sampling</em>. Let a group of $r$ be classifed according to say age, or profession. The classes play the role of our cells, the people that of balls.</p>
+<p>(b,5) <em>Irradiation in biology.</em> When the cells of the retina of the eyes are exposed to light, the light particles play the role of balls, and the actual cells are the "cells" of our model.</p>
+<p>(b,6) In <em>cosmic ray experiments</em> the particles hitting the Geiger counters represent the balls, and the counters function as cells.</p>
+<p>(b,7) An elevator starts with $r$ passengers and stops at $n$ floors. The different arrangements of discharging the passengers are replicas of the different distributions of $r$ balls in $n$ cells.</p>
+<p>(b,8) <em>Dice</em>. The possible outcomes of a throw of $r$ dice correspond to placing $r$ balls into $n=6$ cells. When tossing a coin, we in effect dealing with only $n=2$ cells.</p>
+<p>(b,9) <em>Random digits.</em> The possible orderings of a sequence of $r$ digits correspond to the distribution of $r$ balls into ten cells called $0,1,2,\ldots,9$.</p>
+<p>(b,10) The <em>sex distribution</em> of $r$ persons. Here we have $n=2$ cells and $r$ balls.</p>
+<p>(b,11) <em>Theory of photographic emulsions.</em> A photographic plate is covered with grains sensitive to light quanta : a grain reacts if it is hit by a certain number, $r$ of the quanta. For the theory of black-white contrast, we must know how many cells are likely to be hit by $r$ quanta. We have here an occupancy problem where the grains correspond to the cells, and the light quant to the balls.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now make the following statement about sample space and events.</p>
+<p>Every thinkable outcome of a random experiment can be described by a sample point. We define the term event to mean the same as any aggregate of sample points.</p>
+<hr>
+<p>Example. (Coin Flips). A coin is flipped $10$ times. Writing Heads as $H$ and Tails as $T$, a possible outcome is $HHHTHHTTHT$, and the sample space is the set of all possible strings of length $10$ of $H$s and $T$s. We can (and will) encode $H$ as $1$ and $T$ as $0$, so that an outcome is a sequence $(s_1,\ldots,s_10)$ with $s_j \in \{0,1\}$ and the sample space $S$ is the set of all such sequences. Now, let's look at some events:</p>
+<hr>
+<p>Let $A_1$ be the event that the first flip is Heads. As a set</p>
+<p>
+$$A_1 = \{(1,s_2,\ldots,s_{10}) : s_j \in \{0,1\} \text{ for }2 \leq j \leq 10 \}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is subset of the sample space, so it is indeed an event; saying that $A_1$ occurs is the same thing as saying that the first flip is Heads. Similarly, let $A_j$ be the event that the $j$th flip is Heads for $j=2,3,4,\ldots,10$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $B$ be the event that at least one flip was Heads. As a set,</p>
+<p>
+$$B = \bigcap_{j=1}^{10} A_j$$
+</p>
+<p>Let $C$ be the event that all the flips were Heads. As a set,</p>
+<p>
+$$C = \bigcap_{j=1}^{10} A_j$$
+</p>
+<p>Let $D$ be the event that there were at least two consecuetive heads. As a set,</p>
+<p>
+$$D = \bigcap_{j=1}^{9}(A_j \cap A_{j+1})$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>Example. (Pick a card, any card). A standard deck of playing cards has $13$ ranks : $\{2,3,4,5,6,7,8,9,10,\text{Jack},\text{Queen}, \text{King}, \text{Ace}\}$ $\times$ $4$ suits : $\{\text{Heart}, \text{Spade}, \text{Club}, \text{Diamond}\}$. Pick a card from a standard deck of $52$ cards. The sample space $S$ is the set of all $52$ cards (so there are $52$ sample points) one for each card. Consider the following four events:</p>
+<ul>
+<li>$A$: card is an ace.</li>
+<li>$B$: card has a black suit.</li>
+<li>$D$: card is a diamond.</li>
+<li>$H$: card is a heart.</li>
+</ul>
+<hr>
+<p>As a set, $H$ consists of $13$ cards:</p>
+<p>$\{\text{Ace of hearts},\text{Two of Hearts},\ldots,\text{King of hearts}\}$</p>
+<p>We can create various other events in terms of $A,B,D,H$. For example, $A \cap H$ is the event that the card is the Ace of Hearts, $A \cap B$ is the event $\{\text{Ace of spades},\text{Ace of clubs}\}$ and $A \cup D \cup H$ is the event that the card is red or an ace.</p>
+<p>There are <em>many</em> other events that could be defined using this sample space. In fact, the counting methods introduced later in this chapter show that there are $2^{52} \approx 4.5 \times 10^{15}$  events in this problem, even though there are only $52$ sample points.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Relation-amongst-events.">
+<a class="anchor" href="#Relation-amongst-events." aria-hidden="true"><span class="octicon octicon-link"></span></a>Relation amongst events.<a class="anchor-link" href="#Relation-amongst-events."> </a>
+</h2>
+<hr>
+<p><strong>Definition</strong>. We use the notation $A = 0$ or $A = \emptyset$ to express that the event $A$ is a null event and contains no sample points (is impossible). The zero must be interpreted in a symbolic sense and not as a numeral.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition.</strong> The event consisting of all points not contained in the event $A$ will be called the complementary event (or negation of $A$) and will be denoted by $A^C$. In particular, $S^C = \emptyset$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With any two events $A$ and $B$ one can associate two new events defined by the conditions "both $A$ and $B$ occur" and "atleast one of $A$ and $B$" occurs. These events are denoted by $A \cap B$ and $A \cup B$. The event $A \cap B$ contains all the sample points which are common to $A$ and $B$. If $A$ and $B$ exclude each other, then there are no points common to $A$ and $B$ and the event $A \cap B$ is impossible, analytically this situation is described by $A \cap B = \emptyset$, which should be read as $A$ and $B$ are mutually exclusive.</p>
+<p>Mathematically,</p>
+<p>
+$$A \cup B = \{x : x \in A \text{ or } x \in B\}$$
+</p>
+<p>and</p>
+<p>
+$$A \cap B = \{x : x \in A \text{ and } x \in B\}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The event $A \cap B^C$, means that both $A$ and $B^C$ should occur, in other words, $A$ but not $B$ occurs. This is also known as set difference and denoted by the event $A - B$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similarly, $A^C \cap B^C$ means that neither $A$ nor $B$ occurs. The event $A \cap B$ means that atleast one of the events $A$ and $B$ occurs; it contains all sample points except those that belong neither to $A$ nor to $B$. Thus,</p>
+<p>
+$$A \cup B = (A^C \cap B^C)^C$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="De-Morgan's-Laws">
+<a class="anchor" href="#De-Morgan's-Laws" aria-hidden="true"><span class="octicon octicon-link"></span></a>De-Morgan's Laws<a class="anchor-link" href="#De-Morgan's-Laws"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p>Theorem. Let $A$ and $B$ be any two events. We claim:</p>
+$$\begin{align*}
+(A \cup B)^C &amp;= A^C \cap B^C\\
+(A \cap B)^C &amp;= A^C \cup B^C
+\end{align*}
+$$<hr>
+<p><em>Proof.</em></p>
+<p>(I) $\Longrightarrow$ direction.</p>
+<p>Let $x$ be a point in $(A \cup B)^C$. Then $x$ belongs to neither $A$, nor $B$. Consequently, $x \in (A^C \cap B^C)$. So, $(A \cup B)^C \subseteq A^C \cap B^C$.</p>
+<p>$\Longleftarrow$ direction.</p>
+<p>Let $x$ be a point in $A^C \cap B^C$. By definition, $x$ belongs to both the sets $A^C$ and $B^C$. So, $x \notin A$ and $x \notin B$. Consequently, $x$ belongs to a set, that contains all points except those from either $A$ or $B$. Thus, $x \in (A \cup B)^C$. Therefore $(A^C \cap B^C) \subseteq (A \cup B)^C$.</p>
+<p>Thus, $(A \cup B)^C \subseteq A^C \cap B^C$ and $(A^C \cap B^C) \subseteq (A \cup B)^C$. Consequently,</p>
+<p>
+$$(A \cup B)^C = (A^C \cap B^C)$$
+</p>
+<p>(II) It is an easy exercise to prove this proposition.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Discrete-Sample-Space.">
+<a class="anchor" href="#Discrete-Sample-Space." aria-hidden="true"><span class="octicon octicon-link"></span></a>Discrete Sample Space.<a class="anchor-link" href="#Discrete-Sample-Space."> </a>
+</h2>
+<hr>
+<p><strong>Definition</strong>(Discrete Sample Space). A sample space is called discrete if it contains a countable number of points. A countable set is one whose elements have a one-to-one correspondence with the natural numbers.</p>
+<hr>
+<p>(a) Let us toss a coin as often as necessary to turn up one head. The points of the sample space can then be enumerated as:</p>
+<p>
+$$\{H,TH,TTH,TTTH,TTTTH,\ldots\}$$
+</p>
+<p>This is countable and hence discrete sample space.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(b) Let us pick a real number at randomly from the interval $[0,1]$. The points of this sample space cannot be enumerated. There is no way to list them all, and you cannot have a one-to-one correspondence between the points in $[0,1]$ and the natural numbers. You cannot count them. Hence, this sample space</p>
+<p>
+$$S = \{s : s\in [0,1]\}$$
+</p>
+<p>is not discrete.</p>
+<h2 id="Basic-definitions-and-conventions.">
+<a class="anchor" href="#Basic-definitions-and-conventions." aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic definitions and conventions.<a class="anchor-link" href="#Basic-definitions-and-conventions."> </a>
+</h2>
+<hr>
+<p><strong>Fundamental Convention.</strong> Given a discrete sample space $S$ with sample points $\{s_1,s_2\,\ldots\}$ we shall assume that with each point $s_j$, there is associated  a number, called the probability of $s_j$ and denoted by $P(\{s_j\})$. This number is non-negative and less than unity. We have the following axioms:</p>
+<p>(1) The probability of any event $A$ is the sum of the probabilities of all sample points in it.</p>
+<p>
+$$P(A) = \sum_{s \in A}P(\{s\})$$
+</p>
+<p>(2) By convention, the probability of the entire sample space $S$ is taken to be unity.</p>
+<p>
+$$P(S) = \sum_{s \in S} P(\{s\}) = 1$$
+</p>
+<p>Intuitively, this holds because, when a random experiment is performed, no matter what the outcome, it always belongs to $S$. So, the event $S$ is a certain event.</p>
+<p>(3) The probability of an event $A$ lies between $0$ and $1$.</p>
+<p>Since $A \subseteq S$, the sample points in $A$ are a subset of the sample points in $S$. Their total contribution $\sum_{s \in A}P(\{s\})$ must be non-negative and less than $\sum_{s \in S}P(\{s\}) = 1$. Hence,</p>
+<p>
+$$0 \leq P(A) \leq 1$$
+</p>
+<hr>
+<h3 id="Boole's-Inequality.">
+<a class="anchor" href="#Boole's-Inequality." aria-hidden="true"><span class="octicon octicon-link"></span></a>Boole's Inequality.<a class="anchor-link" href="#Boole's-Inequality."> </a>
+</h3>
+<p>Consider now two arbitrary events $A_1$ and $A_2$. To compute the probability $P\{A_1 \cup A_2 \}$ that atleast $A_1$ or $A_2$ occur, we have to add the sample points contained in either $A_1$ or in $A_2$, but each point is to be counted only once. We have the following inequality:</p>
+<p>
+$$P(A_1 \cup A_2) \leq P(A_1) + P(A_2)$$
+</p>
+<p>Now, if $s$ is any point contained in both $A_1$ and in $A_2$, then $P(\{s\})$ occurs twice in the right hand member but once in the left hand member. Therefore, the right side exceeds the left side by a factor $P(A_1 \cap A_2)$.</p>
+<h3 id="Inclusion-Exclusion-Principle.">
+<a class="anchor" href="#Inclusion-Exclusion-Principle." aria-hidden="true"><span class="octicon octicon-link"></span></a>Inclusion-Exclusion Principle.<a class="anchor-link" href="#Inclusion-Exclusion-Principle."> </a>
+</h3>
+<hr>
+<p><strong>Theorem.</strong> For any two events $A_1$ and $A_2$, the probability that atleast one of $A_1$ or $A_2$ occur is given by,</p>
+<p>
+$$P(A_1 \cup A_2) = P(A_1) + P(A_2) - P(A_1 \cap A_2)$$
+</p>
+<p>If $P(A_1 \cap A_2) = 0$, that is if $A_1$ and $A_2$ are mutually exclusive then the above equation reduces to :</p>
+<p>
+$$P(A_1 \cup A_2) = P(A_1) + P(A_2)$$
+</p>
+<hr>
+<hr>
+<p>Example. A coin is tossed twice. For the sample space, we take the four points $HH$, $HT$, $TH$ and $TT$ and associate with each the probability $\frac{1}{4}$. Let $A_1$ and $A_2$ be respectively the events, "head at first" and "head at second" trial.</p>
+<hr>
+<p>Then, $A_1$ consists of $\{HH,HT\}$ and $A_2$ consists of $\{HH,TH\}$. Furthermore, $(A_1 \cup A_2)$ consists of $\{HH,HT,TH\}$ and $(A_1 \cap A_2)$ consists of a single point $\{HH\}$. Thus,</p>
+<p>
+$$P(A_1 \cup A_2) = \frac{1}{2} + \frac{1}{2} - \frac{1}{4} = \frac{3}{4}$$
+</p>
+<h3 id="Naive-definition-of-Probability.">
+<a class="anchor" href="#Naive-definition-of-Probability." aria-hidden="true"><span class="octicon octicon-link"></span></a>Naive definition of Probability.<a class="anchor-link" href="#Naive-definition-of-Probability."> </a>
+</h3>
+<p>Historically, the earliest definition of probability of an event was to count the number of ways an event could happen and divide by the total number of outcomes for the experiement. We call this the naive definition of probability; and it relies on strong assumptions. Neverhthless, it is important to understand, and it is extremely useful when not misused.</p>
+<hr>
+<p><strong>Definition.</strong> (Naive Definition of Probability).  Let $A$ be an event for an experiment with a finite sample $S$. The  probability of the event $A$ is</p>
+<p>
+$$P(A) = \frac{\text{Number of sample points in A}}{\text{number of sample points in S}} = \frac{n(A)}{n(S)}$$
+</p>
+<p>if and only if all sample points are equally likely (equiprobable).</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Elements-of-Combinatorial-Analysis.">
+<a class="anchor" href="#Elements-of-Combinatorial-Analysis." aria-hidden="true"><span class="octicon octicon-link"></span></a>Elements of Combinatorial Analysis.<a class="anchor-link" href="#Elements-of-Combinatorial-Analysis."> </a>
+</h2>
+<p>The purpose of this section is to derive a few basic formulas and to develop the corresponding basic probabilistic background. In the study of the simple games of chance, sampling procedures, occupancy and order problems, we are usually dealing with finite sample spaces in which the same probability is attributed to all points. To compute the probability of the event $A$ we have then to divide the number of sample points in $A$ ("favorable cases") by the total number of sample points ("possible cases"). This is facilitated by the systematic use of few rules which we shall now proceed to review.</p>
+<hr>
+<p><strong>Pairs.</strong> With $m$ elements $a_1,\ldots,a_m$ and $n$ elements $b_1,\ldots,b_n$, it is possible to form $mn$ pairs $(a_j,b_k)$ containing one element from each group.</p>
+<hr>
+<p><em>Proof.</em> Arrange the pairs in a rectangular array in the form of a multiplication table with $m$ rows and $n$ columns so that $(a_j,b_k)$ stands at the intersection of the $j$th row and the $k$th column. Then, each pair appears once and only once, and the assertion becomes obvious.</p>
+<hr>
+<p><strong>Multiplets.</strong> Given $n_1$ elements $a_1,\ldots,a_{n1}$ and $n_2$ elements $b_1,\ldots,b_{n_2}$ upto $n_r$ elements $x_1,x_2,\ldots,x_{n_r}$, it is possible to form $n_1 \cdot n_2 \cdots n_r$ ordered $r$-tuplets $(a_{j_1},b_{j_2},\ldots,x_{j_r})$ containing one element of each kind.</p>
+<hr>
+<p><em>Proof.</em> If $r = 2$, the assertion reduces to the first rule. If $r = 3$, then take the pair $(a_i,b_j)$ as element of a new kind. There are $n_1n_2$ such pairs and $n_3$ elements $c_k$. Each triple $(a_i,b_j,c_k)$ is itself a pair consisting of $(a_i,b_j)$ and an element $c_k$; the number of triplets is therefore $n_1 n_2 n_3$. Proceeding by induction, the assertion follows for every $r$.</p>
+<p>Perhaps the simplest and the most useful way of describing the last theorem is as follows. To form an $r$-tuplet $(a_{j_1},b_{j_2},\ldots,x_{j_r})$ we have to choose one $a$, one $b$ etc. We have to perform $r$ selections in all and have in succession $n_1,n_2,\ldots,n_r$ possibilities to choose from. It is asserted that this procedure can lead to $n_1 \cdot n_2 \cdots n_r$ different results.</p>
+<hr>
+<p>Examples.</p>
+<p>(a) Multiple classifications. Suppose that people are classified according to sex, marital status, and profession. The various categories play the role of elements. If there are $17$ professions, then we have $2 \cdot 2 \cdot 17 = 68$  classes in all.</p>
+<p>(b) In an agricultural experiment three different treatments are to be tested (for example, the application of a fertilizer, a spray and temperature). If these treatments can be applied at $r_1$,$r_2$ and $r_3$ levels or concentrations, respectively, then there exist a total of $r_1 r_2 r_3$ combinations or ways of treatment.</p>
+<p>(c) <em>Placing balls into cells</em> amounts to choosing one cell for each ball. With $r$ balls, we have $n$ choices for each ball, therefore $r$ balls can be placed in $n$ cells in $n^r$ different ways. For example, considering the faces of a die as cells, the experiment of throwing a die $r$ times has $6^r$ possible outcomes.</p>
+<p>(d) A set with $n$ elements has $2^n$ subsets including the empty set $\emptyset$ and the set itself. This follows from the multiplication ruule, since for each element we can choose whether to include it or exclude it. For example, $\{\1,2,3\}$ has $8$ subsets, $\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\},\{1,3\},\{2,3\},\{1,2,3\}$.</p>
+<hr>
+<h2 id="Ordered-samples.">
+<a class="anchor" href="#Ordered-samples." aria-hidden="true"><span class="octicon octicon-link"></span></a>Ordered samples.<a class="anchor-link" href="#Ordered-samples."> </a>
+</h2>
+<hr>
+<p><strong>Definition (Population).</strong> A population is a set, an aggregate of $n$ elements without regard to their order.</p>
+<hr>
+<hr>
+<p><strong>Definition (Sample).</strong> Consider the set or population of $n$ elements $\{a_1,a_2,\ldots,a_n\}$. Any <strong>ordered arrangement</strong> $(a_{j_1},a_{j_2},\ldots,a_{j_r})$ of $r$ symbols drawn from our population is called an ordered sample of size $r$ .</p>
+<p>A sample is therefore an ordered $r$-tuple.</p>
+<hr>
+<p>For example, consider the population of $2$ elements $\{0,1\}$. Sampling $3$ times from this population could result in :
+$(0,0,0)$, $(0,0,1)$, $(0,1,0)$, $(0,1,1)$, $(1,0,0)$, $(1,0,1)$, $(1,1,0)$ and $(1,1,1)$. Note that, the sample $(0,0,1)$ is different from $(1,0,0)$ because samples are ordered tuples.</p>
+<p>For an intuitive picture, we can imagine that the elements are selected one by one. Two procedures are then possible. First, <em>sampling with replacement</em> : here each selection is made from the entire population, so that same element can be drawn more than once. The samples are then arrangements in which repetitions are permitted. Second, <em>sampling without replacement</em>: each element once chosen is removed from the population, so that the sample becomes an arrangement without repetitions. Obviously in this case, the sample size $r$ cannot exceed the population size $n$.</p>
+<p>In sampling with replacement each of the $r$ elements can be chosen in $n$ ways: the number of possible samples is therefore $n^r$, as can be seen from the last theorem with $n_1 = n_2 = \ldots = n$. In sampling without replacement, we have $n$ possible choices for the first element, only $n-1$ for the second, $n-2$ for the third etc. Using the same rule, we see that in this case, we have $n(n-1)\cdots (n-r+1)$ choices in all. Products of this type appear so often that it is convenient to introduce the notation</p>
+<p>
+$$(n)_r = n(n-1)\cdots (n-r+1) = \frac{n!}{(n-r)!}$$
+</p>
+<p>and read it as "n permute r".</p>
+<hr>
+<p><strong>Theorem</strong>. For a population of $n$ elements and a prescribed sample of size $r$, there exist $n^r$ different samples with replacement and $(n)_r$ samples without replacement.</p>
+<hr>
+<p>We note the special case where $r = n$. In sampling without replacement, a sample of size $n$ includes the whole population and represents a reordering (or <em>permutation</em>) of its elements. Accordingly, $n$ elements $a_1,\ldots,a_n$ can be ordered in $(n)_n = n \cdot (n-1)\cdots 1$ ways. Instead of $(n)_n$ we write $n!$, which is the more usual notation. We see that our theorem has the following corollary therefore:</p>
+<hr>
+<p><strong>Corollary.</strong> The number of different orderings of $n$ elements is</p>
+<p>
+$$n! = n \cdot (n-1) \cdot (n-2) \cdots 1$$
+</p>
+<hr>
+<p>Drawing $r$ elements from a population of size $n$ is an experiment whose possible outcomes are samples of size $r$. Their number is $n^r$ or $(n)_r$, depending on whether or not replacement is used. In either case, our conceptual experiment is described by a sample space in which each individual point is a sample of size $r$.</p>
+<p>Thinking of any problem as a sampling experiment is an very important strategy for problem-solving. We can always try to cast the problem at hand, into (1)an allocation problem (placing $r$ balls in $n$ cells) (2) or a sampling problem (sampling $r$ times from a population of size $n$).</p>
+<p>For example, if a coin is tossed $r=2$ times, this is like placing $r=2$ distinct balls in $n=2$ cells labelled 'H' and 'T'. Equivalently, we are sampling $r=2$ symbols with replacement from the population $\{H,T\}$. The sample space consists of $2^2 = 4$ points:</p>
+$$
+S = \{(H,H),(H,T),(T,H),(T,T)\}
+$$<p>Each $2$-tuple, each sample of size $2$, such as $(H,T)$ or $(T,H)$ forms a point in the sample space $S$. The sample $(H,T)$ is different from $(T,H)$, because they are ordered tuples, and we distinguish between the two outcomes - (i) coin 1 lands heads, coin 2 lands tails vis-a-vis (2) coin 1 lands tails, coin 2 lands heads.</p>
+<p>If a die is thrown $r=3$ times, this is like placing $r=3$ balls in $n=6$ cells having ID {1,2,3,4,5,6}. Equivalently, we are sampling $r=3$ times with replacement from the population $\{1,2,3,4,5,6\}$. The entire sample space consists of $6^3=216$ points.</p>
+$$
+\begin{align*}
+S=\{&amp;(1,1,1),(1,1,2),\ldots,(1,1,6),\\
+    &amp;(1,2,1),(1,2,2),\ldots,(1,2,6),\\
+    &amp;\vdots\\
+    &amp;(6,6,1),(6,6,2),\ldots,(6,6,6)\}
+\end{align*}
+$$<p>Each $3$-tuple, each sample of size $3$, such as $(1,1,1)$ or $(1,3,5)$ forms a point in the sample space $S$.</p>
+<p>So far we have not spoken of probabilities associated with our samples. Usually, we shall assign equal probabilities to all of them and then speak of random samples. The word random is not well defined, but when applied to samples or selections it has a unique meaning. <em>Whenever we speak of random samples of fixed size $r$ the adjective random is to imply that all possible samples have the same probability</em>, namely, $\frac{1}{n^r}$ in sampling with replacement and $\frac{1}{(n)_r}$ in sampling without replacement.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examples.">
+<a class="anchor" href="#Examples." aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples.<a class="anchor-link" href="#Examples."> </a>
+</h2>
+<p>We consider random samples of fixed size $r$ with replacement taken from a population of the $n$ elements $a_1,\ldots,a_n$. We are interested in the event $A$, that in such a sample $(a_{j_1},\ldots,a_{j_r})$ no element appears twice, that is, that our sample could have been also obtained by sampling without replacement. The last theorem shows that there exist $n^r$ different samples in all, of which $(n)_r$ satisfy the stipulated condition. Assuming that all samples have equal probability, we conclude that <em>probability of no repetition</em> in our sample is</p>
+<p>
+$$p = \frac{(n)_r}{n^r} = \frac{n \cdot (n-1) \cdot (n-r+1)}{n^r}$$
+</p>
+<p>The following concrete interpretations of the above generic statement are very interesting:</p>
+<p>(a) <em>Random sampling numbers</em>. Let the population consist of ten digits $0,1,2,\ldots,9$. Every succession of five digits represents a sample of size $r = 5$ and we assume that each such arrangement has probability $10^{-5}$. The probability that all five consecutive random digits are all different is $p=(10)_5 (10)^{-5}$.</p>
+<p>(b) <em>Birthday problem</em>. There are $k$ people in a room. Assume each person's birthday is equally likely to be any of the $365$ days of the year (we exclude February 29), and that people's birthdays are independent (we assume there are no twins in the room). What is the probability that two or more people in the group have same birthday?</p>
+<p>Each person's birthday will fall on exactly one of the calendar days $\{1,2,3,\ldots,365\}$. Thus, we are sampling $k$ times from the population $\{1,2,3,\ldots,365\}$. The number of ordered samples of size $k$, without replacement(repetition) are $(365)_k$. In total, there are $365^k$ samples with replacement.</p>
+<p>So,</p>
+$$\begin{align*}
+P(\text{No Birthday match}) &amp;= \frac{(365)_k}{365^k} \\
+&amp;= \frac{365 \cdot 364 \cdots (365-k+1)}{365 \cdot 365 \cdots 365} \\
+&amp;= 1 \cdot \left(1 - \frac{1}{365}\right)\left(1 - \frac{2}{365}\right)\cdots \left(1 - \frac{k-1}{365}\right)
+\end{align*}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus,</p>
+$$\begin{align*}
+P(\text{Atleast one birthday match}) &amp;= 1 - P(\text{No Birthday Match})\\
+&amp;= 1 - \left(1 - \frac{1}{365}\right)\left(1 - \frac{2}{365}\right)\cdots \left(1 - \frac{k-1}{365}\right)
+\end{align*}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's plot the probability of atleast one birthay match as a function of $k$. The first value of $k$ for which the probability of a match exceeds $0.50$ is $k=23$. Thus, in a group of $23$ people, there is better than $50\%$ chance that two or more them will share the same birthday. By the time we reach $k=57$, the probability of a match exceeds $99\%$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prob_atleast_one_bday_match</span><span class="p">(</span><span class="n">k</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="o">/</span><span class="mi">365</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">prod</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">prob_atleast_one_bday_match</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'probability of atleast one match'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">'o'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The birthday problem is much more than fun party game and much more than a way to build intuition about coincidences, there are also important applications in statistics and computer science.</p>
+<p><strong>Note.</strong> (Labeling objects). Drawing a sample from a population is a very fundamental concept in statistics. It is important to think of the objects or people in the population as named or labeled. For example, if there are $n$ balls in a jar, we can imagine that they have labels from $1$ to $n$, even if the balls look the same to the human eye. In the birthday problem, we can give each person an ID (identification) number.</p>
+<p>(c) <em>Elevator</em>. An elevator starts with $r=7$ passengers and stops at $n=10$ floors. What is the probability $p$ that no two passengers leave at the same floor. Assume that all arrangements of discharging passengers leave at the same floor.</p>
+<p>We are sampling $7$ times from the population $\{1,2,3,\ldots,10\}$. The number of ordered samples of size $r=7$ without replacement (repetition) are $(10)_7$. The total number of samples with replacement are $10^7$. As each sample point is equally likely, we have:</p>
+<p>
+$$P(\text{No two passengers leave at the same floor}) = \frac{(10)_7}{10^7}$$
+</p>
+<p>Example. If we roll two fair dice, which is more likely: a sum of $11$ or a sum of $12$?</p>
+<p>We are sampling two times with replacement from the population {1,2,3,4,5,6}. The total number of sample points in th sample space are $6^2 = 36$. Each sample point is equally likely. Further, a sum of $11$ is obtained when two throws result in either $(5,6)$ or $(6,5)$. Therefore,</p>
+<p>
+$$P(\text{Sum of throws equals }11) = \frac{2}{36}$$
+</p>
+<p>A sum of $12$ is obtained when the two throws result in $(6,6)$. Therefore,</p>
+<p>
+$$P(\text{Sum of throws equals }12) = \frac{1}{36}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Subpopulations-or-subsets.">
+<a class="anchor" href="#Subpopulations-or-subsets." aria-hidden="true"><span class="octicon octicon-link"></span></a>Subpopulations or subsets.<a class="anchor-link" href="#Subpopulations-or-subsets."> </a>
+</h2>
+<p>As before we use the term <em>population of size $n$</em> to denote an aggregate of $n$ elements <em>without regard to their order</em>. Two populations are considered different if one contains an element not contained in the other. For example, the sets $\{1,2,3\}$ and $\{1,2\}$ are different, because $\{1,2\}$ does not contain the element $3$. On the other hand, the set $\{1,2,3\}$ and $\{3,2,1\}$ are identical populations.</p>
+<p>We choose $r$ elements and form a subset out of a given population of $n$ elements.</p>
+<p>This is similar to the following conceptual experiment. We are given two jars - a big jar 'A' and a small jar 'B'. Jar 'A' has $n$ slips of paper labelled $1,2,3,\ldots,n$. We randomly draw $r$ slips and drop them in jar 'B'. Jar 'B' now contains a subpopulation of Jar 'A'.</p>
+<p>How many different subsets or subpopulations of size $r$ can be formed from a population of size $n$?</p>
+<p>For example, suppose Jar 'A' has three slips of paper labelled $\{1,2,3\}$. We randomly draw $r=2$ slips and drop them in Jar 'B'. Jar 'B' could contain one of 3 subsets $\{1,2\}$, $\{1,3\}$ or $\{2,3\}$. Assume that, the random experiment results in Jar 'B' containing the subset $\{1,2\}$. Note that, we don't distinguish between the subsets $\{1,2\}$ and $\{2,1\}$. The constitution of the jar is the same, as long as the elements in the jar are the same. So, we don't care about the order in which the slips $1$ and $2$ were drawn.</p>
+<p>Now, each subpopulation of size $r$ can be arranged in $r!$ different orders and in this way produces $r!$ samples without repetition. Conversely, each such sample of size $r$ contains $r$ different elements and thus defines a subpopulation of size $r$. We know that, there exist $(n)_r$ samples of the described sort. If $x$ is the number of subpopulations of size $r$, then obviously the number of ordered samples is $x \cdot r!$, and we conclude that $x = (n)_r / r!$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Number of this kind are known as binomial coefficients, and the standard notation for them is:</p>
+<p>
+$${n \choose r} = \frac{(n)_r}{r!} = \frac{n!}{r!(n-r)!}$$
+</p>
+<p>read as "n choose r".</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have now proved:</p>
+<hr>
+<p><strong>Theorem.</strong> The number of subsets(subpopulations) of size $k$ of a set(population) of $n$ elements is :</p>
+<p>
+$${n \choose k} = \frac{n!}{k!(n-k)!}$$
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now choosing the $r$ elements to be taken out of the population, is the same as choose the $(n-r)$ elements which are to stay in. It is therefore clear, that :</p>
+<p>
+$${n \choose r} = {n \choose n-r}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (Club Officers). In a club with $n$ people, there are $(n)_3=\frac{n(n-1)(n-2)}{3!}$ ways to choose a president, a vice-president and a treasurer. This is like sampling $3$ times from the population $\{1,2,3,\ldots,n\}$.</p>
+<p>There are ${n \choose 3}$ ways to choose $3$ officers without pre-determined titles. This is like forming a subset of size $3$ from a population of size $n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (Permutations of a word). How many ways are there to permute the letters in the word LALALAAA?</p>
+<p>The word LALALAAA is an $8$-letter word. Suppose, we have $8$ cells or places labelled $1,2,3,4,5,6,7,8$.</p>
+$$\begin{matrix}
+\_ &amp; \_ &amp; \_ &amp; \_ &amp; \_ &amp; \_ &amp; \_ &amp; \_\\
+1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8
+\end{matrix}
+$$<p>Let's first choose where the $5$ A's go. We need to select $r=5$ places from the population $\{1,2,3,4,5,6,7,8\}$. For the sake of simplicity, suppose we pick the spots $(1,2,3,4,5)$. Note that, even if we chose the places $(5,4,3,2,1)$ in that order, the outer appearance of the word A A A A A A<em> </em> _ remains the same. So, we need to choose $r=5$ places without regard to their order.</p>
+<p>In other words, we select a subset of size $5$ from the place population $\{1,2,3,4,5,6,7,8\}$ of size $8$. This can be done ${8 \choose 5}$ distinguishable ways. Having chosen where the $5$ A's go, equivalently means choosing where the $3$ L's are allocated.</p>
+<p>So, to sum up, there are:</p>
+<p>
+$${8 \choose 5} = \frac{8!}{3!5!}= \frac{8 \cdot 7 \cdot 6}{6} = 56 \text{ permutations.}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (Permutations of a word continued). How many ways are there to permute the letters in the word STATISTICS?</p>
+<p>The word STATISTICS is a $10$-letter word. Suppose we have $10$ cells or positions labelled $1,2,3,4,5,6,7,8,9,10$.</p>
+<p>Let's first choose where the $3$ S's go. We select a subset of size $3$ from the population of size $10$. This can be done in ${10 \choose 3}$ distinguishable ways. We now have $7$ vacant positions to be occupied.</p>
+<p>Next, choose where the $3$ T's go. We select a subset of size $3$ from a population of size $7$. This can be done in ${7 \choose 3}$ distinguishable ways. We now have $4$ vacant positions to be occupied.</p>
+<p>Next, choose where the $2$ I's go. We must select a subset of size $2$ from a population of size $4$. This can be done in ${4 \choose 2}$ distinguishable ways. We now have $2$ vacant positions still to be occupied.</p>
+<p>Next, choose where the $1$ A will go. We select a subset of size $1$ from a population of size $2$. This can be done in ${2 \choose 1}$ distinguishable ways. We now have only $1$ vacant position still to be occupied.</p>
+<p>Effectively we have allocated the letter $C$ to the only vacant place available.</p>
+<p>By the multiplication rule, the number of permutations of the word LALALAAA are:</p>
+<p>
+$${10 \choose 3}{7 \choose 4}{4 \choose 2}{2 \choose 1}{1 \choose 1}=50400 \text{ permutations}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example (Poker). In Poker, a $5$-card hand is dealt from a standard well-shuffled $52$-card deck. Since the order of the cards in a hand is irrelevant, by the last theorem, there are ${52 \choose 5}=2,598,960$ hands at Poker. What is the probability that the hand at Poker contains different face values?</p>
+<p>A standard $52$-card deck of playing cards has $13$-face values $\times$ $4$ suits. We select a subset of $5$-face values from the "face-values" population of size $13$. This can be done in ${13 \choose 5}$ distinguishable ways. We sample $r=5$ times with replacement from the "suits" population $\{\text{Heart},\text{Spade},\text{Club},\text{Diamond}\}$ of size $4$. There $4^5$ such samples. It follows that:</p>
+<p>
+$$P(\text{Poker hand contains 5 distinct face-values}) = \frac{{13 \choose 5}\cdot 4^5}{52 \choose 5}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example (Full house in Poker). A $5$-card hand is dealt from a standard well-shuffled $52$-card deck. The hand is called a full house in poker, if it consists of three cards of some rank and two cards of another rank e.g. three 7's and two 10's in any order. What is the probability of a full house?</p>
+<p><em>Solution</em>.</p>
+<p>All of the ${52 \choose 5}$ possible hands are equally likely, so the naive definition of probability is applicable. To find the number of full house hands, use the multiplication rule. There are $13$ choices for first rank. There are ${4 \choose 3}$ distinguishable ways of selecting $3$-suits for the three cards of first rank. For concreteness, assume that we have three 7's. There are $12$ choices for the second rank. (Now, we are free to choose from any $4$-suits for these cards, because they have a different rank.) There are $\{4 \choose 2\}$ distinguishable ways of selecting $2$-suits for the two cards of the other rank.</p>
+<p>
+$$P(\text{full house}) = \frac{13 {4 \choose 3} 12 {4 \choose 2}}{52 \choose 5}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. Each of the $48$ states has two senators. We consider the events that in a committee of $48$ senators chosen at random: (1) a given state is represented (2) all states are represented.</p>
+<p>First, the order of senators in a committee is irrelvant, so there are ${96 \choose 48}$ committees that can be formed.</p>
+<p>(1) In the first case, it is better to calculate the probability $q$ of the complementary event, namely, that the given state is <em>not</em> represented. There are $96$ senators, and $94$ are not from the given state. Hence,</p>
+<p>
+$$q = \frac{94 \choose 48}{96 \choose 48}$$
+</p>
+<p>Hence, the desired probability is</p>
+<p>
+$$p = 1 - q = 1 - \frac{94 \choose 48}{96 \choose 48}$$
+</p>
+<p>(2) For the second case, we would like each state to be represented. Each of the 48 states have $2$ choices to send out a senator. Hence, the desire probability is :</p>
+<p>
+$$P(\text{all states are represented}) = \frac{2^{48}}{96 \choose 48}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (An occupancy problem) Consider once more a random distribution of $r$ balls in $n$ cells (i.e. each of $n^r$ possible arrangements are equally likely and have probability $n^{-r}$). We are interested to find the probability $p_k$ that a specified cell contains exactly $k$ balls $(k=0,1,2,\ldots,r)$.</p>
+<p>We note that the $k$ balls that go into the specified cell can be chosen in ${r \choose k}$ distinguishable ways and the remaining $r - k$ balls can be placed into the remaining $(n-1)$ cells in $(n-1)^{(r-k)}$ ways. It follows that:</p>
+<p>
+$$p_k = {r \choose k}\cdot\frac{1}{n^r}\cdot (n-1)^{(r-k)} = {r \choose k}\cdot\frac{1}{n^k}\cdot \left(1-\frac{1}{n}\right)^{(r-k)} $$
+</p>
+<p>This is a special case of the so-called binomial distribution, which will taken up in chapter III.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (Newton-Pepys Problem.) Issac Newton was consulted with the following problem by Samuel Ppery, who wanted the information for gambling puposes. Which of the following events has the highest probability?</p>
+<p>$A$: Atleast one $6$ appears when $6$ fair dice are rolled.</p>
+<p>$B$: Atleast two $6$'s appear when $12$ fair dice are rolled.</p>
+<p>$C$: Atleast three $6$'s appear when $18$ fair dice are rolled.</p>
+<p><em>Solution</em>. 
+The three experiments have $6^6$, $6^{12}$ and $6^{18}$ possible outcomes, respectively, and by symmetry the naive definition applied in all three experiments.</p>
+<p>$A$: Instead of counting the number of ways to obtain atleast one $6$, it is easier to count the number ways to get no $6$'s. Getting no $6$'s is equivalent to sampling the numbers $1$ through $5$ with replacement $6$ times, so $5^6$ outcomes are favourable to $A^C$ (and $6^6 - 5^6$ are favorable to $A$). Thus,</p>
+<p>
+$$P(A) = 1 - \frac{5^6}{6^6}$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">p_a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6651020233196159</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$B$: Again we count the outcomes in $B^C$ first. There are $5^12$ ways to get no $6$'s in $12$ die rolls. There are ${12 \choose 1}5^11$ ways to get exactly one $6$: we first choose which die lands $6$, then sample the numbers $1$ through $5$ with replacement for the other $11$ dice. Adding these, we get the number of ways to fail to obtain atleast two $6$'s. Then:</p>
+<p>
+$$P(B) = 1 - \frac{5^12 + {12 \choose 1}5^11}{6^12}$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_B</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">11</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">p_B</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6186673737323087</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We count the outcomes in $C^C$, that is the number of ways to get zero, one or two $6$'s in $18$ die rolls. There are $5^{18}$ ways to get no sixes, ${18 \choose 1}5^{17}$ ways to get one $6$ and ${18 \choose 2}5^{16}$ to get two sixes.</p>
+<p>
+$$P(C) = 1 - \frac{5^{18} + {18 \choose 1}5^{17} + {18 \choose 2}5^{16}}{6^{18}}$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">18</span> <span class="o">+</span> <span class="mi">18</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">17</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">18</span> <span class="o">*</span> <span class="mi">17</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">16</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">p_c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5973456859477232</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (a) How many paths are there from the point $(0,0)$ to the point $(110,111)$ in the plane such that each step either consists of going one unit up or unit to the right?</p>
+<p>(b) How many paths are there from $(0,0)$ to $(210,211)$, where each step consists of going one unit up or one unit to the right, and the path has to go through $(110,111)$?</p>
+<p><em>Solution</em>.</p>
+<p>(a) Let's encode a step of going one unit up as $u$ and a step of going one unit to the right as $r$. All paths that start at $(0,0)$ and terminate at $(110,111)$ on a grid, must have $110$ u's and $111$ r's, and total length $221$. A valid path is any sequence of the u's and r's. Let us label the places as $1,2,3,\ldots,221$.</p>
+<p>Let's choose where the u's will go. We must select a subset of size $110$ from a population of size $221$. There are ${221 \choose 110}$ distinguishable ways of doing this. Equivalently, this determines where the r's go.</p>
+<p>
+$$\text{Number of paths from the origin to the point (110,111)} = {221 \choose 110}$$
+</p>
+<p>(b) There are ${200 \choose 100}$ paths from the point $(110,111)$ to $(210,211)$. Consequently, by the multiplication rule, the required number of paths are:</p>
+<p>
+$$\text{Total number of paths} = {221 \choose 110}{200 \choose 100}$$
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="quantophile/mathematical-finance"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/mathematical-finance/probability-theory/2022/03/06/Probability-and-Counting-Methods.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/mathematical-finance/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/mathematical-finance/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>This blog is a repository of review notes, projects and solved exercise problems on various topics in Probability, Mathematical Finance, PDEs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

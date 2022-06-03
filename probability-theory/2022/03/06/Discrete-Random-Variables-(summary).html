@@ -1,0 +1,3459 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Discrete Random Variables. | Summary notes on Mathematical Finance</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Discrete Random Variables." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Summary notes on discrete random varaibles." />
+<meta property="og:description" content="Summary notes on discrete random varaibles." />
+<link rel="canonical" href="https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Discrete-Random-Variables-(summary).html" />
+<meta property="og:url" content="https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Discrete-Random-Variables-(summary).html" />
+<meta property="og:site_name" content="Summary notes on Mathematical Finance" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Discrete Random Variables." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-06T00:00:00-06:00","datePublished":"2022-03-06T00:00:00-06:00","description":"Summary notes on discrete random varaibles.","headline":"Discrete Random Variables.","mainEntityOfPage":{"@type":"WebPage","@id":"https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Discrete-Random-Variables-(summary).html"},"url":"https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Discrete-Random-Variables-(summary).html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/mathematical-finance/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://quantophile.github.io/mathematical-finance/feed.xml" title="Summary notes on Mathematical Finance" /><link rel="shortcut icon" type="image/x-icon" href="/mathematical-finance/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/mathematical-finance/">Summary notes on Mathematical Finance</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/mathematical-finance/about/">About Me</a><a class="page-link" href="/mathematical-finance/search/">Search</a><a class="page-link" href="/mathematical-finance/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Discrete Random Variables.</h1><p class="page-description">Summary notes on discrete random varaibles.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      53 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/mathematical-finance/categories/#probability-theory">probability-theory</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/quantophile/mathematical-finance/tree/master/_notebooks/2022-03-06-Discrete-Random-Variables-(summary).ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/mathematical-finance/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/quantophile/mathematical-finance/master?filepath=_notebooks%2F2022-03-06-Discrete-Random-Variables-%28summary%29.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/quantophile/mathematical-finance/blob/master/_notebooks/2022-03-06-Discrete-Random-Variables-(summary).ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fquantophile%2Fmathematical-finance%2Fblob%2Fmaster%2F_notebooks%2F2022-03-06-Discrete-Random-Variables-%28summary%29.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Independence-of-random-variables.">Independence of random variables. </a></li>
+<li class="toc-entry toc-h2"><a href="#Expectation.">Expectation. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Linearity-of-Expectation.">Linearity of Expectation. </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Indicator-random-variables-and-Matching.">Indicator random variables and Matching. </a></li>
+<li class="toc-entry toc-h2"><a href="#Law-of-the-Unconscious-Statistician(LOTUS)">Law of the Unconscious Statistician(LOTUS) </a></li>
+<li class="toc-entry toc-h2"><a href="#Variance.">Variance. </a></li>
+<li class="toc-entry toc-h2"><a href="#Covariance-of-random-variables.">Covariance of random variables. </a></li>
+</ul><body>
+<!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-06-Discrete-Random-Variables-(summary).ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>According to the definition given in calculus textbooks, the quantity $y$ is called a function of the real number $x$, if to every $x$ there corresponds a value $y$. This definition can be extended to cases where the independent variable is not a real number. Thus, we call the distance a function of a pair of points; the perimeter of a triangle is a function defined on the set of triangles; a sequence $(a_n)$ is a function for all positive integers; the binomial coefficient ${x \choose k}$ is a function defined for pairs of numbers $(x,k)$ of which the second is a non-negative integer. In the same sense, we can say the the number $S_n$ of successes in $n$ Bernoulli trails is a function defined on the same space; to each of the $2^n$ points in this space, there corresponds a number $S_n$.</p>
+<hr>
+<p><strong>Definition (Random Variable).</strong> A function defined on a sample space is called a random variable.</p>
+<hr>
+<p>Typical random variables are the number of aces in a hand at bridge, the number of successes in $n$ Bernoulli trials, the waiting time for the $r$th success etc. In each case, there is unique rule which associates a number $X$ with any sample point $\omega$. The classical theory of probability was devoted mainly to a study of gambler's gain, which is again a random variable; in fact every random variable can be interpreted as the gain of a real or imaginary gambler in a suitable game. The position of a particle under diffusion, the energy, temperature of physical systems are random variables, but they are defined in non-discrete sample spaces, and their study is therefore deferred. In the case of a discrete sample space, we can actually tabulate any random variable $X$ by enumerating in some order all points of the space and associating with each the corresponding value of $X$.</p>
+<p>Let $X$ be a random variable and let $x_1,x_2,\ldots$ be the values which it assumes; in most of what follows the $x_j$ will be integers. The aggregate of all sample points on which $X$ assumes the fixed value $x_j$ forms the event $X = x_j$; its probability is denoted by $P\{X = x_j\}$.</p>
+<p>The function</p>
+\begin{align*}
+P(X=x_j) = f(x_j) \quad (j=1,2,\ldots) \tag{1}
+\end{align*}<p>is called the probability mass function (PMF) of the random varibale $X$. Clearly,</p>
+\begin{align*}
+f(x_j) \geq 0, \quad \sum f(x_j) = 1 \tag{2}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With this terminology we can say that in Bernoulli trials, the number of successes $S_n$ is a random variable with the  probability mass function:</p>
+\begin{align*}
+P(X=k) =  {n \choose k}p^k q^{n-k} \tag{3}
+\end{align*}<p>whereas the number of trials up to and including the first success is a random variable with the PMF:</p>
+\begin{align*}
+P(X=k) = q^{k-1}p \tag{4}
+\end{align*}
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="k">using</span> <span class="n">Distributions</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">function</span> <span class="n">binomial_pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">^</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span><span class="p">],[</span><span class="n">binomial_pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span><span class="p">],</span>
+        <span class="n">line</span><span class="o">=:</span><span class="n">stem</span><span class="p">,</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">c</span><span class="o">=:</span><span class="n">blue</span><span class="p">,</span>
+        <span class="n">xlabel</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="s">"Probability"</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s">"Binomial PMF"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+&lt;!DOCTYPE html&gt;
+
+    
+        <title>Plots.jl</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        
+    
+    
+            <div id="0e1dbcc9-7afc-49fc-9f12-23919e56dd3a" style="width:600px;height:400px;"></div>
+    <script>
+        requirejs.config({
+        paths: {
+            Plotly: 'https://cdn.plot.ly/plotly-1.57.1.min'
+        }
+    });
+    require(['Plotly'], function (Plotly) {
+
+    PLOT = document.getElementById('0e1dbcc9-7afc-49fc-9f12-23919e56dd3a');
+    Plotly.plot(PLOT, [
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0
+        ],
+        "showlegend": true,
+        "mode": "markers",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "marker": {
+            "symbol": "circle",
+            "color": "rgba(0, 0, 255, 1.000)",
+            "line": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "width": 1
+            },
+            "size": 8
+        },
+        "zmax": null,
+        "y": [
+            9.5367431640625e-7,
+            1.9073486328125e-5,
+            0.0001811981201171875,
+            0.001087188720703125,
+            0.004620552062988281,
+            0.0147857666015625,
+            0.03696441650390625,
+            0.0739288330078125,
+            0.12013435363769531,
+            0.16017913818359375,
+            0.17619705200195312,
+            0.16017913818359375,
+            0.12013435363769531,
+            0.0739288330078125,
+            0.03696441650390625,
+            0.0147857666015625,
+            0.004620552062988281,
+            0.001087188720703125,
+            0.0001811981201171875,
+            1.9073486328125e-5,
+            9.5367431640625e-7
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            0.0,
+            0.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            9.5367431640625e-7
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            1.0,
+            1.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            1.9073486328125e-5
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            2.0,
+            2.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0001811981201171875
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            3.0,
+            3.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.001087188720703125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            4.0,
+            4.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.004620552062988281
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            5.0,
+            5.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0147857666015625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            6.0,
+            6.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.03696441650390625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            7.0,
+            7.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0739288330078125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            8.0,
+            8.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.12013435363769531
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            9.0,
+            9.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.16017913818359375
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            10.0,
+            10.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.17619705200195312
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            11.0,
+            11.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.16017913818359375
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            12.0,
+            12.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.12013435363769531
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            13.0,
+            13.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0739288330078125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            14.0,
+            14.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.03696441650390625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            15.0,
+            15.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0147857666015625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            16.0,
+            16.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.004620552062988281
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            17.0,
+            17.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.001087188720703125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            18.0,
+            18.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0001811981201171875
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            19.0,
+            19.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            1.9073486328125e-5
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            20.0,
+            20.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "Binomial PMF",
+        "zmin": null,
+        "legendgroup": "Binomial PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            9.5367431640625e-7
+        ],
+        "type": "scatter"
+    }
+]
+, {
+    "showlegend": true,
+    "xaxis": {
+        "showticklabels": true,
+        "gridwidth": 0.5,
+        "tickvals": [
+            0.0,
+            5.0,
+            10.0,
+            15.0,
+            20.0
+        ],
+        "visible": true,
+        "ticks": "inside",
+        "range": [
+            -0.6,
+            20.6
+        ],
+        "domain": [
+            0.09128390201224845,
+            0.9934383202099738
+        ],
+        "tickmode": "array",
+        "linecolor": "rgba(0, 0, 0, 1.000)",
+        "showgrid": true,
+        "title": "x",
+        "mirror": false,
+        "tickangle": 0,
+        "showline": true,
+        "gridcolor": "rgba(0, 0, 0, 0.100)",
+        "titlefont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 15
+        },
+        "tickcolor": "rgb(0, 0, 0)",
+        "ticktext": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20"
+        ],
+        "zeroline": false,
+        "type": "-",
+        "tickfont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 11
+        },
+        "zerolinecolor": "rgba(0, 0, 0, 1.000)",
+        "anchor": "y"
+    },
+    "paper_bgcolor": "rgba(255, 255, 255, 1.000)",
+    "annotations": [],
+    "height": 400,
+    "margin": {
+        "l": 0,
+        "b": 20,
+        "r": 0,
+        "t": 20
+    },
+    "plot_bgcolor": "rgba(255, 255, 255, 1.000)",
+    "yaxis": {
+        "showticklabels": true,
+        "gridwidth": 0.5,
+        "tickvals": [
+            0.0,
+            0.05,
+            0.1,
+            0.15000000000000002
+        ],
+        "visible": true,
+        "ticks": "inside",
+        "range": [
+            -0.005285911560058593,
+            0.1814829635620117
+        ],
+        "domain": [
+            0.07581474190726165,
+            0.9901574803149606
+        ],
+        "tickmode": "array",
+        "linecolor": "rgba(0, 0, 0, 1.000)",
+        "showgrid": true,
+        "title": "Probability",
+        "mirror": false,
+        "tickangle": 0,
+        "showline": true,
+        "gridcolor": "rgba(0, 0, 0, 0.100)",
+        "titlefont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 15
+        },
+        "tickcolor": "rgb(0, 0, 0)",
+        "ticktext": [
+            "0.00",
+            "0.05",
+            "0.10",
+            "0.15"
+        ],
+        "zeroline": false,
+        "type": "-",
+        "tickfont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 11
+        },
+        "zerolinecolor": "rgba(0, 0, 0, 1.000)",
+        "anchor": "x"
+    },
+    "legend": {
+        "borderwidth": 1,
+        "tracegroupgap": 0,
+        "font": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 11
+        },
+        "title": {
+            "font": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
+            "text": ""
+        },
+        "traceorder": "normal",
+        "x": 1.0,
+        "yanchor": "auto",
+        "xanchor": "auto",
+        "bordercolor": "rgba(0, 0, 0, 1.000)",
+        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "y": 1.0
+    },
+    "width": 600
+}
+);
+    });
+    </script>
+
+    
+
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="k">using</span> <span class="n">Distributions</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">function</span> <span class="n">first_success_pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">p</span>
+<span class="k">end</span>
+
+<span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="p">],[</span><span class="n">first_success_pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="p">],</span>
+        <span class="n">line</span><span class="o">=:</span><span class="n">stem</span><span class="p">,</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">c</span><span class="o">=:</span><span class="n">blue</span><span class="p">,</span>
+        <span class="n">xlabel</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="s">"Probability"</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s">"First success PMF"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+&lt;!DOCTYPE html&gt;
+
+    
+        <title>Plots.jl</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        
+    
+    
+            <div id="19255396-648c-4397-b304-ffe3782ff074" style="width:600px;height:400px;"></div>
+    <script>
+        requirejs.config({
+        paths: {
+            Plotly: 'https://cdn.plot.ly/plotly-1.57.1.min'
+        }
+    });
+    require(['Plotly'], function (Plotly) {
+
+    PLOT = document.getElementById('19255396-648c-4397-b304-ffe3782ff074');
+    Plotly.plot(PLOT, [
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0,
+            17.0,
+            18.0,
+            19.0,
+            20.0
+        ],
+        "showlegend": true,
+        "mode": "markers",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "marker": {
+            "symbol": "circle",
+            "color": "rgba(0, 0, 255, 1.000)",
+            "line": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "width": 1
+            },
+            "size": 8
+        },
+        "zmax": null,
+        "y": [
+            0.5,
+            0.25,
+            0.125,
+            0.0625,
+            0.03125,
+            0.015625,
+            0.0078125,
+            0.00390625,
+            0.001953125,
+            0.0009765625,
+            0.00048828125,
+            0.000244140625,
+            0.0001220703125,
+            6.103515625e-5,
+            3.0517578125e-5,
+            1.52587890625e-5,
+            7.62939453125e-6,
+            3.814697265625e-6,
+            1.9073486328125e-6,
+            9.5367431640625e-7
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            1.0,
+            1.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.5
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            2.0,
+            2.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.25
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            3.0,
+            3.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            4.0,
+            4.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            5.0,
+            5.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.03125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            6.0,
+            6.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.015625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            7.0,
+            7.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0078125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            8.0,
+            8.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.00390625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            9.0,
+            9.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.001953125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            10.0,
+            10.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0009765625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            11.0,
+            11.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.00048828125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            12.0,
+            12.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.000244140625
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            13.0,
+            13.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            0.0001220703125
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            14.0,
+            14.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            6.103515625e-5
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            15.0,
+            15.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            3.0517578125e-5
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            16.0,
+            16.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            1.52587890625e-5
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            17.0,
+            17.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            7.62939453125e-6
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            18.0,
+            18.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            3.814697265625e-6
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            19.0,
+            19.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            1.9073486328125e-6
+        ],
+        "type": "scatter"
+    },
+    {
+        "xaxis": "x",
+        "colorbar": {
+            "title": ""
+        },
+        "yaxis": "y",
+        "x": [
+            20.0,
+            20.0
+        ],
+        "showlegend": false,
+        "mode": "lines",
+        "name": "First success PMF",
+        "zmin": null,
+        "legendgroup": "First success PMF",
+        "zmax": null,
+        "line": {
+            "color": "rgba(0, 0, 255, 1.000)",
+            "shape": "linear",
+            "dash": "solid",
+            "width": 1
+        },
+        "y": [
+            0.0,
+            9.5367431640625e-7
+        ],
+        "type": "scatter"
+    }
+]
+, {
+    "showlegend": true,
+    "xaxis": {
+        "showticklabels": true,
+        "gridwidth": 0.5,
+        "tickvals": [
+            5.0,
+            10.0,
+            15.0,
+            20.0
+        ],
+        "visible": true,
+        "ticks": "inside",
+        "range": [
+            0.43000000000000005,
+            20.57
+        ],
+        "domain": [
+            0.07646908719743364,
+            0.9934383202099737
+        ],
+        "tickmode": "array",
+        "linecolor": "rgba(0, 0, 0, 1.000)",
+        "showgrid": true,
+        "title": "x",
+        "mirror": false,
+        "tickangle": 0,
+        "showline": true,
+        "gridcolor": "rgba(0, 0, 0, 0.100)",
+        "titlefont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 15
+        },
+        "tickcolor": "rgb(0, 0, 0)",
+        "ticktext": [
+            "5",
+            "10",
+            "15",
+            "20"
+        ],
+        "zeroline": false,
+        "type": "-",
+        "tickfont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 11
+        },
+        "zerolinecolor": "rgba(0, 0, 0, 1.000)",
+        "anchor": "y"
+    },
+    "paper_bgcolor": "rgba(255, 255, 255, 1.000)",
+    "annotations": [],
+    "height": 400,
+    "margin": {
+        "l": 0,
+        "b": 20,
+        "r": 0,
+        "t": 20
+    },
+    "plot_bgcolor": "rgba(255, 255, 255, 1.000)",
+    "yaxis": {
+        "showticklabels": true,
+        "gridwidth": 0.5,
+        "tickvals": [
+            0.0,
+            0.1,
+            0.2,
+            0.30000000000000004,
+            0.4,
+            0.5
+        ],
+        "visible": true,
+        "ticks": "inside",
+        "range": [
+            -0.015,
+            0.515
+        ],
+        "domain": [
+            0.07581474190726165,
+            0.9901574803149606
+        ],
+        "tickmode": "array",
+        "linecolor": "rgba(0, 0, 0, 1.000)",
+        "showgrid": true,
+        "title": "Probability",
+        "mirror": false,
+        "tickangle": 0,
+        "showline": true,
+        "gridcolor": "rgba(0, 0, 0, 0.100)",
+        "titlefont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 15
+        },
+        "tickcolor": "rgb(0, 0, 0)",
+        "ticktext": [
+            "0.0",
+            "0.1",
+            "0.2",
+            "0.3",
+            "0.4",
+            "0.5"
+        ],
+        "zeroline": false,
+        "type": "-",
+        "tickfont": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 11
+        },
+        "zerolinecolor": "rgba(0, 0, 0, 1.000)",
+        "anchor": "x"
+    },
+    "legend": {
+        "borderwidth": 1,
+        "tracegroupgap": 0,
+        "font": {
+            "color": "rgba(0, 0, 0, 1.000)",
+            "family": "sans-serif",
+            "size": 11
+        },
+        "title": {
+            "font": {
+                "color": "rgba(0, 0, 0, 1.000)",
+                "family": "sans-serif",
+                "size": 15
+            },
+            "text": ""
+        },
+        "traceorder": "normal",
+        "x": 1.0,
+        "yanchor": "auto",
+        "xanchor": "auto",
+        "bordercolor": "rgba(0, 0, 0, 1.000)",
+        "bgcolor": "rgba(255, 255, 255, 1.000)",
+        "y": 1.0
+    },
+    "width": 600
+}
+);
+    });
+    </script>
+
+    
+
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consider now two random variables $X$ and $Y$ defined on the same spample space, and denote the values which they assume respectively by $x_1,x_2,\ldots$ and $y_1,y_2,\ldots$; let the corresponding probability mass functions be $\{f_X(x_j)\}$ and $\{f_Y(y_k)\}$. The aggregate of the sample points points in which the two conditions $X=x_j$ and $Y=y_k$ are satisfied forms an event whose probability will be denote by $\{P(X=x_j, Y=y_k\}$. The function</p>
+\begin{align*}
+P\{X=x_j,Y=y_k\} = f_{X,Y}(x_j,y_k) \tag{5}
+\end{align*}<p>is called the joint PMF of $X$ and $Y$. It is best exhibited in the form a double entry table. Clearly,</p>
+\begin{align*}
+f_{X,Y}(x_j,y_k) \geq 0, \quad \sum_{j,k}f_{X,Y}(x_j,y_k) = 1 \tag{6}
+\end{align*}<p>Moreover, for every fixed $j$,</p>
+\begin{align*}
+f_{X,Y}(x_j,y_1) + f_{X,Y}(x_j,y_2) + f_{X,Y}(x_j,y_3) + \ldots &amp;= P\{ X=x_j \} = f_X(x_j) \tag{7}
+\end{align*}<p>and for every fixed $k$,</p>
+\begin{align*}
+f_{X,Y}(x_1,y_k) + f_{X,Y}(x_2,y_k) + f_{X,Y}(x_3,y_k)+ \ldots &amp;= P\{Y=y_k\} = f_Y(y_k) \tag{8}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In other words, by adding the probabilities in individual rows and columns, we obtain the probability distributions of $X$ and $Y$. They may be exhibited as shown in the table below and are then called marginal PMFs. The adjective marginal refers to the outer appearance in the double-entry table and is also used for stylistic clarity when the joint PMF of the two random variables and also their individual (marginal) PMFs appear in the same context. Strictly speaking, the adjective marginal is redundant.</p>
+<p>The notion of joint PMF carries over a vector of random variables.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Dice</em>. In $n$ throws of an ideal die, let $X_1$, $X_2$, $X_3$ respectively denote the number of ones, twos and threes. The probability $P(X_1 = k_1,X_2=k_2,X_3 = k_3)$ that the $n$ throws result in $k_1$ ones, $k_2$ twos and $k_3$ threes and $n-k_1 - k_2 - k_3$ other faces is given by the multinomial distribution, with $p_1 = p_2 = p_3 = \frac{1}{6}$ and $p_4 = \frac{1}{2}$, that is</p>
+\begin{align*}
+P(X_1 = k_1,X_2=k_2,X_3 = k_3) &amp;= \frac{n!}{k_1! k_2! k_3! (n-k_1-k_2-k_3)!} \left(\frac{1}{6}\right)^{k_1 + k_2 + k_3}\left(\frac{1}{2}\right)^{n-k_1-k_2-k_3} \tag{9}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the joint PMF of $X_1,X_2,X_3$. Keeping $k_1,k_2$ fixed,and summing (9) over the possible values $k_3=0,1,\ldots,n-k_1-k_2$, we get using the binomial theorem,</p>
+\begin{align*}
+&amp;\sum_{k_3} P(X_1 = k_1,X_2=k_2,X_3 = k_3)\\ =&amp; \sum_{k_3}\frac{n!}{k_1!k_2!k_3!(n-k_1-k_2-k_3)!}\left(\frac{1}{6}\right)^{k_1}\left(\frac{1}{6}\right)^{k_2}\left(\frac{1}{6}\right)^{k_3}\left(\frac{3}{6}\right)^{n-k_1-k_2-k_3}\\
+=&amp; \sum_{k_3}\frac{(n-k_3)!}{k_1!k_2!(n-k_1-k_2-k_3)!} \left(\frac{1}{5}\right)^{k_1} \left(\frac{1}{5}\right)^{k_2} \left(\frac{3}{5}\right)^{n-k_1-k_2-k_3} \cdot \frac{n!}{k_3!(n-k_3)!}\left(\frac{1}{6}\right)^{k_3}\left(\frac{5}{6}\right)^{n-k_3}\\
+=&amp; \sum_{k_3}P(X_1=k_1,X_2=k_2|X_3=k_3) \cdot P(X_3=k_3)\\
+=&amp; P(X_1=k_1,X_2=k_2) \quad \{ \text{Law of total probability}\} \tag{10}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the joint PMF of $(X_1,X_2)$ which now appears as the marginal of the triple distribution of $X_1,X_2,X_3$. Needless to say that (10) could have been obtained directly from the multinomial distribution.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Sampling.</em> Let a population of $n$ elements be divided into three classes of respective sizes $n_1 = np_1$ $n_2 = np_2$ and $n_3 = np_3$ (where $p_1 + p_2 + p_3 = 1$). Suppose that a random sample of size $r$ is drawn and denote by $X_1$ nd $X_2$ the numbers of representatives of the first and second class in the sample. If the sample is with replacement, $P\{X_1 = k_1, X_2 = k_2\}$ is given by the multinomial distribution:</p>
+\begin{align*}
+P(X_1 = k_1, X_2 = k_2) = \frac{r!}{k_1! k_2! (r - k_1 - k_2)!}p_1^{k_1} p_2^{k_2} p_3^{r - k_1 - k_2} \tag{11}
+\end{align*}<p>If the sampling is without replacement, then we can show that $P(X_1 = k_1,X_2=k_2)$ is given by the double hypergeometric distribution and $X_1$ has the simple hypergeometric distribution.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We recapitulate in the formal:</p>
+<hr>
+<p><strong>Definition.</strong> A random variable $X$ is a function on a given sample space $\Omega$, that is an assignment of a real number $X(\omega)=x$ to each sample point $\omega$. The probability mass function of $X$ is the function defined by,</p>
+\begin{align*}
+P(X = x_j) = f(x_j) \tag{12}
+\end{align*}<p>If two random variables $X$ and $Y$ are defined on the same sample space, their joint PMF is given by the function $p$ where,</p>
+\begin{align*}
+P\{X = x_j, Y = y_k\} = p(x_j,y_k) \tag{13}
+\end{align*}<p>$p$ assigns probabilities to all combinations $(x_j,y_k)$ of values assumed by $X$ and $Y$. This notion carries over, in an obvious manner, to any finite set of variables $X,Y,\ldots, W$ defined on the same sample space.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Independence-of-random-variables.">
+<a class="anchor" href="#Independence-of-random-variables." aria-hidden="true"><span class="octicon octicon-link"></span></a>Independence of random variables.<a class="anchor-link" href="#Independence-of-random-variables."> </a>
+</h2>
+<p>Just as we had the notion of the independence of events, we can define the independence of random variables. Intuitively, if two random variables are independent, then the value of $X$ gives no information about the value of $Y$ and vice versa. The definition formalizes this idea:</p>
+<hr>
+<p><strong>Definition.</strong> (Independence of random variables). The random variables $X$ and $Y$ are said to be independent if</p>
+\begin{align*}
+P(X \leq x, Y \leq y) = P(X \leq x)\cdot P(Y \leq y) \tag{14}
+\end{align*}<p>for all $x,y \in\mathbf{R}$. In the discrete case, this is equivalent to the condition</p>
+\begin{align*}
+P(X = x,Y = y) = P(X = x)P(Y = y) \tag{15}
+\end{align*}<p>for all combinations $(x,y)$ of values assumed by $X$ and $Y$.</p>
+<hr>
+<p>The definition for more than two random variables is analogous.</p>
+<hr>
+<p><strong>Definition.</strong> The random variables $X_1,X_2,\ldots,X_n$ are independent if</p>
+\begin{align*}
+P(X \leq x_1,\ldots,X_n \leq x_n) = P(X \leq x_1)\cdot P(X \leq x_2) \cdots P(X \leq x_n) \tag{16}
+\end{align*}<p>for all $x_1,x_2,\ldots,x_n \in \mathbf{R}$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For infinitely many random variables, we say that they are independent if every finite subset of the random variables is independent.</p>
+<p>Comparing this to the criteria for the independent of $n$ events, it may seem strange that the independence of $X_1,X_2,\ldots,X_n$ just requires one equality, whereas for events we needed to verify pairwise independence for $n \choose 2$ pairs, three-way independence for all $n \choose 3$ triplets and so on. However, upon closer examination of the definition, we see that the independence of random variables requires the equality to hold for all possible $x_1,\ldots,x_n$ - infinitely many conditions! If we can find even a single list of values $x_1,x_2,\ldots,x_n$ for which the above equality fails to hold, then $X_1,\ldots,X_n$ are not independent.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. In a roll of two fair dice, if $X$ is the number on the first die and $Y$ is the number on the second die, then $X+Y$ is not independent of $X-Y$ since</p>
+\begin{align*}
+P\{ X + Y = 12, X - Y = 1\} = 0
+\end{align*}<p>whereas,</p>
+\begin{align*}
+P\{ X + Y = 12 \} \cdot P\{X - Y = 1\} = \frac{1}{36} \cdot \frac{5}{36}
+\end{align*}<p>Knowing that the total sum is $12$ tells us the difference must be zero, so the random variables provide information about each other.</p>
+<p>If $X$ and $Y$ are independent then it is also true e.g. that $X^2$ is independent of $Y^4$, since if $X^2$ provided information about $Y^4$, then $X$ would give information about $Y$ (using $X^2$ and $Y^4$ as intermediaries: $X$ determines $X^2$, which would give information about $Y^4$, which in turn determines $Y$). More generally, we have the following result.</p>
+<hr>
+<p><strong>Theorem.</strong> (Functions of independent random variables). If $X$ and $Y$ are independent random variables, then any function of $X$ is independent of any function of $Y$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition</strong> (<em>Independent and Identically distributed random variables</em>). We often work with random variables that are independent and have the same distribution. We call such random variables independent and identically distributed.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Independent and identically distributed are two often confused but completely different concepts. Random variables are independent if they provide no information about each other; they are identically distributed if they have the same PMF (or equivalently the same CDF). Whether two random variables are independent has nothing to do with whether they have the same distribution. We can have random variables that are:</p>
+<ul>
+<li>Independent and identically distributed. Let $X$ be the result of a die roll, and let $Y$ be the result of a second, independent die roll. Then $X$ and $Y$ are i.i.d.</li>
+<li>Independent and not identically distributed. Let $X$ be the result of a die roll, and let $Y$ be the closing price of the Dow Jones(a stock market index) a month from now. Then, $X$ and $Y$ provide no information about each other (one would fervently hope), and $X$ and $Y$ do not have the same distribution. </li>
+<li>Dependent and identically distributed. Let $X$ be the number of heads in $n$ independent coin tosses, and let $Y$ be the number of tails in those same $n$ tosses. Then $X$ and $Y$ are both distributed $Bin(n,\frac{1}{2})$, but they are highly dependent: if we know $X$, we know $Y$ perfectly.</li>
+<li>Dependent and not identically distributed. Let $X$ be the indicator of whether the majority party retains control of the House of the representatives in the U.S. after the next election, and let $Y$ be the average favorability rating of the majority party in polls taken within a month of the the election. Then, $X$ and $Y$ are dependent, and $X$ and $Y$ do not have the same distribution. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By taking a sum of i.i.d. Bernoulli random variables, we can write down the story of the Binomial distribution in algebraic form.</p>
+<hr>
+<p><strong>Theorem.</strong> If $X \sim Bin(n,p)$, viewed as the number of successes in $n$ independent Bernoulli trials with probability of success $p$, then we can write 
+\begin{align*}
+X = X_1 + X_2 + \ldots + X_n
+\end{align*}</p>
+<p>where $X_i$ are i.i.d $Bernoulli(p)$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Proof.</em>
+Let $X_i = 1$ if the $i$th trial was a success, and $0$ if the $i$th trial was a failure. Its as though we have a person assigned to each trial, and we ask each person to raise their hand if their trial was a success. If we count the number of raised hands (which is the same as adding up the $X_i$), we get the total number of successes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An important fact about the Binomial distribution is that the sum of independent Binomial random variables with the same success probability is also Binomial.</p>
+<hr>
+<p><strong>Theorem.</strong> If $X \sim Bin(n,p), Y \sim Bin(m,p)$ and $X$ is independent of $Y$, then $X+Y \sim Bin(n+m,p)$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Proof.</em></p>
+<p>We present three proofs, since each illustrates a useful technique.</p>
+<p>(i) We can directly find the PMF of $X+Y$ by conditioning on $X$ (or $Y$, whichever we prefer) and using the law of total probability:</p>
+<p>
+\begin{align*}
+P(X + Y = k) &amp;= \sum_{j=0}^{k}P(X + Y = k| X = j)\cdot P(X = j)\\
+&amp;= \sum_{j=0}^{k}P(Y=k-j) \cdot P(X=j)\\
+&amp;= \sum_{j=0}^{k}{m \choose {k - j}} p^{k - j} q^{m - (k-j)} {n \choose j} p^{j} q^{n - j}\\
+&amp;= p^k q^{n + m - k} \sum_{j=0}^{k} {m \choose {k - j}}{n \choose j} \\
+&amp;= p^k q^{n + m - k}{{n + m} \choose k} \quad \{ \text{ Vandermonde's identity } \}
+\end{align*}
+</p>
+<p>(ii) Representation: A much simpler proof is to represent both $X$ and $Y$ as the sum of i.i.d $Bern(p)$ random variables : $X = X_1 + X_2 + \ldots + X_n$ and $Y = Y_1 + Y_2 +\ldots + Y_m$ where the $X_i$ and the $Y_j$ are all i.i.d $Bern(p)$. Then, the sum $X+Y$, by the previous theorem (the story of the binomial) is $Bin(n+m,p)$.</p>
+<p>(iii) By the story of the binomial, $X$ is the number of successes in $n$ independent trials and $Y$ is the number of successes in $m$ additional independent trials, all with the same success probability, so $X+Y$ is the total number of successes in the $n+m$ trials, which is the story of the $Bin(n + m,p)$ distribution.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Of course, if we have a definition for independence of random variables, we should have an analogous definition for the conditional independence of random variables.</p>
+<hr>
+<p><strong>Definition</strong>(<em>Conditional Independence</em>). Random variables $X$ and $Y$ are conditionally independent given a random variable $Z$ if for all $x,y \in \mathbf{R}$ and all the $z$ in the support of $Z$,</p>
+\begin{align*}
+P\{ X \leq x, Y \leq y|Z = z \} = P\{ X \leq x | Z = z \} \cdot P\{ Y \leq y | Z = z \} \tag{17}
+\end{align*}<hr>
+<p>For discrete random variables, an equivalent definition is to require</p>
+\begin{align*}
+P\{ X = x, Y = y| Z = z\} = P\{ X = x| Z = z\} \cdot P\{ Y = y|Z = z \}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition</strong> (<em>Conditional PMF</em>). The conditional probability of the event $\{Y = y_k\}$, given that $\{X = x_j\}$ is given by</p>
+\begin{align*}
+P \{ Y = y_k | X = x_j\} = \frac{P\{Y = y_k, X = x_j\}}{P\{X = x_j\}}
+\end{align*}<p>But, the probability of the event $\{Y = y_k, X = x_j\}$ is given by the joint distribution of $X,Y$, $f_{X,Y}(x_j,y_k)$ and the probability of the event $\{ X = x_j\}$ is given by the marginal distribution of $X$, $f_X(x_j)$. Consequently, the conditional PMF of $Y$ given $X$, written $f_{Y|X=x_j}(y_k)$ is:</p>
+<p>
+\begin{align*}
+P \{ Y = y_k | X = x_j\} = f_{Y|X=x_j}(y_k) = \frac{f_{X,Y}(x_j,y_k)}{f_X(x_j)} \tag{18}
+\end{align*}
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. Suppose a dice is rolled $N=5$ times. Let $X$ be the number of ones and $Y$ be the number of twos. The pair $(X,Y)$ follows the $Multinomial(5,\frac{1}{6},\frac{1}{6})$ distribution. The joint PMF $f_{X,Y}(x_j,y_k)$ is given by,</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">function</span> <span class="n">multinomial_pmf2</span><span class="p">(</span><span class="n">n</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span><span class="n">k₁</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span><span class="n">k₂</span><span class="o">::</span><span class="kt">Integer</span><span class="p">,</span><span class="n">p₁</span><span class="p">,</span><span class="n">p₂</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">k₁</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">k₂</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k₁</span><span class="o">-</span><span class="n">k₂</span><span class="p">)))</span><span class="o">*</span><span class="p">(</span><span class="n">p₁</span><span class="o">^</span><span class="n">k₁</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p₂</span><span class="o">^</span><span class="n">k₂</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p₁</span><span class="o">-</span><span class="n">p₂</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k₁</span><span class="o">-</span><span class="n">k₂</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">multinomial_pmf2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">),(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">f_XY</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span><span class="o">-</span><span class="n">x</span>
+        <span class="n">f_XY</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">f_XY</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6×6 Array{Float64,2}:
+ 0.131687     0.164609      0.0823045     …  0.00257202    0.000128601
+ 0.164609     0.164609      0.0617284        0.000643004   7.35247e-316
+ 0.0823045    0.0617284     0.0154321        7.35247e-316  7.33184e-316
+ 0.0205761    0.0102881     0.00128601       7.33184e-316  7.33184e-316
+ 0.00257202   0.000643004   7.33184e-316     7.33184e-316  7.33184e-316
+ 0.000128601  7.35247e-316  7.33184e-316  …  7.33184e-316  3.891e-315</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The marginal distributions of $X$ and $Y$ are given by, $\sum_{y_k} f_{X,Y}(x_j,y_k)$, $\sum_{x_j} f_{X,Y}(x_j,y_k)$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f_X</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span>
+      <span class="n">f_X</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_X</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f_XY</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">f_Y</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">y</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="mi">0</span><span class="o">:</span><span class="n">N</span>
+      <span class="n">f_Y</span><span class="p">[</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_Y</span><span class="p">[</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f_XY</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f_X</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6-element Array{Float64,1}:
+ 0.401877572016461
+ 0.40187757201646096
+ 0.16075102880658437
+ 0.03215020576131688
+ 0.0032150205761316874
+ 0.00012860082304526745</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f_Y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6-element Array{Float64,1}:
+ 0.401877572016461
+ 0.40187757201646096
+ 0.16075102880658437
+ 0.03215020576131688
+ 0.0032150205761316874
+ 0.00012860082304526745</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The conditional PMF of $Y$ for given $X=3$ is given by,</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f_XY</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="o">/</span><span class="n">f_Y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6-element Array{Float64,1}:
+ 0.5120000000000001
+ 0.384
+ 0.09599999999999999
+ 0.008
+ 4.573823507e-315
+ 4.560993067e-315</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Indepdence of random variables does not imply conditional independence and vice versa. First let us show why independence does not imply conditional independence.</p>
+<p><strong>Example.</strong>(<em>Matching Pennies</em>) Consider the simple game called <em>matching pennies</em>. Each of the two players, A and B has a fair penny. They flip their pennies independently. If the pennies match, A wins; otherwise B wins. Let $X$ be 1, if A's penny lands heads and $-1$ otherwise, and define $Y$ similarly(the random variables $X$ and $Y$ are called <em>random signs</em>).</p>
+<p>Let $Z = XY$, which is $1$ if $A$ wins and $-1$ if $B$ wins. Then, $X$ and $Y$ are unconditionally independent, but given $Z = 1$, we know that $X = Y$ (the pennies match). So, $X$ and $Y$ are conditionally dependent given $Z$.</p>
+<p>Next, lets see why conditional independence does not imply independence.</p>
+<p><strong>Example.</strong> (<em>Mystery opponent</em>) Suppose that you are going to play two games of tennis against one of the two identical twins. Against one of the two twins, you are evenly matched, and against the other you have $\frac{3}{4}$ chance of winning. Suppose that you can't tell which twin you are playing against until after the two games. Let $Z$ be the indicator of playing against the twin with whom you're evenly matched, and let $X$ and $Y$ be the indicators of victory in the first and second games, respectively.</p>
+<p>Conditional on $Z = 1$, $X$ and $Y$ are i.i.d. Bern(1/2), and conditional on $Z = 0$, $X$ and $Y$ are i.i.d. Bern(3/4). So, $X$ and $Y$ are conditionally independent given $Z$. Unconditionally, $X$ and $Y$ are dependent because observing $X=1$ makes it more likely that we are playing the twin who is worse. That is,</p>
+\begin{align*}
+P\{ Y = 1 | X = 1 \} &gt; P \{ Y = 1\}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Past games give us information which helps us infer who our opponent is, which in turn helps us predict future games! "</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example.</strong> (<em>Bernoulli trials with variable probabilities</em>) Consider $n$ independent trials, each of which has only two possible outcomes, $S$ and $F$. The probability of $S$ at the $k$th trial is $p_k$, that of $F$ is $q_k = 1 - p_k$. If $p_k = p$, this scheme reduces to Bernoulli trials. The simplest way of describing it is to attribute the values $1$ and $0$ to $S$ and $F$. The model is then completely described by saying that we have $n$ mutually independent random variables $X_k$ with $P\{ X_k = 1 \} = p_k$, $P\{ X_k = 0 \} = q_k$. These are <em>not</em> identically distributed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is clear that the same distribution can occur in conjunction with different sample spaces. If we say that the random vaiable $X$ assumes the values $0$ and $1$ with probabilities $\frac{1}{2}$, then we refer tacitly to a sample space consisting of two points $0$ and $1$. However, the variable $X$ might have been dfined by stipulating that it equals $0$ or $1$, according as the tenth tossing of a coin produces heads or tails; in this case $X$ is defined in a sample space of sequences $(HHT\ldots)$, and this sample space has $2^{10}$ points.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In principle, it is possible to restrict the theory of probability to sample spaces defined in terms of probability distributions of random variables. This procedre avoids references to abstract sample spaces and also to terms like "trials" and "outcomes of experiments". The reduction of probability theory to random variables is a short cut to the use of analysis and simplifies the theory in many ways. However, it also has the drawback of obscuring the probability background. The notion of a random variable remains vague as "something that takes different values with different probabilities." But random variables are ordinary functions, and this notion is by no means peculiar to probability theory.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example.</strong> Let $X$ be a random variable with possible values $x_1,x_2,\ldots$ and corresponding probabilities $f_X(x_1),f_X(x_2),\ldots$. If it helps the reader's imagination, he may always construct a conceptual experiment leading to $X$. For example, subdivide a roulette wheel into arcs $l_1,l_2,\ldots$ whose lengths are $f(x_1):f(x_2):\ldots$. Imagine a gambler receiving the (positive or negative) amount $x_j$ if the roulette comes to rests at a point of $l_j$. Then, $X$ is the gambler's gain. In $n$ trials, the gains are assumed to be $n$ independent random variables with the common distribution $\{f_X(x_j)\}$. To obtain two varibles with a given joint distribution $\{ f_{X,Y}(x_j,y_k) \}$, let an arc $l_{j,k}$ correspond to each combination $(x_j,y_k)$, such that their lengths are in the proportion $f_{X,Y}(x_1,y_1):\ldots:f_{X,Y}(x_1,y_n):f_{X,Y}(x_2,y_1):\ldots$. Think of the two gamblers receiving the amounts $x_j$ and $y_k$ respectively. Then, $X$ is the first gambler's gain, $Y$ is the second gambler's gain.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If $X_1,X_2,X_3,\ldots$ are random variables defined on the same sample space, then any function $F(X_1,X_2,X_3,\ldots)$ is again a random variable. Its distribution can be obtained by simply collecting the terms that correspond to combinations of $(X_1,X_2,X_3,\ldots)$ giving the same value of $F(X_1,X_2,X_3,\ldots)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Expectation.">
+<a class="anchor" href="#Expectation." aria-hidden="true"><span class="octicon octicon-link"></span></a>Expectation.<a class="anchor-link" href="#Expectation."> </a>
+</h2>
+<p>To achieve reasonable simplicity it is often necessary to describe probability distributions rather summarily by a few typical values. An example is provided by the median which was used above in connection with the waiting times. The <em>median</em> $x_m$ of the distribution is that value assumed by $X$  for which $P\{X \leq x_m\} \leq \frac{1}{2}$ and also $P\{X \geq x_m \} \leq \frac{1}{2}$. In other words, $x_m$ is chosen so that the probabilities of $X$ exceeding or falling short of $x_m$ are as close to $\frac{1}{2}$ as possible.</p>
+<p>However, among the typical values the expectation or the mean is by far the most important. It lend itself best to analytical manipulations, and it is preferred by statisticians because of a property known as sampling stability. It's definition follows the customary notion of an average. If in a certain population $n_k$ families have exactly $k$ children, the total number of familieis is $n = n_0 + n_1 + n_2 + \ldots$ and the total number of children $m = n_1 + 2n_2 + 3n_3 + \ldots$ The average number of children per family is $m/n$. The analogy between probabilities and frequencies suggests the following:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition</strong> (<em>Expectation</em>) Let $X$ be a random variable assuming the values $x_1,x_2,\ldots$ with corresponding probabilities $f_X(x_1),f_X(x_2),\ldots$. The mean or expected value of $X$ is defined by:</p>
+\begin{align*}
+E(X) = \sum_{k} {x_k}f_X(x_k) \tag{19}
+\end{align*}<p>provided that the series converges absolutely. In this case, we say that $X$ has finite expectation. If $\sum |x_k|f(x_k)$ diverges, then we say that $X$ has no finite expectation.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It goes without saying that the most common random variables have finite expectations; otherwise the concept would be impractical. However, variables without finite expectations occur in connection with important recurrence problems in physics. The terms <em>mean</em>, <em>average</em> and <em>mathematical expectation</em> are synonymous. We also speak of the mean of a distribution instead of referring to a corresponding random variable. The notation $E(X)$ is generally accepted in mathematics and statistics. In pyhysics, $\overline{X}$, $&lt;X&gt;$ are common substitutes for $E(X)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Linearity-of-Expectation.">
+<a class="anchor" href="#Linearity-of-Expectation." aria-hidden="true"><span class="octicon octicon-link"></span></a>Linearity of Expectation.<a class="anchor-link" href="#Linearity-of-Expectation."> </a>
+</h3>
+<p>The most important property of expectation is linearity: the expected value of a sum of random variables is the sum of the expected values.</p>
+<hr>
+<p><strong>Theorem.</strong> (<em>Linearity of expectation</em>). For any random variables $X,Y$ and any constant $c$,</p>
+\begin{align*}
+E(X + Y) &amp;= E(X) + E(Y) \tag{20}\\
+E(cX) &amp;= cE(X) \tag{21}
+\end{align*}<hr>
+<p>The second equation says that we can take out constant factors from an expectation; this is both intuitively reasonable and easily verified from the definition. Consider:</p>
+\begin{align*}
+E(cX) &amp;= \sum_{x_k} (cx_k)(f_{cX}(cx_k))
+\end{align*}<p>For a discrete PMF, $f_{cX}(cx_k) = P(cX = cx_k) = P(X = x_k) = f_X(x_k)$.</p>
+<p>Consequently,</p>
+\begin{align*}
+E(cX) &amp;= \sum_{x_k} cx_kf_{X}(x_k)\\
+&amp;= c\sum_{x_k}x_k f_X(x_k) \\
+&amp;= cE(X)
+\end{align*}<p>The first equation, $E(X+Y) = E(X) + E(Y)$, also seems reasonable when $X$ and $Y$ are independent. What may be surprising is that it holds, even if $X$ and $Y$ are dependent! To build intuition for this, consider the extreme case where $X$ always equals $Y$. Then, $X + Y = 2X$, both sides of $E(X + Y)$ are equal to $2E(X)$, so linearity still holds even in the most extreme case of dependence.</p>
+<p>Linearity is true for all random variables, not just discrete random variables, but in this chapter we prove it only for discrete random variables. Before proving linearity, it is worthwhile to recall some basic facts about averages. If we have a list of numbers, say $(1,1,1,1,1,3,3,5)$, we can calculate their mean by adding all the values and dividing the length of the list, so that each element of the list gets a weight of $\frac{1}{8}$:</p>
+\begin{align*}
+\frac{1}{8}(1 + 1 + 1 + 1 + 1 + 3 + 3 + 5) = 2
+\end{align*}<p>But another way to calculate the mean is to group together all the $1$'s, all the $3$'s and all the $5$'s, and take a weighted average, giving appropriate weights to $1$'s, $3$'s and $5$'s.</p>
+\begin{align*}
+\frac{5}{8} \cdot 1 + \frac{2}{8}\cdot 3 + \frac{1}{8} \cdot 5 = 2
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That insight - that averages can be calculated in two ways, <em>ungrouped</em> or <em>grouped</em> - is all that is needed to prove linearity! Recall, that the random variable $X$ is a function that assigns a real number in $\mathbf{R}$ to every sample point $\omega$ in the sample space $\Omega$. The random variable may assign the same value to multiple outcomes. So, $P(X = x_k) = P\{\omega \in \Omega:X(\omega) = x_k\}$. Therefore, we can write:</p>
+\begin{align*}
+E(X) &amp;= \sum_{x_k} x_k P(X = x_k )\\
+&amp;= \sum_{x_k} x_k P\{ \omega \in \Omega : X(\omega) = x_k \}\\
+&amp;= \sum_{\omega \in \Omega} X(\omega) P\{\omega\}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We switched from iterating over all $x_k$ to iterating over all $\omega$'s. This corresponds to the ungrouped way of taking averages. The advantage of this definition is, that it breaks down the sample space into the smallest possible units, so we are now using the same weights $P\{\omega\}$ for every random variable defined on this sample space. Now, if $Y$ is a random variable defined over the same sample space, then,</p>
+\begin{align*}
+E(Y) = \sum_{\omega \in \Omega} Y(\omega) P\{\omega\}
+\end{align*}<p>Consequently, we have:</p>
+\begin{align*}
+E(X + Y) &amp;= \sum_{\omega \in \Omega} [X(\omega) + Y(\omega)] P\{\omega\}\\
+&amp;= \sum_{\omega \in \Omega} X(\omega) P \{\omega\} + \sum_{\omega \in \Omega} Y(\omega) P \{\omega\} \\
+&amp;= E(X) + E(Y)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another intuition for the linearity of expectation is via the concept of simulation. If we simulate a random experiment a large number of times, say $N$, then the frequency/histogram of the simulated values of $X$ will look very much like the true PMF of $X$. In particular, the arithmetic mean of the simulated values will be very close to the true value of $E(X)$ (the precise nature of this convergence is described by the law of large numbers).</p>
+<p>Consider a random experiment e.g. tossing a fair coin $10$ times. And let $X$ be the number of heads and $Y$ be the number of double tails $TT$, observed. The experiment is performed a large number of times $N$. And we write down the values of $X$ and $Y$ each time. For each repetition of the experiment, we obtain an $X$ value and a $Y$ value, and (by adding them) an $X+Y$ value.</p>
+<p>Now, we could take the arithmetic mean of the values of $X+Y$, which by the law of large numbers is very close to $E(X+Y)$. We could also take the arithmetic mean of the values of $X$ and values $Y$ and sum them up, which by the law of large numbers is close to $E(X) + E(Y)$.</p>
+<p>Linearity of expectation thus emerges as a simple fact about arithmetic (we're just adding numbers in two different orders)! Notice that nowhere in our argument, did we rely on the fact that $X$ and $Y$ are independent.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Binomial Expectation</em>) Let $X \sim Bin(n,p)$. Then,</p>
+<p>
+\begin{align*}
+E(X) &amp;= \sum_{k=0}^{n}kf_X(k)\\
+&amp;= \sum_{k=0}^{n}k {n \choose k}p^k q^{n-k}\\
+&amp;= \sum_{k=1}^{n}k {n \choose k}p^k q^{n-k} \quad \{ \text{ when }k = 0,\text{ the first term vanishes } \}
+\end{align*}
+</p>
+<p>Now,</p>
+<p>
+\begin{align*}
+k{n \choose k} &amp;= k \cdot \frac{n!}{k!(n-k)!}\\
+&amp;= n \frac{(n-1)!}{(k-1)!(n-k)!}\\
+&amp;= n \frac{(n-1)!}{(k-1)!((n-1)-(k-1))!}\\
+&amp;= n {{n - 1} \choose {k - 1}}
+\end{align*}
+</p>
+<p>Thus,</p>
+<p>
+\begin{align*}
+E(X) &amp;= \sum_{k=1}^{n}k {n \choose k}p^k q^{n-k} \\
+&amp;= n \sum_{k=1}^{n}{{n - 1} \choose {k - 1}}p^k q^{n-k} \\
+&amp;= np \sum_{k - 1 = 0}^{n - 1} {{n - 1} \choose {k - 1}}p^{k-1} q^{(n-1) - (k-1)}\\
+&amp;= np \sum_{j = 0}^{n - 1} {{n - 1} \choose j}p^{j} q^{(n-1) - j}\\
+&amp;= np (p + q)^{n-1}\\
+&amp;= np
+\end{align*}
+</p>
+<p>Therefore, if $X$ is a $Bin(n,p)$ random variable, $E(X) = np$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This result is much easier to prove using linearity of expectations. Let's write $X$ as the sum of $n$ i.i.d $Bern(p)$ random variables.</p>
+\begin{align*}
+X = I_1 + I_2 + \ldots + I_n
+\end{align*}<p>The expectation of a Bernoulli random variable is, $E(I_j) = p\cdot 1 + q \cdot 0 = p$. So, we have:</p>
+\begin{align*}
+E(X) &amp;= E(I_1 + I_2 + \ldots + I_n) \\
+&amp;= E(I_1) + E(I_2) + \ldots + E(I_n) \quad \{ \text{Linearity of expectations} \} \\
+&amp;= \underbrace{p + p + \ldots + p}_{n \text{ times }} \\
+&amp;= np
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Hypergeometric  Expectation</em>) Let $X \sim HGeom(w,b,n)$ be the number of white balls in a sample of size of $n$ drawn without replacement from an urn containing $w$ white balls and $b$ black balls. As in the binomial case, we can write $X$ as a sum of Bernoulli random variables.</p>
+\begin{align*}
+X = I_1 + I_2 + \ldots + I_n
+\end{align*}<p>Consider the $j$th draw. If we have no knowledge of the preceding $(j-1)$ draws, the unconditional probability of drawing a white ball in the $j$th trial is $P\{I_j = 1\} = w/(w + b)$, since the white ball is equally likely to be any of the balls. Consequently, $E(I_j) = w/(w + b)$.</p>
+<p>Therefore,</p>
+\begin{align*}
+EX &amp;= EI_1 + EI_2 + \ldots + EI_n\\
+&amp;= \frac{nw}{w + b}
+\end{align*}<p>Unlike in the Binomial case, the $I_j$ are not independent, since the sampling is without replacement: given that a ball in the sample is white, there is a lower chance that another ball in the sample is white. However, linearity still holds for dependent random variables!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Geometric Expectation</em>)</p>
+<p>Let $X \sim Geom(p)$ be the number of trials until the first success. The probability that $k$ failures precede the first success is $P\{X = k\} = q^{k} p$. The expected number of trials until the first success is given by,</p>
+\begin{align*}
+E(X) &amp;= \sum_{k=1}^{\infty}kq^{k}p\\
+&amp;=pq \sum_{k=1}^{\infty}kq^{k-1}
+\end{align*}<p>Now, 
+\begin{align*}
+\frac{1}{1-q} = 1 + q + q^2 + q^3 + \ldots 
+\end{align*}</p>
+<p>Differentiating on both side with respect to $q$,</p>
+\begin{align*}
+\frac{1}{(1-q)^2} = 1 + 2q + 3q^2 + 4q^3 + \ldots = \sum_{k=1}^{\infty} kq^{k-1}
+\end{align*}<p>Hence,</p>
+\begin{align*}
+E(X) &amp;= pq \sum_{k=1}^{\infty}kq^{k-1}\\
+&amp;= \frac{pq}{(1-q)^2} = \frac{pq}{p^2} \\
+&amp;= \frac{q}{p}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In a sequence of independent Bernoulli trials with success probability $p$, if $X$ is the number of <em>failures</em> before the $r$th success, then $X$ is said to have the negative binomial distribution with parameters $r,p$, denoted $NBin(r,p)$.</p>
+<p>Both the Binomial and the Negative Binomial distributions are based on independent Bernoulli trials; they differ in the <em>stopping rule</em> and what they are counting. The Binomial counts the number of successes in a <em>fixed</em> number of trials. The Negative Binomial counts the number of failures until a fixed number of <em>successes</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We know that, if $X \sim NBin(r,p)$, the PMF of $X$ is given by,</p>
+<p>
+\begin{align*}
+P\{ X = k \} = {{r + k - 1} \choose k}p^r q^k
+\end{align*}
+</p>
+<p>where $k=0,1,2,\ldots$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Theorem.</strong> Let $X \sim NBin(r,p)$, viewed as the number of failures before the $r$th success in a sequence of independent Bernoulli trials with success probability $p$. Then, we can write $X = X_1 + X_2 + \ldots + X_r$, where $X_i$ are geometric random variables.</p>
+<hr>
+<p><em>Proof.</em>
+Let $X_1$ be the number of failures until the first success, $X_2$ be the number of failures between the first success and the second success, and in general, $X_i$ be the number of failures between the $(i-1)$st success and $i$th success. Then, $X_1 \sim Geom(p)$ and similarly for all $X_i$. Furthermore, the $X_i$ are independent, because the trials are independent of each other. Adding the $X_i$, we get the total number of failures preceding the $r$th success, which is $X$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example.(<em>Negative Binomial Expectation</em>) Let $X \sim NBin(r,p)$. By the previous theorem, we can write $X=X_1+X_2+\ldots+X_r$, where $X_i$ are i.i.d. $Geom(p)$. By linearity of expectations,</p>
+\begin{align*}
+E(X) &amp;= E(X_1) + \ldots + E(X_r)\\
+&amp;= \underbrace{\frac{q}{p} + \ldots + \frac{q}{p}}_{r \text{ times }}\\
+&amp;= r\cdot \frac{q}{p}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Coupons</em>) Every package of some intrinsically dull commodity includes a smal and exciting plastic object. There are diferent types of object, and each package is equally likely to contain any given type. You buy one package each day.</p>
+<p>(a) Find the mean number of days which elapse between the acquisitions of the $j$th new type of object and the $(j+1)$th new type.</p>
+<p>(b) Find the mean number of days which elapse before you have a full set of objects.</p>
+<p><em>Solution.</em></p>
+<p>This question asks about waiting times when sampling from a population with replacement. As the sample grows larger and larger, since we are sampling with replacement, the chance that newer elements enter the sample becomes rarer.</p>
+<p>(a) Let $X_j$ be the number of days elapsed between the acquisition of the $j$th new type of object and the $(j+1)$th new type. What's the probability distribution of $X_j$?</p>
+\begin{align*}
+P(X_j = 1) &amp;= \frac{c - j}{c} = \left(1 - \frac{j}{c}\right)\\
+P(X_j = 2) &amp;= \left(\frac{j}{c}\right)\left(1 - \frac{j}{c}\right)\\
+P(X_j = 3) &amp;= \left(\frac{j}{c}\right)^2\left(1 - \frac{j}{c}\right)\\
+\vdots
+\end{align*}<p>By definition, the mathematical expectation of $X_j$ is,</p>
+<p>
+\begin{align*}
+E(X_j) &amp;= 1 \cdot \left(1 - \frac{j}{c}\right) + 2 \cdot \left(\frac{j}{c}\right)\left(1 - \frac{j}{c}\right) + 3 \cdot \left(\frac{j}{c}\right)^2\left(1 - \frac{j}{c}\right) + \ldots \\
+&amp;= \left(1 - \frac{j}{c}\right)\left[1 + 2 \cdot \left(\frac{j}{c}\right) + 3 \cdot \left(\frac{j}{c}\right)^2 + \ldots \right]\\
+&amp;= \left(1 - \frac{j}{c}\right) \cdot \frac{1}{\left(1 - \frac{j}{c}\right)^2}\\
+&amp;= \frac{1}{1 - \frac{j}{c}}\\
+&amp;= \frac{c}{c - j}
+\end{align*}
+</p>
+<p>(b) Let $S_r$ be the number of days which elapse until we have $r$ distinct objects in the sample. It follows that, $S_r = 1 + X_1 + X_2 + X_{r-1}$. Therefore,</p>
+<p>
+\begin{align*}
+E[S_r] &amp;= E[ 1 + X_1 + X_2 + X_{r-1}] \\
+&amp;= E[1] + E[X_1] + E[X_2] + \ldots + E[X_{r-1}] \quad \{ \text{ Linearity of expectation } \}\\
+&amp;= 1 + \frac{c}{c - 1} + \frac{c}{c - 2} + \ldots + \frac{c}{c - r + 1}\\
+&amp;= c\left[\frac{1}{c} + \frac{1}{c-1} + \frac{1}{c-2} + \ldots + \frac{1}{c - r + 1}\right]
+\end{align*}
+</p>
+<p>The mean number of days that elapse until we have a full set of objects is,</p>
+\begin{align*}
+E[S_c] = c\left[\frac{1}{c} + \frac{1}{c-1} + \frac{1}{c-2} + \ldots + 1\right]
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>An estimation problem</em>) A bowl contains balls numbered $1$ to $N$. Let $X$ be the largest number drawn in $n$ drawings when random sampling with replacement is used. The event $X \leq k$ means that each of the $n$ numbers drawn is less than or equal to $k$ and therefore the $P\{ X \leq k \} = \left(\frac{k}{N}\right)^n$. Hence the probability distribution of $X$ is given by</p>
+\begin{align*}
+p_k &amp;= P\{ X = k \}\\
+&amp;= P\{X \leq k \} - P\{ X \leq k - 1\}\\
+&amp;= \left(\frac{k}{N}\right)^n - \left(\frac{k-1}{N}\right)^n
+\end{align*}<p>It follows that:</p>
+\begin{align*}
+E[X] &amp;= \sum_{k = 1}^{N}k P\{X = k\}\\
+&amp;= N^{-n}\sum_{k = 1}^{N} \left[k^{n+1} - k \cdot (k-1)^{n}\right]\\
+&amp;= N^{-n}\sum_{k = 1}^{N} \left[k^{n+1} - (k-1+1) \cdot (k-1)^{n}\right]\\
+&amp;= N^{-n}\sum_{k = 1}^{N} \left[k^{n+1} - (k-1)^{n+1} - (k-1)^n\right]\\
+&amp;= N^{-n}\left[1 + (2^{n+1} - 1) + (3^{n+1} - 2^{n+1}) + \ldots + (N^{n+1} - (N-1)^{n+1}) - \sum_{k=1}^{N}(k - 1)^n\right]\\
+&amp;= N^{-n}\left[N^{n+1} - \sum_{k=1}^{N}(k - 1)^n\right]
+\end{align*}<p>For large $N$, the last sum is approximately the area under the curve $y=x^n$ from $x=0$ to $x=N$, that is, $\frac{N^{n+1}}{n+1}$. It follows that for large $N$,</p>
+\begin{align*}
+E[X] \approx N - \frac{N}{n+1} = \frac{n}{n+1}N
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If a town has $N=1000$ cars and a sample of $n = 10$ is observed, the expected number of the highest observed license plate (assuming randomness) is about $(10/11) \times 10000 = 910$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Banach's Matchbox problem.</em>) In the previous chapter, we found that the distribution of the number of matches $X$ left at the moment when the first box is found empty, is given by:</p>
+\begin{align*}
+f(r) &amp;= {2N - r \choose N} \frac{1}{2^{2N - r}}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using the fact that $\sum_{r=0}^{N} f(r) = 1$, we find that:</p>
+\begin{align*}
+N - \mu &amp;= \sum_{r = 0}^{N}(N-r)f(r)\\
+&amp;= \sum_{r = 0}^{N}(N-r){2N - r \choose N - r}\frac{1}{2^{2N - r}}
+\end{align*}<p>Note that, the last term of this sum is $0$. Effectively, we iterate $r$ from $0,1,\ldots$ to $N-1$.</p>
+\begin{align*}
+N - \mu = \sum_{r = 0}^{N-1}(N-r){2N - r \choose N - r}\frac{1}{2^{2N - r}}
+\end{align*}<p>We know that $k {n \choose k} = n {n - 1 \choose k - 1}$. So, we can perform a simple operation on the binomial coefficients as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+\begin{align*}
+(N-r) {2N - r \choose N - r} = (2N - r) {2N - r - 1 \choose N - r - 1}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Therefore, we have:</p>
+\begin{align*}
+N - \mu &amp;= \sum_{r = 0}^{N-1}(2N - r) {2N - r - 1 \choose N - r - 1}\frac{1}{2^{2N - r}}\\
+&amp;= \sum_{r = 0}^{N-1}(2N + 1 - r - 1){2N - r - 1 \choose N - r - 1}\frac{1}{2^{2N - r - 1}} \cdot \frac{1}{2}\\
+&amp;= \frac{2N + 1}{2}\sum_{r = 0}^{N-1}{2N - r - 1 \choose N - r - 1}\frac{1}{2^{2N - r - 1}} - \frac{1}{2}\sum_{r = 0}^{N-1}(r+1){2N - r - 1 \choose N - r - 1}\frac{1}{2^{2N - r - 1}}\\
+&amp;= \frac{2N+1}{2}\sum_{r = 0}^{N-1}f(r+1) -\frac{1}{2}\sum_{r = 0}^{N-1}(r+1)f(r+1)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The last sum is identical with the sum defining $\mu = E(X)$, and in the first sum, all the terms $f(r)$ except $f(0)$ occur and hence, the terms add to $1 - f(0)$. Thus, we get:</p>
+\begin{align*}
+N - \mu = \frac{2N + 1}{2}(1 - f(0)) - \frac{\mu}{2} \tag{22}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or in other words,</p>
+\begin{align*}
+\mu= 2N - (2N + 1)\left(1 - {2N \choose N}\frac{1}{2^{2N}}\right)
+\end{align*}<p>That is,</p>
+<hr>
+\begin{align*}
+\mu = (2N + 1){2N \choose N} \frac{1}{2^{2N}} - 1 \tag{23}
+\end{align*}<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indicator-random-variables-and-Matching.">
+<a class="anchor" href="#Indicator-random-variables-and-Matching." aria-hidden="true"><span class="octicon octicon-link"></span></a>Indicator random variables and Matching.<a class="anchor-link" href="#Indicator-random-variables-and-Matching."> </a>
+</h2>
+<p>This section contains some liht entertainment in the guise of some illustrations of the uses of indicator random variables. An indicator random variable $I_A$ for an event $A$ is defined to be $1$ if $A$ occurs and $0$ otherwise. So, $I_A$ is a Bernoulli random variable, where success is defined as "$A$ occurs" and failure is defined as "$A$ does not occur". Some useful properties of indicator random variables are summarized below:</p>
+<hr>
+<p><strong>Theorem.</strong> Let $A$ and $B$ be events. Then, the following properties hold:</p>
+<p>(1) \begin{align*}
+(I_A)^k = I_A \text{ for any positive integer } k.
+\end{align*}</p>
+<p>(2) \begin{align*}
+I_{A^C} = 1 - I_A
+\end{align*}</p>
+<p>(3) \begin{align*}
+I_{A \cap B} = I_A \cdot I_B
+\end{align*}</p>
+<p>(4) \begin{align*}
+I_{A \cup B} = I_A + I_B - I_{A \cap B}
+\end{align*}</p>
+<hr>
+<p><em>Proof.</em></p>
+<p>Clearly, property 1 holds, since $0^k = 0$ and $1^k = 1$. Property 2 holds, because $1 - I_A$ is $1$, if and only if $I_A = 0$ and $1 - I_A = 0$ if and only if $I_A = 1$. $I_{A \cap B} = I_A \cdot I_B$ follows from the laws of boolean algebra. $I_{A \cap B} = 1$ if and only if both $I_A = 1$ and $I_B = 1$ and $0$ otherwise. Property 4 holds since, $A \cup B = (A^C \cap B^C)^C$</p>
+<p>So,</p>
+\begin{align*}
+I_{A \cup B} &amp;= 1 - I_{A^C \cap B^C}\\
+&amp;= 1 - (1 - I_A)\cdot(1 - I_B)\\
+&amp;= I_A + I_B - I_A \cdot I_B\\
+&amp;= I_A + I_B - I_{A \cap B}
+\end{align*}<p>Since the expectation of a Bernoulli random variable is $p$, taking expectation on both sides, we get,</p>
+\begin{align*}
+P\{A \cup B\} = P\{A\} + P\{B\} - P\{A \cap B\}
+\end{align*}<p>Similarly, let $A_1,A_2,\ldots,A_n$ be events. The event atleast one of $A_1,A_2,\ldots,A_n$ occurs is given by, $A_1 \cup A_2 \cup \ldots A_n$. If the complement of all events occur simultaneously, then none of $A_1,A_2,\ldots,A_n$ occur. Thus, it holds that,</p>
+\begin{align*}
+A_1 \cup A_2 \ldots A_n &amp;= (A_1^C A_2^C \cdots A_n^C)^C\\
+I_{A_1 \cup A_2 \cup \ldots A_n} &amp;= 1 - I_{A_1^C A_2^C \cdots A_n^C}\\
+&amp;= 1 - (1-I_{A_1})(1 - I_{A_2})\cdots(1 - I_{A_n})\\
+&amp;= 1 - 1 + I_{A_1} + I_{A_2} + \ldots + I_{A_n} - I_{A_1}I_{A_2} - I_{A_1}I_{A_3} - \ldots - I_{A_{n-1}}I_{A_n} + I_{A_1}I_{A_2}I_{A_3} + \ldots
+\end{align*}<p>Taking expectations on both sides, we get:</p>
+\begin{align*}
+P\{A_1 \cup A_2 \cup \ldots A_n\} = \sum_{i} P\{A_i\} - \sum_{i&lt;j} P\{A_i A_j\} + \sum_{i &lt; j &lt; k}P\{A_i A_j A_k\} \tag{24}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is called as the <em>inclusion-exclusion</em> formula.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Matching continued</em>) We have a well-shuffled deck of $n$ cards, labeled $1$ through $n$. A card is a match if the card's position in the deck matches the card's label. Let $X$ be the number of matches; find $E(X)$.</p>
+<p><em>Solution.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First let's check whether $X$ could have any of the named distributions we have studied. The Binomial and the Hypergeometric are the only two candidates since the value of $X$ must be an integer between $1$ and $n$. But, neither of these distributions are applicable, since $X$ can take the value $n-1$: if $n-1$ cards are matches, then the $n$th card must be a match card as well. So, $X$ does not follow a named distribution we have studied, but we can readily find its mean using indicator random variables.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $A_i$ be the event that the $i$th card is a match card; it's position in the deck matches it's label. Let $I_i$ be the indicator function of $A_i$, that is:</p>
+<p>
+\begin{align*}
+I_i = \begin{cases}
+1 &amp; \quad \text{ if the }i\text{th card in the deck is a matching card }\\
+0 &amp; \quad \text{ otherwise }
+\end{cases}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then,</p>
+\begin{align*}
+X = I_1 + I_2 + \ldots + I_n
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Taking expectations on both sides, we get:</p>
+\begin{align*}
+E[X] &amp;= E[I_1] + E[I_2] + \ldots + E[I_n]\\
+&amp;= P(A_1) + P(A_2) + \ldots + P(A_n)\\
+&amp;= n \cdot \frac{(n-1)!}{n!}\\
+&amp;= 1
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Distinct Birthdays, birthday matches</em>) In a group of $n$ people, under the usual assumptions about birthdays, what is the expected number of distinct birthdays among $n$ people, i.e. the expected number of days on which at least one of the people was born? What is the expected number of birthday matches, i.e. pairs of people with the same birthday?</p>
+<p><em>Solution.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X$ be the number of distinct birthdays, and we write $X = I_1 + I_2 + \ldots + I_{365}$, where</p>
+\begin{align*}
+I_j = \begin{cases}
+1 &amp; \text{ if the }j\text{th day is represented, }\\
+0 &amp; \text{ otherwise }
+\end{cases}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We create an indicator for each <em>day</em> of the year, because $X$ counts the number of days of the year that are represented. By the fundamental bridge:</p>
+\begin{align*}
+E[I_j] &amp;= P(j\text{th day is represented}) = 1 - P(\text{no one is born on day }j) = 1 - \left(\frac{364}{365}\right)^n
+\end{align*}<p>for all $j$. Then, by linearity:</p>
+\begin{align*}
+E[X] = 365\left(1 - \left(\frac{364}{365}\right)^n\right)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let $Y$ be the number of birthday matches, and we write</p>
+\begin{align*}
+Y &amp;= J_{12} + J_{13} + \ldots + J_{n-1,n}
+\end{align*}<p>where</p>
+\begin{align*}
+J_{i,j} = \begin{cases}
+1 &amp; \text{ pair }(i,j)\text{ share the same birthday }\\
+0 &amp; \text{ otherwise }
+\end{cases}
+\end{align*}<p>We create an indicator for each pair of people since $Y$ counts the number of pairs of people with the same birthday. The probability of any two people having the same birthday is $1/365$, so again by the fundamental bridge and linearity,</p>
+\begin{align*}
+E[Y] = {n \choose 2}\frac{1}{365}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In addition to the fundamental bridge and linearity, the last two examples used a basic form of symmetry to simplify the calculations greatly: within each sum of indicator random variables, each indicator had the same expected value. For example, in the matching problem, the probability of the $j$th card being a match does not depend on $j$, so we can just take $n$ times the expected value of the first indicator random variable.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. A permutation $a_1,a_2,\ldots, a_n$ of $1,2,3,\ldots,n$ has a local maximum at $j$ if $a_j &gt; a_{j-1}$ and $a_j &gt; a_{j+1}$ )(for $2 \leq j \leq n - 1$; for $j = 1$, a local maximum at $j$ means $a_1 &gt; a_2$ while for $j = n$, it means $a_n &gt; a_{n-1}$. For example, $4,2,5,3,6,1$ has a local maxima at positions $1,3$ and $5$. The Putnam exam (a famous, hard, math competition, on which the median score is often a $0$) from 2006 posed the following question: for $n \geq 2$ what is the average number of local maxima of a random permutation of $1,2,\ldots,n$, with all $n!$ permutations equally likely?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution</em>.</p>
+<p>This problem can be quickly solved using indicator random variables, symmetry and the fundamental bridge. Let $I_1,I_2,\ldots,I_n$ be indicator random variables where $Ij = 1$, if the there is a local maximum at position $j$ and $0$ otherwise. We are interested in the expected value of $\sum_{j=1}^{n}I_j$. For $1 &lt; j &lt; n$, $EI_j = \frac{1}{3}$, since having a local maximum at $j$ is equivalent to $a_j$ being the largest of $a_{j-1},a_{j},a_{j+1}$, which has the probability $1/3$ since all orders are equally likely. For $j=1$ or $j = n$, we have $EI_j = \frac{1}{2}$, since then there is only one neighbour. Thus, by linearity,</p>
+\begin{align*}
+E\left(\sum_{j=1}^{n}I_j\right) = 2 \cdot \frac{1}{2} + (n-2) \cdot \frac{1}{3} = \frac{n+1}{3}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next example introduces the <em>Negative Hypergeometric</em> distribution, which completes the following table. The table shows the distributions for four sampling schemes: the sampling can be done with or without replacement, and the stopping rule can require a fixed number of successes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+\begin{array}{ccc}
+\hline
+&amp; \textbf{ With replacement } &amp; \textbf{ Without replacement }\\
+\hline
+\textbf{ Fixed number of trials } &amp; \text{Binomial} &amp; \text{Negative Binomial} \\
+\textbf{ Fixed number of successes } &amp; \text{Hypergeometric} &amp; \text{Negative hypergeometric}\\
+\hline
+\end{array}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>Negative Hypergeometric distribution</em>) An urn contains $w$ white balls and $b$ black balls. which are randomly drawn one-by-one without replacement, until $r$  white balls have been obtained. The number of black balls drawn before drawing the $r$th white ball has a <em>Negative hypergeometric distribution</em> with parameters $w,b,r$. We denote this distribution by $NHGeom(w,b,r)$. Of course, we assume that $r \leq w$. For example, if we shuffle a deck of cards and deal them one at a time, the number of cards dealt before uncovering the first ace is NHGeom$(4,48,1)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As another example, suppose a college offers $g$ good courses and $b$ bad courses (for some definition of good and bad), and a student wants to find $4$ good courses to take. Not having any idea which of the courses are good, the student randomly tries out courses one at a time, stoppping when they have obtained $4$ good courses. Then, the number of bad courses the student tries out is NHGeom$(g,b,4)$ distributed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can obtain the PMF of $X \sim$ NHGeom$(w,b,r)$ by noting that, in the urn context, $X = k$ means that the $(r+k)$th ball chosen is white and exactly $r-1$ white balls and $k$ black balls precede the $r$th white ball. This gives us,</p>
+<p>
+\begin{align*}
+P \{X = k\} &amp;= \frac{{w \choose r - 1}{b \choose k}}{{w + b \choose r + k - 1}} \cdot \frac{w - (r - 1)}{w + b - (r + k - 1)}
+\end{align*}
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finding the expectation of a negative hypergeometric random variable directly from the definition of expectation results in complicated sums. But, let's find the expectation using indicator r.v.s. We can assume that we continue drawing balls until the urn is empty. First, consider the case $r = 1$. Label the black balls as $1,2,3,\ldots,b$ and let $I_j$ be the indicator of the black ball $j$ being drawn before any white balls have been drawn. Then, $P(I_j = 1) = \frac{1}{w+1}$ (this is probability of drawing a pre-assigned black ball $j$) since listing out the order in which black ball $j$ and the white balls are drawn (ignoring the other balls), all orders are equally likely by symmetry, and therefore $I_j = 1$ is equivalent to black ball $j$ being the first in the list. So, by linearity,</p>
+\begin{align*}
+E\left(\sum_{j=1}^b I_j\right) = \sum_{j=1}^{b} E(I_j) = \frac{b}{w+1}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we write $X = X_1 + X_2 + \ldots + X_r$ where $X_j$ is the number of black balls drawn between the $(j-1)$th and $j$th white ball, then by linearity of expectations, we get that, $E[X] = \frac{rb}{w+1}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. (<em>St. Petersburg Paradox</em>) A fair coin is tossed repeatedly. Let $T$ be the number of tosses until the first head. You are offered the following prospect, which you may accept on payment of a fee. If $T = k$, say, then you will recive $2^k$ british pounds. What would be a fair fee to ask of you?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution</em>.</p>
+<p>$T$ is a geometric random variable; $T \sim $Geom$(\frac{1}{2})$. This distribution of $T$ is given by,</p>
+\begin{align*}
+P\{ T = k \} = f_T(k) = q^k p = \frac{1}{2^{k+1}}
+\end{align*}<p>The expected number of tails until the first head is given by,</p>
+\begin{align*}
+E[T] &amp;= \sum_{k=0}^{\infty}\frac{k}{2^{k+1}}\\
+&amp;= \frac{1}{4}\sum_{k=0}^{\infty}k\left(\frac{1}{2}\right)^{k-1} \\
+&amp;= \frac{1}{4}\cdot \frac{1}{\left(1-\frac{1}{2}\right)^2}\\
+&amp;= 1
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The payoff function for this bet(prospect) is $Y = g(T) = 2^{T}$. If $T = k$, then you are rewarded $Y = 2^k$ British pounds. The distribution of the payoff is given by,</p>
+\begin{align*}
+P \{Y = y \} &amp;= P\{2^T = y \}\\
+&amp;= P \{T = \log_2 y \} \\
+&amp;= f_T(\log_2 y)\\
+&amp;= \frac{1}{2y}
+\end{align*}<p>where $y=1,2,4,8,16,\ldots$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The expected value of the payoff is,</p>
+\begin{align*}
+E[Y] &amp;= \sum_{y \in \{2^k:k \in \mathbf{N}\}} y f_Y(y) \\
+&amp;= \sum_{y \in \{2^k:k \in \mathbf{N}\}} y \cdot \frac{1}{2y}\\
+&amp;= \sum_{y \in \{2^k:k \in \mathbf{N}\}} \frac{1}{2}\\
+&amp;= \infty
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, you would have to start with an infinite bankroll, in order to break even in this game, when it's played a large number of times, even though, heads shows up on average after one tail. Note that, $g(E[T]) = g(1) = 2$, whilst $E[g(T)]=E[Y]=\infty$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Law-of-the-Unconscious-Statistician(LOTUS)">
+<a class="anchor" href="#Law-of-the-Unconscious-Statistician(LOTUS)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Law of the Unconscious Statistician(LOTUS)<a class="anchor-link" href="#Law-of-the-Unconscious-Statistician(LOTUS)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we saw in the St. Petersburg paradox, $E[g(X)]$ does not equal $g(E[X])$ in general, especially when $g$ is not linear. So, how do we correctly calculate $E[g(X)]$? Since, $g(X)$ is a random variable, one way is to first find the distribution of $g(X)$ and then use the definition of expectation. Perhaps, surprisingly it turns out that it is possible to find $E[g(X)]$ directly using the distribution of $X$, without first having to find the distribution of $g(X)$. This is done using the law of the unconscious statistician (LOTUS).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Theorem.</strong> If $X$ is a discrete random variable and $g$ is a function from $\mathbf{R}$ to $\mathbf{R}$ then,</p>
+\begin{align*}
+E[g(X)] = \sum_{x} g(x) P \{ X = x \}
+\end{align*}<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Proof.</em></p>
+<p>Let $Y = g(X)$. We have,</p>
+\begin{align*}
+E[Y] &amp;= \sum_{y} y P\{Y = y\}
+\end{align*}<p>We can write the mathematical expectation in the ungrouped form, iterating over each sample point $\omega \in \Omega$ instead.</p>
+\begin{align*}
+E[Y] &amp;= \sum_{\omega \in \Omega} g(X(\omega)) P\{\omega\} 
+\end{align*}<p>Look at the set of points $\omega$ belonging to the set $\{\omega \in \Omega:X(\omega) = x\}$. For all these points $X(\omega) = x$, a constant. Hence, we can write the above expectation as a double sum, first holding $x$ constant, iterating over all $\omega$ such that $X(\omega) = x$; and then iterating over all such points $x$.</p>
+\begin{align*}
+E[Y] &amp;= \sum_{x} \sum_{\omega:X(\omega)=x} g(X(\omega)) P\{\omega\} 
+\end{align*}<p>As $x$ is held constant in the inner sum, $g(X(\omega)) = g(x)$, a constant and it can taken outside the inner-most sum.</p>
+\begin{align*}
+E[Y] &amp;= \sum_{x} g(X(\omega)) \sum_{\omega:X(\omega)=x} P\{\omega\} 
+\end{align*}<p>But, $\sum_{\omega:X(\omega)=x} P\{\omega\}$ is the probability of the event $\{ X = x \}$. Therefore, we should be able to write,</p>
+\begin{align*}
+E[Y] &amp;= \sum_{x} g(X(\omega)) P\{ X = x \}\\
+&amp;= \sum_{x} g(x) f_X(x)
+\end{align*}<p>This closes the proof.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variance.">
+<a class="anchor" href="#Variance." aria-hidden="true"><span class="octicon octicon-link"></span></a>Variance.<a class="anchor-link" href="#Variance."> </a>
+</h2>
+<p>One important application of LOTUS is finding the <em>variance</em> of a random variable. Like expected-value, variance is a single-number summary of the distribution of a random variable. While expected value tells us the center of mass of the distribution, the variance tells us how spread out the distribution is.</p>
+<hr>
+<p><strong>Definition</strong> (<em>Variance and Standard deviation</em>). The variance of a random variable $X$ is</p>
+\begin{align*}
+Var[X] = E[X - EX]^2
+\end{align*}<p>The square root of the variance is called the <em>standard deviation</em> (SD):</p>
+\begin{align*}
+SD(X) = \sqrt{Var[X]}
+\end{align*}<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that when we write $E[X - EX]^2$, we mean the expectation of the random variable $(X-EX)^2$ and not $(E(X - EX))^2$ (which is zero by linearity).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The variance of $X$ measures how far $X$ is from its mean on average, but instead of simply taking the average difference between $X$ and $EX$, we take the average squared difference. To see why, note that the average deviation from the mean, $E[X - EX]$, always equals $0$ by linearity; positive and negative deviations cancel each other out in the long run. By squaring the deviations, we ensure that both positive and negative deviations contribute to the overall variability. However, because variance is an average squared distance, it has the wrong units: if $X$ is in dollars, $Var[X]$ is in squared dollars. To get back to our original units, we take the square root; this gives us the standard deviation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One might wonder why variance isn't defined as $E|X - EX|$, which would achieve the goal of counting both positive and negative deviations while maintaining the same units as $X$. This measure of variability isn't as popular as $E(X- EX)^2$, for a variety of reasons. Most notably, the absolute value isn't differentiable at $0$, whereas the squaring function is differentiable everywhere and is central in various fundamental mathematical results such as the Pythagorean theorem.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An equivalent expression for variance $Var(X) = E[X^2] - (E[X])^2$. This formula is often easier to work with when doing actual calculations. Since this is the variance formula we will use over and over again, we state it as it's own theorem.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Theorem.</strong> For any random variable $X$,</p>
+\begin{align*}
+Var(X) = E[X^2] - (E[X])^2
+\end{align*}<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $\mu = E[X]$. Expanding $(X - \mu)^2$, we get:</p>
+\begin{align*}
+E[(X - \mu)^2] &amp;= E[X^2 -2 \mu X + \mu^2] \\
+&amp;= E[X^2] - 2\mu E[X] + \mu^2 E[1] \\
+&amp;= E[X^2] - 2 \mu^2 + \mu^2 \\
+&amp;= E[X^2] - (E[X])^2
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Variance has the following properties. The first two are easily from the definition, the third will be addressed in a later chapter and the last one is proven just after stating it.</p>
+<ul>
+<li>$Var(X + c) = Var(X)$ for any constant $c$. From the definition, it follows that :</li>
+</ul>
+\begin{align*}
+Var(X + c) &amp;= E[X + c]^2 - (E[X+c])^2 \\
+&amp;= E[X^2 + 2cX + c^2] - (E[X] + c)^2 \\
+&amp;= E[X^2] + 2cE[X] + c^2 - (E[X])^2 - 2cE[X] - c^2 \\
+&amp;= E[X^2] - (E[X])^2\\
+&amp;= Var(X)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$Var(cX) = c^2 Var(X)$. We have:</li>
+</ul>
+\begin{align*}
+Var(cX) &amp;= E[cX]^2 - (E[cX])^2 \\
+&amp;= E[c^2 X^2] - (cE[X])^2\\
+&amp;= c^2(E[X^2] - (E[X])^2)\\
+&amp;= c^2 Var(X)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>If $X$ and $Y$ are independent, then $Var(X + Y) = Var(X) + Var(Y)$. This is not true in general, if $X$ and $Y$ are dependent. We shall prove this fact shortly.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Covariance-of-random-variables.">
+<a class="anchor" href="#Covariance-of-random-variables." aria-hidden="true"><span class="octicon octicon-link"></span></a>Covariance of random variables.<a class="anchor-link" href="#Covariance-of-random-variables."> </a>
+</h2>
+<p>Let $X$ and $Y$ be two random variables on the same sample space. Then, $X+Y$ and $XY$ are again random variables. Our aim is to now calculate the $Var(X + Y)$. For that purpose we introduce the notion of covariance, which will be analyzed in greater detail in a later section. If the joint distribution of $X$ and $Y$ is given by $f_{X,Y}(x_j,y_k)$, then the expectation of $XY$ by lotus is given by</p>
+\begin{align*}
+E[XY] = \sum x_j y_k f_{X,Y}(x_j,y_k)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>provided of course, the series converges absolutely. Now, the geometric mean of two real numbers is always less than or equal to the arithmetic mean. Thus,</p>
+\begin{align*}
+\sqrt{x_j^2 y_k^2} &amp;\leq \frac{x_j^2 + y_k^2}{2}\\
+|x_j y_k | &amp;\leq \frac{x_j^2 + y_k^2}{2}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Therefore, $E(XY)$ always exists, if $E(X^2)$ and $E(Y^2)$ exist.</p>
+<p>Consider the expectation of $(X - \mu_x)(Y - \mu_y)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Example. Each member of a group of $N$ players rolls a die.</p>
+<p>(a) For any pair of players, who throw the same number, the group scores $1$ point. Find the mean and variance of the total score of the group.</p>
+<p>(b) Find the mean and variance of the total score, if any pair of players who throw the same number scores that number.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Solution.</em></p>
+<p>(a) Let $I_{ij}$ be a Bernoulli random variable. Suppose</p>
+\begin{align*}
+I_{ij} = \begin{cases}
+1, &amp; \quad \text{if the pair }(i,j)\text{ throw the same number}, j &gt; i\\
+0, &amp; \quad \text{ otherwise }
+\end{cases}
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The unconditional probability that the pair $(i,j)$ throw the same number; the probability of success is $p = \frac{1}{6}$, and the probability of failure is $q = \frac{5}{6}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let $X$ be the total score of the group. Then, we have:</p>
+\begin{align*}
+X &amp;= \sum_{j &gt; i} I_{ij}\\
+E[X] &amp;= E\left[\sum_{j &gt; i} I_{ij}\right]\\
+&amp;= \sum_{j &gt; i}E[I_{ij}] \quad \{\text{ Linearity of expectations }\}\\
+&amp;= {n \choose 2}\left(\frac{1}{6}\right)
+\end{align*}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Also, the variance of $X$ is,</p>
+\begin{align*}
+X &amp;= \sum_{j &gt; i} I_{ij}\\
+Var[X] &amp;= Var\left[\sum_{j &gt; i} I_{ij}\right]\\
+&amp;= \sum_{j &gt; i}Var[I_{ij}] \quad \{ I_{ij}\text{'s are unconditionally independent }\}\\
+&amp;= {n \choose 2}\left(\frac{1}{6}\right)\left(\frac{5}{6}\right)
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="quantophile/mathematical-finance"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/mathematical-finance/probability-theory/2022/03/06/Discrete-Random-Variables-(summary).html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/mathematical-finance/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/mathematical-finance/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>This blog is a repository of review notes, projects and solved exercise problems on various topics in Probability, Mathematical Finance, PDEs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

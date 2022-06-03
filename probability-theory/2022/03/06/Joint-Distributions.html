@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Joint Distributions. | Summary notes on Mathematical Finance</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Joint Distributions." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Summary notes on Joint Distributions." />
+<meta property="og:description" content="Summary notes on Joint Distributions." />
+<link rel="canonical" href="https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Joint-Distributions.html" />
+<meta property="og:url" content="https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Joint-Distributions.html" />
+<meta property="og:site_name" content="Summary notes on Mathematical Finance" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-06T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Joint Distributions." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-06T00:00:00-06:00","datePublished":"2022-03-06T00:00:00-06:00","description":"Summary notes on Joint Distributions.","headline":"Joint Distributions.","mainEntityOfPage":{"@type":"WebPage","@id":"https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Joint-Distributions.html"},"url":"https://quantophile.github.io/mathematical-finance/probability-theory/2022/03/06/Joint-Distributions.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/mathematical-finance/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://quantophile.github.io/mathematical-finance/feed.xml" title="Summary notes on Mathematical Finance" /><link rel="shortcut icon" type="image/x-icon" href="/mathematical-finance/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/mathematical-finance/">Summary notes on Mathematical Finance</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/mathematical-finance/about/">About Me</a><a class="page-link" href="/mathematical-finance/search/">Search</a><a class="page-link" href="/mathematical-finance/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Joint Distributions.</h1><p class="page-description">Summary notes on Joint Distributions.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/mathematical-finance/categories/#probability-theory">probability-theory</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/quantophile/mathematical-finance/tree/master/_notebooks/2022-03-06-Joint-Distributions.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/mathematical-finance/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/quantophile/mathematical-finance/master?filepath=_notebooks%2F2022-03-06-Joint-Distributions.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/quantophile/mathematical-finance/blob/master/_notebooks/2022-03-06-Joint-Distributions.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fquantophile%2Fmathematical-finance%2Fblob%2Fmaster%2F_notebooks%2F2022-03-06-Joint-Distributions.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/mathematical-finance/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Introduction.">Introduction. </a></li>
+<li class="toc-entry toc-h2"><a href="#Joint,-Marginal-and-Conditional.">Joint, Marginal and Conditional. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Discrete">Discrete </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-06-Joint-Distributions.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Introduction.">
+<a class="anchor" href="#Introduction." aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction.<a class="anchor-link" href="#Introduction."> </a>
+</h2>
+<p>The individual distributions of two random variables do not tell us anything about whether the random variables are independent or dependent. Although, the PMF of $X$ is a complete blueprint for the distribution of $X$ and the PMF of $Y$ is a complete blueprint for the distribution of $Y$, these individual PMFs are missing important information about the dependence structure of $X$ and $Y$.</p>
+<p>Of course, in real life, we usually care about the relationship between multiple random variables in the same experiment. To give just a few examples:</p>
+<ul>
+<li>Medicine : To evaluate the effectiveness of a treatement, we may take multiple measurements per patient, an ensemble of blood pressure, heart rate, and cholesterol reading can be more informative than any of these measurements considered separately.</li>
+<li>Genetics : To study the relationships between various genetic markers and a particular disease, if we only looked separately at distributions for each genetic marker, we could fail to learn about whether an interaction between the markers is related to the disease. </li>
+<li>Time-Series: To study how something evolves over time, we can often make a series of measurements over time, and then study the series jointly. There are many applications of such series, such as global temperatures, stock prices, or national unemployment rates. The series of measurements considered jointly can help us deduce trends for the purpose of forecasting future measurements.</li>
+</ul>
+<p>This write-up considers <em>joint-distributions</em>, also called <em>multi-variate distributions</em>, which capture the previously missing information about how multiple random variables interact. We introduce multivariate analogs of the CDF, PMF and the PDF in order to provide a complete specification of the relationship between multiple random variables. After this ground-work is in place, we'll study a couple of famous named multivariate distributions, generalizing the Binomial and Normal distributions to higher dimensions.</p>
+<h2 id="Joint,-Marginal-and-Conditional.">
+<a class="anchor" href="#Joint,-Marginal-and-Conditional." aria-hidden="true"><span class="octicon octicon-link"></span></a>Joint, Marginal and Conditional.<a class="anchor-link" href="#Joint,-Marginal-and-Conditional."> </a>
+</h2>
+<p>The three key concepts for this section are <em>joint, marginal</em> and <em>conditional</em> distributions. Recall that the distribution of a single random variable $X$ provides complete information about the probability of $X$ falling into any subset of the real line. Analogously, the joint distribution of two random variables $X$ and $Y$ provides complete information about the probability of the random vector $(X,Y)$ falling into any subset of the plane. The <em>marginal</em> distribution of $X$ is the individual distribution of $X$, ignoring the value of $Y$ and the conditional distribution of $X$ given $Y=y$ is the updated distribution for $X$ after observing $Y=y$. We'll look at these concepts in the discrete case first, then extend them to the continuous case.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Discrete">
+<a class="anchor" href="#Discrete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discrete<a class="anchor-link" href="#Discrete"> </a>
+</h3>
+<p>The most general description of the joint distribution of two random variables is the <em>joint CDF</em> which applies to discrete and continuous random variables alike.</p>
+<hr>
+<p><strong>Definition.</strong> (Joint CDF). The <em>joint</em> CDF of the random variables $X$ and $Y$ is the function $F_{X,Y}$ given by :</p>
+<p>
+$$F_{X,Y}(x,y) = P(X \leq x, Y \leq y)$$
+</p>
+<hr>
+<p>The joint CDF of a vector $n$ random variables $(X_1,X_2,\ldots,X_n)$ is described analogously.</p>
+<p>Unfortunately, the joint CDF of discrete random variables is not a well-behaved function; as in the univariate case, it consists of jumps and flat regions. For this reason, with discrete random variables, we usually work with the joint PMF, which also determines the joint distribution and is much easier to visualize.</p>
+<hr>
+<p><strong>Definition.</strong> (Joint PMF). The <em>joint</em> PMF of discrete random variables $X$ and $Y$ is the function $f_{X,Y}$ given by,</p>
+<p>
+$$f_{X,Y}(x,y) = P(X = x,Y=y)$$
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The joint PMF of a vector of $n$ discrete random variables $(X_1,X_2,\ldots,X_n)$ is described analogously.</p>
+<p>Just as univariate PMFs must be nonnegative and sum to $1$, we require valid joint PMFs to be non-negative and sum to $1$, where the sum is taken over all possible values of $X$ and $Y$:</p>
+<p>
+$$\sum_{x} \sum_{y}P(X = x,Y = y) = 1$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The joint PMF determines the distribution because we can use it to find the probability of the event $(X,Y) \in A$ for any set $A$ of points in the support of $(X,Y)$.  All we have to do is sum the joint PMF over $A$:</p>
+<p>
+$$P((X,Y) \in A) = {\sum\sum}_{(x,y) \in A} P(X = x, Y = y)$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above figure shows what the joint PMF of two discrete random variables could look like. The brightness of the colors at any point $(x,y)$ represents the probability $P(X = x, Y =y)$. For the joint PMF to be valid, the total height of the vertical bars must be $1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the joint distribution $(X,Y)$  we can easily get the distribution of $X$ alone by summing over the possible values of $Y$. This gives us the familiar PMF of $X$ that we have seen earlier. In the context of joint distributions, we will call it the <em>marginal</em> or unconditional distribution of $X$, to make it clear that we are referring to the distribution of $X$ alone, without regard for the value of $Y$.</p>
+<hr>
+<p><strong>Definition.</strong> (Marginal PMF). For discrete random variables $X$ and $Y$, the marginal PMF of $X$ is</p>
+$$
+\begin{align*}
+f_X(x) &amp;= P(X = x) = \sum_{y} f_{X,Y}(x,y) = \sum_{y} P(X = x, Y = y) \\\\
+f_Y(y) &amp;= P(X = y) = \sum_{x} f_{X,Y}(x,y) = \sum_{x} P(X = x, Y = y) 
+\end{align*}
+$$<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example.</strong> Suppose a dice is rolled $N = 5$ times. Let $X$ be the number of ones and $Y$ be the number of twos. The pair $(X,Y)$ follows the $Multinomial(5,1/6,1/6)$ distribution. The joint PMF $f_{X,Y}(x,y)$ can be computed as follows.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">binom</span>
+
+<span class="k">class</span> <span class="nc">multinomial</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numTrials</span><span class="p">,</span> <span class="n">successProbabilities</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">numTrials</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">successProbabilities</span>
+
+    <span class="k">def</span> <span class="nf">pmf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">probability</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">sumProbabilities</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="n">probability</span> <span class="o">=</span> <span class="n">probability</span> <span class="o">*</span> <span class="n">binom</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">**</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">k</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">sumProbabilities</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">sumProbabilities</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="n">probability</span> <span class="o">=</span> <span class="n">probability</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sumProbabilities</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">probability</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now create a multinomial random variable and print it's joint PMF.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rv</span> <span class="o">=</span> <span class="n">multinomial</span><span class="p">(</span><span class="n">numTrials</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">successProbabilities</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">jointPMF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="n">jointPMF</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">rv</span><span class="o">.</span><span class="n">pmf</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jointPMF</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[ 1.31687243e-01  1.64609053e-01  8.23045267e-02  2.05761317e-02
+   2.57201646e-03  1.28600823e-04]
+ [ 1.64609053e-01  1.64609053e-01  6.17283951e-02  1.02880658e-02
+   6.43004115e-04  0.00000000e+00]
+ [ 8.23045267e-02  6.17283951e-02  1.54320988e-02  1.28600823e-03
+   0.00000000e+00  0.00000000e+00]
+ [ 2.05761317e-02  1.02880658e-02  1.28600823e-03  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 2.57201646e-03  6.43004115e-04  0.00000000e+00  0.00000000e+00
+   0.00000000e+00  0.00000000e+00]
+ [ 1.28600823e-04  0.00000000e+00 -0.00000000e+00  0.00000000e+00
+  -0.00000000e+00  0.00000000e+00]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The probability of the event $\{X = x_j, Y = y_k\}$ is given by <code>jointPMF[j][k]</code>.</p>
+<p>The marginal PMF of $X$ and $Y$ can be easily computed as:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Marginal PMF of X"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">jointPMF</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Marginal PMF of Y"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">jointPMF</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Marginal PMF of X
+[4.01877572e-01 4.01877572e-01 1.60751029e-01 3.21502058e-02
+ 3.21502058e-03 1.28600823e-04]
+
+Marginal PMF of Y
+[4.01877572e-01 4.01877572e-01 1.60751029e-01 3.21502058e-02
+ 3.21502058e-03 1.28600823e-04]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition.</strong> (Conditional PMF).</p>
+<p>For discrete random variables $X$ and $Y$, the conditional PMF of $X$ given $Y = k$ is,</p>
+$$
+f_{X|Y=k}(x) = P(X = x|Y = k) = \frac{P(X = x, Y = k)}{P(Y = k)} = \frac{f_{X,Y}(x,k)}{f_Y(k)}
+$$<p>The conditional PMF of $Y$ given $X = k$ is,</p>
+$$
+f_{Y|X=k}(y) = P(Y = y|X = k) = \frac{P(Y = y, X = x)}{P(X = k)} = \frac{f_{X,Y}(k,y)}{f_X(k)}
+$$<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For instance, in the dice example, the conditional PMF of the number of ones, i.e. $X$, given that we observe two, $3$ times, i.e. $Y=3$ is given by:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Conditional PMF P(X=x|Y=3)"</span><span class="p">)</span>
+<span class="n">conditionalPMF</span> <span class="o">=</span> <span class="n">jointPMF</span><span class="p">[:][</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">jointPMF</span><span class="p">[:][</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conditionalPMF</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Conditional PMF P(X=x|Y=3)
+[0.64 0.32 0.04 0.   0.   0.  ]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition.</strong> (Independence of discrete random variables). The random variables $X$ and $Y$ are said to be independent, if for all $x,y \in \mathbb{R}$, we have:</p>
+<p>
+$$F_{X,Y}(x,y) = F_X(x) \cdot F_Y(y)$$
+</p>
+<p>If $X$ and $Y$ are discrete, this is equivalent to the condition:</p>
+<p>
+$$P(X = x, Y =y) = P(X = x)\cdot P(Y = y)$$
+</p>
+<p>$\forall x,y \in \mathbb{R}$ and it is also equivalent to the condition:</p>
+<p>
+$$P(Y = y|X = x) = P(Y = y)$$
+</p>
+<p>$\forall x,y \in \mathbb{R}$ such that $P(X = x) &gt; 0$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using the terminology from this post, the definition says that for independent random variables, the joint CDF factors into the product of the marginal CDFs, or that the joint PMF factors into the product of the marginal PMFs. Remember that in general, marginal distributions do not determine the joint distribution: this is the reason why we wanted to study joint distributions in the first place! But, in the special case of independence, the marginal distributions are all we need in order to specify the joint distribution; we can get the joint PMF by multiplying the marginal PMFs.</p>
+<p>Another way of looking at independence is that all the conditional PMFs are the same as the marginal PMF. That is, starting with the marginal PMF of $Y$, no updating is necessary when we condition on the event $\{X = x_j\}$, regardless what $x_j$ is.</p>
+<p>We'll do one more example of discrete joint distribution to round out this section. We've named it the chicken-egg story; in it, we use wishful thinking to find a joint PMF, and our efforts land us a surprising independence result</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="quantophile/mathematical-finance"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/mathematical-finance/probability-theory/2022/03/06/Joint-Distributions.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/mathematical-finance/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/mathematical-finance/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>This blog is a repository of review notes, projects and solved exercise problems on various topics in Probability, Mathematical Finance, PDEs.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/mathematical-finance/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
