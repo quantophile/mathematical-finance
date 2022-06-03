@@ -170,12 +170,22 @@ window.onload = wrap_img;
 <p>Typical random variables are the number of aces in a hand at bridge, the number of successes in $n$ Bernoulli trials, the waiting time for the $r$th success etc. In each case, there is unique rule which associates a number $X$ with any sample point $\omega$. The classical theory of probability was devoted mainly to a study of gambler's gain, which is again a random variable; in fact every random variable can be interpreted as the gain of a real or imaginary gambler in a suitable game. The position of a particle under diffusion, the energy, temperature of physical systems are random variables, but they are defined in non-discrete sample spaces, and their study is therefore deferred. In the case of a discrete sample space, we can actually tabulate any random variable $X$ by enumerating in some order all points of the space and associating with each the corresponding value of $X$.</p>
 <p>Let $X$ be a random variable and let $x_1,x_2,\ldots$ be the values which it assumes; in most of what follows the $x_j$ will be integers. The aggregate of all sample points on which $X$ assumes the fixed value $x_j$ forms the event $X = x_j$; its probability is denoted by $P\{X = x_j\}$.</p>
 <p>The function</p>
-\begin{align*}
+<p>
+$$
+\begin{aligned}
 P(X=x_j) = f(x_j) \quad (j=1,2,\ldots) \tag{1}
-\end{align*}<p>is called the probability mass function (PMF) of the random varibale $X$. Clearly,</p>
-\begin{align*}
+\end{aligned}
+$$
+</p>
+<p>is called the probability mass function (PMF) of the random varibale $X$. Clearly,</p>
+<p>
+$$
+\begin{aligned}
 f(x_j) \geq 0, \quad \sum f(x_j) = 1 \tag{2}
-\end{align*}
+\end{aligned}
+$$
+</p>
+
 </div>
 </div>
 </div>
@@ -183,12 +193,22 @@ f(x_j) \geq 0, \quad \sum f(x_j) = 1 \tag{2}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With this terminology we can say that in Bernoulli trials, the number of successes $S_n$ is a random variable with the  probability mass function:</p>
-\begin{align*}
+<p>
+$$
+\begin{aligned}
 P(X=k) =  {n \choose k}p^k q^{n-k} \tag{3}
-\end{align*}<p>whereas the number of trials up to and including the first success is a random variable with the PMF:</p>
-\begin{align*}
+\end{aligned}
+$$
+</p>
+<p>whereas the number of trials up to and including the first success is a random variable with the PMF:</p>
+<p>
+$$
+\begin{aligned}
 P(X=k) = q^{k-1}p \tag{4}
-\end{align*}
+\end{aligned}
+$$
+</p>
+
 </div>
 </div>
 </div>
@@ -1902,18 +1922,38 @@ P(X=k) = q^{k-1}p \tag{4}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Consider now two random variables $X$ and $Y$ defined on the same spample space, and denote the values which they assume respectively by $x_1,x_2,\ldots$ and $y_1,y_2,\ldots$; let the corresponding probability mass functions be $\{f_X(x_j)\}$ and $\{f_Y(y_k)\}$. The aggregate of the sample points points in which the two conditions $X=x_j$ and $Y=y_k$ are satisfied forms an event whose probability will be denote by $\{P(X=x_j, Y=y_k\}$. The function</p>
+<p>
+$$
 \begin{aligned}
 P\{X=x_j,Y=y_k\} = f_{X,Y}(x_j,y_k) \tag{5}
-\end{aligned}<p>is called the joint PMF of $X$ and $Y$. It is best exhibited in the form a double entry table. Clearly,</p>
+\end{aligned}
+$$
+</p>
+<p>is called the joint PMF of $X$ and $Y$. It is best exhibited in the form a double entry table. Clearly,</p>
+<p>
+$$
 \begin{aligned}
 f_{X,Y}(x_j,y_k) \geq 0, \quad \sum_{j,k}f_{X,Y}(x_j,y_k) = 1 \tag{6}
-\end{aligned}<p>Moreover, for every fixed $j$,</p>
+\end{aligned}
+$$
+</p>
+<p>Moreover, for every fixed $j$,</p>
+<p>
+$$
 \begin{aligned}
 f_{X,Y}(x_j,y_1) + f_{X,Y}(x_j,y_2) + f_{X,Y}(x_j,y_3) + \ldots &amp;= P\{ X=x_j \} = f_X(x_j) \tag{7}
-\end{aligned}<p>and for every fixed $k$,</p>
+\end{aligned}
+$$
+</p>
+<p>and for every fixed $k$,</p>
+<p>
+$$
 \begin{aligned}
 f_{X,Y}(x_1,y_k) + f_{X,Y}(x_2,y_k) + f_{X,Y}(x_3,y_k)+ \ldots &amp;= P\{Y=y_k\} = f_Y(y_k) \tag{8}
 \end{aligned}
+$$
+</p>
+
 </div>
 </div>
 </div>
@@ -1930,9 +1970,14 @@ f_{X,Y}(x_1,y_k) + f_{X,Y}(x_2,y_k) + f_{X,Y}(x_3,y_k)+ \ldots &amp;= P\{Y=y_k\}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>Dice</em>. In $n$ throws of an ideal die, let $X_1$, $X_2$, $X_3$ respectively denote the number of ones, twos and threes. The probability $P(X_1 = k_1,X_2=k_2,X_3 = k_3)$ that the $n$ throws result in $k_1$ ones, $k_2$ twos and $k_3$ threes and $n-k_1 - k_2 - k_3$ other faces is given by the multinomial distribution, with $p_1 = p_2 = p_3 = \frac{1}{6}$ and $p_4 = \frac{1}{2}$, that is</p>
+<p>
+$$
 \begin{aligned}
 P(X_1 = k_1,X_2=k_2,X_3 = k_3) &amp;= \frac{n!}{k_1! k_2! k_3! (n-k_1-k_2-k_3)!} \left(\frac{1}{6}\right)^{k_1 + k_2 + k_3}\left(\frac{1}{2}\right)^{n-k_1-k_2-k_3} \tag{9}
 \end{aligned}
+$$
+</p>
+
 </div>
 </div>
 </div>
@@ -1940,12 +1985,17 @@ P(X_1 = k_1,X_2=k_2,X_3 = k_3) &amp;= \frac{n!}{k_1! k_2! k_3! (n-k_1-k_2-k_3)!}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is the joint PMF of $X_1,X_2,X_3$. Keeping $k_1,k_2$ fixed,and summing (9) over the possible values $k_3=0,1,\ldots,n-k_1-k_2$, we get using the binomial theorem,</p>
+<p>
+$$
 \begin{aligned}
 &amp;\sum_{k_3} P(X_1 = k_1,X_2=k_2,X_3 = k_3)\\ =&amp; \sum_{k_3}\frac{n!}{k_1!k_2!k_3!(n-k_1-k_2-k_3)!}\left(\frac{1}{6}\right)^{k_1}\left(\frac{1}{6}\right)^{k_2}\left(\frac{1}{6}\right)^{k_3}\left(\frac{3}{6}\right)^{n-k_1-k_2-k_3}\\
 =&amp; \sum_{k_3}\frac{(n-k_3)!}{k_1!k_2!(n-k_1-k_2-k_3)!} \left(\frac{1}{5}\right)^{k_1} \left(\frac{1}{5}\right)^{k_2} \left(\frac{3}{5}\right)^{n-k_1-k_2-k_3} \cdot \frac{n!}{k_3!(n-k_3)!}\left(\frac{1}{6}\right)^{k_3}\left(\frac{5}{6}\right)^{n-k_3}\\
 =&amp; \sum_{k_3}P(X_1=k_1,X_2=k_2|X_3=k_3) \cdot P(X_3=k_3)\\
 =&amp; P(X_1=k_1,X_2=k_2) \quad \{ \text{Law of total probability}\} \tag{10}
 \end{aligned}
+$$
+</p>
+
 </div>
 </div>
 </div>
@@ -1961,9 +2011,11 @@ P(X_1 = k_1,X_2=k_2,X_3 = k_3) &amp;= \frac{n!}{k_1! k_2! k_3! (n-k_1-k_2-k_3)!}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>Sampling.</em> Let a population of $n$ elements be divided into three classes of respective sizes $n_1 = np_1$ $n_2 = np_2$ and $n_3 = np_3$ (where $p_1 + p_2 + p_3 = 1$). Suppose that a random sample of size $r$ is drawn and denote by $X_1$ nd $X_2$ the numbers of representatives of the first and second class in the sample. If the sample is with replacement, $P\{X_1 = k_1, X_2 = k_2\}$ is given by the multinomial distribution:</p>
+$$
 \begin{aligned}
 P(X_1 = k_1, X_2 = k_2) = \frac{r!}{k_1! k_2! (r - k_1 - k_2)!}p_1^{k_1} p_2^{k_2} p_3^{r - k_1 - k_2} \tag{11}
-\end{aligned}<p>If the sampling is without replacement, then we can show that $P(X_1 = k_1,X_2=k_2)$ is given by the double hypergeometric distribution and $X_1$ has the simple hypergeometric distribution.</p>
+\end{aligned}
+$$<p>If the sampling is without replacement, then we can show that $P(X_1 = k_1,X_2=k_2)$ is given by the double hypergeometric distribution and $X_1$ has the simple hypergeometric distribution.</p>
 
 </div>
 </div>
