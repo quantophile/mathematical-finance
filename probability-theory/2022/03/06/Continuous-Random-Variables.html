@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      17 min read
     
 </span></p>
 
@@ -808,6 +808,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>
 $$
 \begin{align*}
 E(X) &amp;=  \int_{a}^{b}x f(x) dx \\
@@ -817,13 +818,7 @@ E(X) &amp;=  \int_{a}^{b}x f(x) dx \\
 &amp;= \frac{a+b}{2}
 \end{align*}
 $$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For the variance, we first find $E(U^2)$using the continuous version of LOTUS.</p>
+</p>
 
 </div>
 </div>
@@ -831,6 +826,15 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>For the variance, we first find $E(U^2)$ using the continuous version of LOTUS.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
 $$
 \begin{align*}
 E(U^2) &amp;= \int_{a}^{b}u^2 f(u) du \\
@@ -840,6 +844,8 @@ E(U^2) &amp;= \int_{a}^{b}u^2 f(u) du \\
 &amp;= \frac{b^2 + ab + a^2}{3}
 \end{align*}
 $$
+</p>
+
 </div>
 </div>
 </div>
@@ -847,6 +853,7 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Then,</p>
+<p>
 $$
 \begin{align*}
 Var(U) &amp;= E(U^2) - (E(U))^2 \\
@@ -857,6 +864,8 @@ Var(U) &amp;= E(U^2) - (E(U))^2 \\
 &amp;= \frac{(b-a)^2}{12}
 \end{align*}
 $$
+</p>
+
 </div>
 </div>
 </div>
@@ -989,6 +998,22 @@ $$Var(\tilde{U}) = \frac{(b-a)^2}{12}$$
     <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
     <strong>Note: </strong>The second part of the universality of the Uniform involves plugging a random variable $X$ into its own CDF $F$. This may seem strangely self-referential, but it makes sense because $F$ is a just a function (that satisfies the properties of a valid CDF). There is a potential notational confusion, however : $F(x) = P(X \leq x)$ by definition, but it would be incorrect to say $F(X) = P(X \leq X) = 1$. Rather, we should first find an expression for the CDF as a function of $x$, then replace $x$ with $X$ to obtain a random variable. For example, if the CDF of $X$ is $F(x) = 1 - e^{-x}$ for $x &gt; 0$, then $F(X) = 1 - e^{-X}$.
 </div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Understanding the statement of the theorem is the most difficult part; the proof is just a couple of lines for each direction.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Proof.</em></p>
 
 </div>
 </div>
