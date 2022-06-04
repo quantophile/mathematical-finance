@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      22 min read
+      23 min read
     
 </span></p>
 
@@ -1304,6 +1304,30 @@ $$F^{-1}(u) = \sqrt{-2 \log (1 - u)}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We again started with $1$ million realizations of $U \sim Uniform(0,1)$ and transformed them to produce $1$ million realizations of $\sqrt{-2\log(1-U)}$. As the above figure shows, the realizations of $\sqrt{-2\log(1-U)}$ looks very similar to the Rayleigh PDF, as predicted by the universality of the Uniform.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Conversely, if $X \sim Rayleigh$, then $F(X) = 1 - e^{X^2/2} \sim Uniform(0,1)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let us consider the extent to which universality of the Uniform holds for discrete random variables. The CDF $F$ of a discrete random variable has jumps and flat regions, it is a step-function, so $F^{-1}$ does not exist (in the usual sense). But, part 1 still holds in the sense that given a uniform random variable, we can construct a random varaible with any discrete distribution we want. The difference is instead of working with the CDF, which is not invertible, it more straightforward to work with the PMF.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our approach is best illustrated with a picture. Suppose we want to use $U \sim Uniform(0,1)$ to construct a discrete random variable with PMF $p_j = P(X = j)$ for $j=0,1,2,\ldots,n$. As illustrated in the figure below, we can chop up the interval $(0,1)$ into pieces of lengths $p_0$, $p_1$, $\ldots$, $p_n$. By the properties of a valid PMF, the sum of all the $p_j$'s is $1$, so this perfectly divides up the interval, without overshooting or undershooting.</p>
 
 </div>
 </div>
