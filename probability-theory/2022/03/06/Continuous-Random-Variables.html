@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      19 min read
     
 </span></p>
 
@@ -1024,7 +1024,49 @@ $$Var(\tilde{U}) = \frac{(b-a)^2}{12}$$
 <p>
 $$P(X \leq x) = P(F^{-1}(U) \leq x) = P(U \leq F(x)) = F(x)$$
 </p>
-<p>so the CDF</p>
+<p>so the CDF of $X$ is $F$, as claimed. For the last equality, we used the fact that $P(U \leq u) = u$ of $u \in (0,1)$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Let $X$ have the CDF $F_X$, and find the CDF of $Y = F_X(X)$. Since $Y$ takes values in $(0,1)$, $P(Y \leq y) = 0$ for $y \leq 0$ and equals $1$ for $y \geq 1$. For $y \in (0,1)$, we have:</li>
+</ol>
+<p>
+$$F_Y(y)=P(Y \leq y) = P(F_X(X) \leq y) = P(X \leq F_X^{-1}(y)) = F_X(F_X^{-1}(y))=y$$
+</p>
+<p>Thus, $Y$ has $Uniform(0,1)$ CDF.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To gain more insight into what the quantile function $F^{-1}$ and the universality of the uniform mean, let's consider an example that is familiar to millions of students: percentiles on an exam.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Example 4.</strong> (Percentiles) A large number of stuents take a certain exam, graded on a scale from $0$ to $100$. Let $X$ be the score of a random student. Continuous distributions are easier to deal with here, so let's approximate the discrete distribution of scores using a continuous distribution. Suppose that $X$ is continuous, with a CDF $F$ that is strictly increasing on $(0,100)$. In reality there are only finitely many students and only finitely many possible scores, but a continuous distribution may be a good approximation.</p>
+<p>Suppose that the median score on the exam is $60$, i.e. half o f the students score above $60$ and the other half score below $60$ (a convenient aspect of assuming a continuous distribution is that we don't need to worry above how many students had score equal to $60$). That is, $F(60) = 1/2$ or equivalently $F^{-1}(1/2) = 60$.</p>
+<p>If Fred scores a $72$ on the exam, then his <em>percentile</em> is the fraction of students who score below $72$, which is some number in $(1/2,1)$, since $72$ is above the median. This is $F(72)$. In general, a student with score $x$ has percentile $F(x)$. Going the other way, if we start with a percentile, say $0.95$, then $F^{-1}(0.95)$ is the score that that percentile. A percentile is also called a <em>quantile</em>, which is why $F^{-1}$ is called the quantile function. The function $F$ converts the scores to percentiles, and the function $F^{-1}$ converts the $p$th percentile to a score.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The strange operation of plugging $X$ into its own CDF now has a natural interpretation : $F(X)$ is the percentile attained by a random student. It often happens that the distribution of scores</p>
 
 </div>
 </div>
