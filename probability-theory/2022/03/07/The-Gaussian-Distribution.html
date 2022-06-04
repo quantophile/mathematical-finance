@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -271,6 +271,76 @@ $$p_2'(a) = c_1$$
 <p>Differentiating (2) with respect to $x$, we get:</p>
 <p>
 $$p_2''(x) = 2c_2$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Substituting $x = a$, we get:</p>
+<p>
+$$c_2 = \frac{p_2''(a)}{2}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So the only quadratic curve that satisfies the three conditions is given by:</p>
+<p>
+$$p_2(x) = p_2(a) + p_2'(a)(x-a) + \frac{p_2''(a)}{2!}(x-a)^2$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It can be proved that if $f$ is of class $C^2$, then</p>
+<p>
+$$f(x) = p_2(x) + R_2(x,a)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>where</p>
+<p>
+$$\lim_{x \to a}\frac{R_2(x,a)}{(x-a)^2} = 0$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is no reason to stop with quadratic polynomials. Suppose we want to approximate $f$ by a polynomial $p_k$ of degree $k$, where $k$ is a positive integer. Analogous to the work above, we require that $p_k$ and its first $k$ derivatives agree with $f$ at the point $a$. Thus, we demand that:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$
+\begin{aligned}
+p_k(a) &amp;= f(a)\\
+p_k'(a) &amp;= f'(a)\\
+p_k''(a) &amp;= f''(a)\\
+&amp; \vdots\\
+p_k^{(k)}(a) &amp;= f^{(k)}(a)
+\end{aligned}
+$$
 </p>
 
 </div>
