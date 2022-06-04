@@ -521,6 +521,45 @@ $$\lim_{x \to a} \frac{R_1(x,a)}{(x-a)} = 0$$
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To obtain the second-order formula, the case of $k=2$, we focus on $R_1(x,a) = \int_{a}^{x}(x-t)f''(t)dt$ and integrate by parts again, this time with $u = f''(t)$, $dv = (x-t)dt$, so $v = -\frac{(x-t)^2}{2}$. We obtain:</p>
+<p>
+$$
+\begin{aligned}
+\int_{a}^{x} f'(t)dt &amp;=f'(a)(x-a)+\int_{a}^{x}(x-t)f''(t)dt\\
+&amp;=f'(a)(x-a) -f''(t) \frac{(x-t)^2}{2}|_{a}^{x} + \int_{a}^{x}\frac{(x-t)^2}{2}f'''(t)dt\\
+&amp;= f'(a)(x-a) + f''(a) \frac{(x-a)^2}{2!} + \int_{a}^{x}\frac{(x-t)^2}{2!}f'''(t)dt
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, we have an integral formula for the remainder of the formula:</p>
+<p>
+$$f(x) = p_2(x) + R_2(x,a)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can continue to argue in this manner or use mathematical induction to show that formula (3) holds in general with</p>
+<p>
+$$R_k(x,a) = \int_{a}^{x} \frac{(x-t)^k}{k!}f^{(k)}(t)dt$$
+</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
