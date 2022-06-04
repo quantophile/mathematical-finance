@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      21 min read
+      22 min read
     
 </span></p>
 
@@ -1212,6 +1212,102 @@ $$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, by applying $F^{-1}$, we were able to transform our Uniform draws into Logistic draws, exactly as claimed by the universality of the Uniform.</p>
+<p>Conversely, part 2 of the universality property states that if $X \sim Logistic$, then</p>
+$$F(X) = \frac{e^X}{1+e^X} \sim Uniform(0,1)$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Example 6.</strong> (Universality with Rayleigh.)</p>
+<p>The Rayleigh CDF is</p>
+<p>
+$$F(x) = 1 - e^{-x^2/2}$, \quad x &gt; 0$$
+</p>
+<p>The quantile function (the inverse CDF) is given by:</p>
+<p>
+$$
+\begin{aligned}
+y &amp;= 1 - e^{-\frac{x^2}{2}}\\
+e^{-\frac{x^2}{2}} &amp;= 1 - y\\
+-\frac{x^2}{2} &amp;= \log (1 - y)\\
+x^2 &amp;= -2 \log (1 - y)\\
+x &amp;= \sqrt{-2 \log (1 - y)}
+\end{aligned}
+$$
+</p>
+<p>so the inverse CDF is:</p>
+<p>
+$$F^{-1}(u) = \sqrt{-2 \log (1 - u)}$$
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>so if $U \sim Uniform(0,1)$, then $F^{-1}(U) = \sqrt{-2\log(1-U)} \sim Rayleigh$.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">u</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">inverse_transform</span><span class="p">,</span> <span class="n">u</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Histogram of sqrt(-2*log(1-u))'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We again started with $1$ million realizations of $U \sim Uniform(0,1)$ and transformed them to produce $1$ million realizations of $\sqrt{-2\log(1-U)}$. As the above figure shows, the realizations of $\sqrt{-2\log(1-U)}$ looks very similar to the Rayleigh PDF, as predicted by the universality of the Uniform.</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
