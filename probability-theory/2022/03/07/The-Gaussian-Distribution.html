@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -615,6 +615,54 @@ $$\frac{R_k(x,a)}{(x-a)^k} \to 0$$
 <p>
 $$n! \sim \sqrt{2\pi n} \left(\frac{n}{e}\right)^n$$
 </p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>where the sign $\sim$ is used to indicate that the two sides are asymptotically equal. In other words, the ratio of the two sides tends to unity, as $n \to \infty$.</p>
+<p>$x_n \sim y_n$</p>
+<p>if and only if</p>
+<p>
+$$\lim_{n \to \infty} \frac{x_n}{y_n} = 1$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This formula is invaluable for many theoretical purposes and can be used also to obtain excellent numerical approximations. It is true that, the difference of the two sides increases over all bounds, but it is the percentage error that really matters. It decreases steadily, and Stirling's approximation is remarkably accurate even for small $n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We consider:</p>
+<p>
+$$a_n = \log 2 + \log 3 + \ldots + \log (n-1) + \frac{1}{2}\log n$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>which differs from $\log n!$ only by the factor $\frac{1}{2}$ in the last term to the right. We shall show that $a_n$ represents the areas of two polygons, and this remark will lead to two bounds for $\log n!$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/mathematical-finance/images/copied_from_nb/../images/stirlings_formula.png" alt="" title="The derivation of Stirlings formula"></p>
 
 </div>
 </div>
