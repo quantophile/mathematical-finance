@@ -827,12 +827,48 @@ $$1-\delta_n = \left[1 + \left(n + \frac{1}{2}\right)\log n - n\right]-\log n! $
 <a class="anchor" href="#DeMoivre-Laplace-Limit-Theorem." aria-hidden="true"><span class="octicon octicon-link"></span></a>DeMoivre-Laplace Limit Theorem.<a class="anchor-link" href="#DeMoivre-Laplace-Limit-Theorem."> </a>
 </h2>
 <p>Consider a sequence of $n$ coin tosses. Each coin toss lands heads with probability $p$ and tails with probability $q = 1 - p$.</p>
-<p>Let $X_1,X_2,\ldots,X_n$ be $n$ independent random variables represent our gain or loss on each coin toss. If a coin lands heads, it results in a gain and $X_i = +1$ dollar. If a coin lands tails, it results in a loss, $X_i = -1$ dollar. So, $X_i$ is a $Bernoulli(p)$ random variable with the PMF:</p>
+<p>Let $X_1,X_2,\ldots,X_n$ be $n$ independent random variables representing our gain or loss on each coin toss. If a coin lands heads, it results in a gain and $X_i = +1$ dollar. If a coin lands tails, it results in a loss, $X_i = -1$ dollar. So, $X_i$ is a $Bernoulli(p)$ random variable with the PMF:</p>
 <p>
 $$
 \begin{aligned}
 P(X_i=+1) &amp;= p\\
 P(X_i=-1) &amp;= 1 - p
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first thing we want to know, is what to expect for our gain or loss in the long term. We can think of this as the cumulative sum $S_n = X_1 + X_2 + \ldots + X_n$ for some large determinate $n \in \mathbf{N}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have:</p>
+<p>
+$$E(X_j) = 1 \cdot p + (-1) \cdot(1-p) = 2p - 1$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By linearity of expectations,</p>
+<p>
+$$
+\begin{aligned}
+E(S_n) &amp;= E(X_1 + X_2 + \ldots + X_n) \\
+&amp;= E(X_1) + E(X_2) + \ldots + E(X_n)\\
+&amp;= n(2p - 1)
 \end{aligned}
 $$
 </p>
