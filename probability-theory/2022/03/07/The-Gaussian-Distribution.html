@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -682,6 +682,10 @@ $$a_n = \frac{1}{2}(\log 1 + \log 2) + \frac{1}{2}(\log 2 + \log 3) + \ldots + \
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>it becomes apparent that $a_n$ equals the area of the green trapezoids whose vertices are $A_1,A_2,\ldots,A_n$ of the curve $y = \log x$ with abscissas $1,2,\ldots,n$. This polygon being inside the curve, its area is smaller than the area of the domain bounded by the curve, the $x$ -axis and the line $x = n$.</p>
+<p>Thus,</p>
+<p>
+$$a_n &lt; \int_{1}^{n}\log x dx$$
+</p>
 
 </div>
 </div>
@@ -689,7 +693,53 @@ $$a_n = \frac{1}{2}(\log 1 + \log 2) + \frac{1}{2}(\log 2 + \log 3) + \ldots + \
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On the other hand,</p>
+<p>On the other hand, $\log k$ equals the area of the red trapezoid with basis $k-\frac{1}{2} &lt; x &lt; k + \frac{1}{2}$. 
+</p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Observe that, geometrically, the slope of the red tangent at $A_2$ is $1/2$, at $A_3$ is $1/3$ and at $A_n$ is $1/n$. Thus, the endpoints of each red segment are $(1/2,\log2 - 1/4)$ and $(3/2,\log 2 + 1/4)$, $(\log 3 - 1/6,\log 3 + 1/6)$, etc. So, the areas of these trapezoids are $\log 2$, $\log 3$, $\ldots$.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It follows that $\log (n-1)!$ is <em>greater</em> than the area of the domain bounded by the $x$-axis, the curve $y=\log x$ and the vertical lines $x = \frac{3}{2}$ and $x=n-\frac{1}{2}$. Now, the last rectangle, $\frac{1}{2}\log n$ quite obviously exceeds the area of the strip $n-\frac{1}{2} &lt; x &lt; n$  under the curve.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But,</p>
+<p>
+$$a_n = \log (n-1)! + \frac{1}{2}\log n$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus,</p>
+<p>
+$$a_n &gt; \int_{3/2}^{n}\log x dx$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consequently, we have found lower and upper bounds for $a_n$:</p>
+<p>
+$$\int_{3/2}^{n} \log x dx &lt; a_n &lt; \int_{1}^{n}\log x dx$$
+</p>
 
 </div>
 </div>
