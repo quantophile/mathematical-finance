@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -150,23 +150,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#load_ext tikzmagic</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -458,6 +441,82 @@ $$f(x) = p_k(x) + R_k(x,a)$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><em>Proof</em></p>
+<p>We settle for an intuitive calculus-based proof. We shall prove this more rigorously in the posts on Real Analysis.</p>
+<p>By the fundamental theorem of Calculus,</p>
+<p>
+$$f(x) - f(a) = \int_{a}^{x}f'(t)dt \tag{4}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We evaluate the integral on the right side of (4) by means of integration by parts. Recall that the relevant formula is:</p>
+<p>
+$$\int u dv = uv - \int v du$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We use this formula with $u = f'(t)$ and $v = x - t$, so that $dv = -dt$. Note that in the right hand side of (4), $x$ plays the role of constant. We obtain :</p>
+<p>
+$$
+\begin{aligned}
+\int_{a}^{x} f'(t)dt &amp;= -f'(t)(x - t)|_{a}^{x} + \int_{a}^{x}(x-t)f''(t)dt\\
+&amp;=f'(a)(x-a)+\int_{a}^{x}(x-t)f''(t)dt
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's refer to the above equation as (5). Combining (4) and (5), we get :</p>
+<p>
+$$f(x) = f(a) + f'(a)(x - a) + \int_{a}^{x}(x-t)f''(t)dt \tag{6}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, we have shown that when $f$ is differentiable atleast upto the second order, that:</p>
+<p>
+$$R_1(x,a) = \int_{a}^{x}(x-t)f''(t)dt$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This provides an integral formula for the remainder of formula</p>
+<p>
+$$f(x) = p_1(x) + R_1(x,a)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We are yet to establish that:</p>
+<p>
+$$\lim_{x \to a} \frac{R_1(x,a)}{(x-a)} = 0$$
+</p>
 
 </div>
 </div>
