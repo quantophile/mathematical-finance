@@ -150,6 +150,23 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c">#load_ext tikzmagic</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -342,6 +359,38 @@ p_k^{(k)}(a) &amp;= f^{(k)}(a)
 \end{aligned}
 $$
 </p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Theorem 1.</strong> (Taylor's theorem in one variable) Let $X$ be open in $\mathbf{R}$ and suppose $f:X \subseteq\mathbf{R} \to \mathbf{R}$ is differentiable upto (atleast) order $k$.</p>
+<p>Given $a \in X$, let</p>
+<p>
+$$p_k(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \ldots + \frac{f^{k}(a)}{k!}(x-a)^k \tag{3}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then,</p>
+<p>
+$$f(x) = p_k(x) + R_k(x,a)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>where the remainder term $R_k$ is such that $R_k(x,a)/(x-a)^k \to 0$ as $x \to a$.</p>
 
 </div>
 </div>
