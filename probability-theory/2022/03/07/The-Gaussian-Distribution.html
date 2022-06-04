@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -554,8 +554,19 @@ $$f(x) = p_2(x) + R_2(x,a)$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can continue to argue in this manner or use mathematical induction to show that formula (3) holds in general with</p>
 <p>
-$$R_k(x,a) = \int_{a}^{x} \frac{(x-t)^k}{k!}f^{(k)}(t)dt$$
+$$R_k(x,a) = \int_{a}^{x} \frac{(x-t)^k}{k!}f^{(k)}(t)dt \tag{7}$$
 </p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It remains to be seen that $R_k(x,a)/(x-a)^k \to 0$ as $x \to a$. In formula (7), we are only considering $t$ to fall between $a$ and $x$, so that the distance $|x - t| \leq |x - a|$. Moreover, since we are assuming that $f$ is of class $C^{k+1}$, we have that $f^{k+1}(t)$ is continuous and, therefore, bounded for $t$ between $a$ and $x$.</p>
+<p>This follows from an important result in Analysis. Let $K$ is a compact set, and $f$ be continuous over $K$. Then, $f$ preserves compact sets. $f(K)$ is compact. Thus, $f(K)$ is bounded.</p>
+<p>Consequently, there exists $M \in \mathbf{N}$ for all $t \in [a,x]$ such that $|f^{k+1}(t)| \leq M$.</p>
+<p>Thus,</p>
 
 </div>
 </div>
