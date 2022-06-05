@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -828,7 +828,29 @@ $$1-\delta_n = \left[1 + \left(n + \frac{1}{2}\right)\log n - n\right]-\log n! $
 <a class="anchor" href="#Gaussian-Distribution." aria-hidden="true"><span class="octicon octicon-link"></span></a>Gaussian Distribution.<a class="anchor-link" href="#Gaussian-Distribution."> </a>
 </h2>
 <p>The Gaussian distribution is a very famous continuous distribution with a bell-shaped PDF. It is extremely widely used in finance and statistics, because of a theorem, the <em>central limit theorem</em>, which says that under very weak assumptions, the sum of a large number of i.i.d. random variables has an approximately Gaussian distribution, <em>regardless</em> of the distribution of the individual random variables. This means we can start with independent random variables from almost any distribution, discrete or continuous, but once we add up a bunch of them, the distribution of the resulting random variable looks like a Gaussian distribution.</p>
-<p>The central limit theorem is a topic for later. But in the meantime, we look at the properties of the Gaussian PDF and CDF and derive the expectation and variance of the Gaussian distribution. To do this, we will again use the strategy of location-scale transformation by starting with the simplest normal distribution</p>
+<p>The central limit theorem is a topic for later. But in the meantime, we look at the properties of the Gaussian PDF and CDF and derive the expectation and variance of the Gaussian distribution. To do this, we will again use the strategy of location-scale transformation by starting with the simplest normal distribution, the <em>standard Normal</em>, which is centered at $0$ and has variance $1$. After deriving the properties of the standard Normal, we'll be able to get to any Normal distribution we want by shifting and scaling.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition 1.</strong> (Standard Normal Distribution) A continuous random variable $Z$ is said to have the <em>standard normal distribution</em> if its PDF $\phi$ is given by:</p>
+<p>
+$$\phi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$$
+</p>
+<p>We write this as $Z \sim \mathcal{N}(0,1)$ since, as we will see, $Z$ has mean $0$ and variance $1$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The constant  $\frac{1}{\sqrt{2\pi}}$  in front of t</p>
 
 </div>
 </div>
