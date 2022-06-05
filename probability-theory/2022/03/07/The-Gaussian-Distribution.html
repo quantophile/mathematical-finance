@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      17 min read
     
 </span></p>
 
@@ -1183,6 +1183,62 @@ $$
 $$\int_{\infty}^{\infty}e^{-z^2/2}dz = \sqrt{2\pi}$$
 </p>
 <p>as we wanted to show.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The expectation of the standard Normal has to be $0$, by the symmetry of the PDF; no other balancing point would make sense. We can also see this symmetry by looking at the definition of $E(Z)$:</p>
+<p>
+$$E(Z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}ze^{-z^2/2}dz$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and since $g(z) = ze^{-z^2/2}$ is an odd function, the area under $g$ from $-\infty$ to $0$ cancels the area under $g$ from $0$ to $\infty$. Therefore, $E(Z)=0$. In fact, the same arument show that $E(Z^n)=0$ for any odd positive number $n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Getting the mean is easy, but the variance calculation is a bit more invovled.</p>
+<p>
+$$Var(Z) = E(Z^2) - (E(Z))^2 =  E(Z^2) - 0^2 = E(Z^2)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, by LOTUS:</p>
+<p>
+$$
+\begin{aligned}
+E(Z^2) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}z^2e^{-z^2/2}dz\\
+&amp;= \frac{1}{\sqrt{2\pi}}\left[-ze^{-z^2/2}|_{-\infty}^{\infty}+ \int_{-\infty}^{\infty}e^{-z^2/2}dz\right]\\
+&amp;= \frac{1}{\sqrt{2\pi}}\left[0 + \sqrt{2\pi}\right]\\
+&amp;= 1
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the first step we performed integration by parts by choosing $u = z$ and $dv = ze^{-z^2/2}dz$ so, $du = 1$ and $v=-e^{-z^2/2}$.</p>
 
 </div>
 </div>
