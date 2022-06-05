@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      16 min read
     
 </span></p>
 
@@ -1074,6 +1074,115 @@ $$\Phi(-z) = \int_{-\infty}^{-z}\phi(t)dt = \int_{z}^{\infty}\phi(u)du = 1 - \in
 $$P(-Z \leq z) = P(Z \geq -z) = 1 - \Phi(-z)$$
 </p>
 <p>but that is $\Phi(z)$ according to what we just argued. So, $-Z$ has the CDF $\Phi$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We need to prove three key facts about the standard normal, and then we'll be ready to handle general normal distributions: we need to show that $\phi$ is a valid PDF, that $E(Z) = 0$ and that $Var(Z) = 1$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To verify the validity of $\phi$, we'll show that the total area under $e^{-z^2/2}$ is $\sqrt{2\pi}$. However, we can't find the antiderivative of $e^{-z^2/2}$ directly, again because of the annoying fact that the antiderivative isn't expressible in closed form. But this doesn't mean we can't do <em>definite</em> integrals with some ingenuity.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An amazing trick saves the day here: write down the integral twice. Uusually, writing down the same problem repeatedly is more a sign of frustration than a problem solving strategy. But in this case, it allows a neat conversion to polar coordinates:</p>
+<p>
+$$
+\begin{aligned}
+\left(\int_{-\infty}^{\infty}e^{-z^2/2}dz\right)\left(\int_{-\infty}^{\infty}e^{-z^2/2}dz\right) &amp;= \left(\int_{-\infty}^{\infty}e^{-x^2/2}dx\right)\left(\int_{-\infty}^{\infty}e^{-y^2/2}dy\right)\\
+&amp;=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-\frac{x^2 + y^2}{2}}dxdy
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To effect the simplication of the integrand, we perform a coordinate transformtion. Let the transformation be</p>
+<p>
+$$\mathbf{T}(r,\theta) = (x(r,\theta),y(r,\theta)) = (r \cos \theta, r \sin \theta)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That is, we convert rectangular to polar coordinates. The region of integration $D$ is the entire $xy$-plane, so the domain $D^*$ in the polar coordinates should be all of the $r\theta$-plane given by $[0,\infty]\times[0,2\pi]$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Thus, the double integral</p>
+<p>
+$$\int \int_{D}f(x,y)dx dy = \int \int_{D*}f(x(u,v),y(u,v))\left|\frac{\partial(x,y)}{\partial(u,v)}\right|du dv$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Consequently, we get:</p>
+<p>
+$$
+\begin{aligned}
+\left(\int_{-\infty}^{\infty}e^{-z^2/2}dz\right)\left(\int_{-\infty}^{\infty}e^{-z^2/2}dz\right) 
+&amp;=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-\frac{x^2 + y^2}{2}}dxdy \\
+&amp;=\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}r dr d\theta
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now use the substitution $u = r^2 / 2$ and thus $du = r dr$ to evaluate the inner integral. We get:</p>
+<p>
+$$
+\begin{aligned}
+\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}r dr d\theta &amp;= \int_{0}^{2\pi}\int_{0}^{\infty}e^{-u}du d\theta\\
+&amp;= \int_{0}^{2\pi}[-e^{-u}]_{0}^{\infty}d\theta\\
+&amp;= \int_{0}^{2\pi}d\theta\\
+&amp;= 2\pi
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Therefore,</p>
+<p>
+$$\int_{\infty}^{\infty}e^{-z^2/2}dz = \sqrt{2\pi}$$
+</p>
+<p>as we wanted to show.</p>
 
 </div>
 </div>
