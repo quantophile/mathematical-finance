@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      18 min read
     
 </span></p>
 
@@ -1239,6 +1239,69 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the first step we performed integration by parts by choosing $u = z$ and $dv = ze^{-z^2/2}dz$ so, $du = 1$ and $v=-e^{-z^2/2}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The general Gaussian distribution has two parameters, denoted by $\mu$ and $\sigma^2$, which correspond to the mean and variance(so the standard normal is the special case where $\mu=0$ and $\sigma^2 = 1$). Starting with a standard normal random variable $Z \sim \mathcal{N}(0,1)$, we can get a normal random variable with any mean and variance by a location-scale transformation (shifting and scaling).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Definition.</strong> (Gaussian Distribution) If $Z \sim \mathcal{N}(0,1)$, then</p>
+<p>
+$$X = \mu + \sigma Z$$
+</p>
+<p>is said to have a <em>Gaussian Distribution</em> with mean $\mu$ and variance $\sigma^2$, for any real $\mu$ and $\sigma^2$ with $\sigma &gt; 0$. We denote this by $X \sim \mathcal{N}(\mu,\sigma^2)$.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's clear by the properties of expectation and variance that $X$ does in fact have mean and variance $\sigma^2$:</p>
+<p>
+$$E(\mu + \sigma Z) = \mu + \sigma E(Z) = \mu + \sigma \cdot 0 = \mu$$
+</p>
+<p>
+$$Var(\mu + \sigma Z) = \sigma^2 \cdot Var(Z) = \sigma^2 \cdot 1 = \sigma^2$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that we multiply $Z$ by the standard deivation $\sigma$, not $\sigma^2$; else the units would be wrong and $X$ would have variance $\sigma^4$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Of course, if we can get from $Z$ to $X$, then we can get back from $X$ to $Z$. The process of getting a standard normal from a non-standard normal is called, appropriately enough <em>standardization</em>. For $X \sim \mathcal{N}(\mu,\sigma^2)$, the standardized version of $X$ is :</p>
+<p>
+$$\frac{X - \mu}{\sigma} \sim \mathcal{N}(0,1)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can use standardization to find the CDF and PDF of $X$ in terms of the standard normal CDF and PDF.</p>
 
 </div>
 </div>
