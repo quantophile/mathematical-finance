@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      15 min read
     
 </span></p>
 
@@ -1056,7 +1056,24 @@ $$\Phi(z) = \int_{-\infty}^{z}\phi(t)dt = \int_{-\infty}^{z}\frac{1}{\sqrt{2\pi}
 <p><em>Symmetry of the PDF</em>: $\phi$ satisfies $\phi(z) = \phi(-z)$. Notice, that $\phi(z)$ is an even function.</p>
 </li>
 <li>
+<p><em>Symmetry of the tail areas</em>: The area under the PDF curve to the left of $-2$, which is $P(Z \leq -2) = \Phi(-2)$ by definition equals the area to the right of $2$, which is $P(Z \leq 2) = 1 - \Phi(2)$. In general, we have for the cumulative distribution function :</p>
+</li>
 </ol>
+<p>
+$$\Phi(z) = 1 - \Phi(-z)$$
+</p>
+<p>for all $z$. This can be seen visually by looking at the PDF curve, and mathematically by substituting $u = -t$ below and using the fact that PDFs integrate to $1$:</p>
+<p>
+$$\Phi(-z) = \int_{-\infty}^{-z}\phi(t)dt = \int_{z}^{\infty}\phi(u)du = 1 - \int_{-\infty}^{z}\phi(u)du = 1 - \Phi(z)$$
+</p>
+<ol>
+<li>
+<em>Symmetry of $Z$ and $-Z$</em>: If $Z \sim \mathcal{N}(0,1)$, then $-Z\sim \mathcal{N}(0,1)$ as well. To see this, note that the CDF of $-Z$ is:</li>
+</ol>
+<p>
+$$P(-Z \leq z) = P(Z \geq -z) = 1 - \Phi(-z)$$
+</p>
+<p>but that is $\Phi(z)$ according to what we just argued. So, $-Z$ has the CDF $\Phi$.</p>
 
 </div>
 </div>
