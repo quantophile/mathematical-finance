@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      20 min read
     
 </span></p>
 
@@ -1383,6 +1383,16 @@ $$\phi(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <p><strong>Theorem 3.</strong> (68-95-99.7%) rule. If $X \sim \mathcal{N}(\mu, \sigma^2)$, then:</p>
+<p>
+$$P(|X-\mu| &lt; \sigma) \approx 0.68$$
+</p>
+<p>
+$$P(|X-\mu| &lt; 2\sigma) \approx 0.95$$
+</p>
+<p>
+$$P(|X-\mu| &lt; 3\sigma) \approx 0.997$$
+</p>
+<hr>
 
 </div>
 </div>
@@ -1508,6 +1518,31 @@ $$E(S_n) = n(2p - 1)$$
 <p>
 $$SD(S_n) = 2\sqrt{np(1-p)}$$
 </p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Define $\mu = n(2p-1)$ and $\sigma = 2\sqrt{np(1-p)}$.</p>
+<p>The correct way to analyse the long-term behavior is to center everything at $\mu$ and measure in standard deviations on either side.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/mathematical-finance/images/copied_from_nb/../images/deMoivreLaplace.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We want to ask for the probability that the long-term result is between $\mu + a\sigma$ and $\mu + b\sigma$, where $a,b\in\mathbf{R}$ are fixed.</p>
 
 </div>
 </div>
