@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      13 min read
     
 </span></p>
 
@@ -850,7 +850,26 @@ $$\phi(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The constant  $\frac{1}{\sqrt{2\pi}}$  in front of t</p>
+<p>The constant  $\frac{1}{\sqrt{2\pi}}$ in front of the PDF may look surprising (why is something with $\pi$ needed in front of something with $e$, when there are no circles in sight?), but it's exactly what is needed to make the PDF integrate to $1$. Such constants are called <em>normalizing constants</em> because they normalize the total area under the PDF to $1$. We'll verify soon that this is a valid PDF.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The standard normal CDF $\Phi$ is the accumulated area under the PDF:</p>
+<p>
+$$\Phi(z) = \int_{-\infty}^{z}\phi(t)dt = \int_{-\infty}^{z}\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some people, upon seeing the function $\Phi$ for the first time, express dismay that it is left in terms of an integral. Unfortunately, we have little choice in the mattter: it turns out to be mathematically impossible to find a closed-form express for the anti-derivative of $\phi$, meaning that we cannot express $\Phi$ as a finite sum of elementary functions such as polynomials or exponentials. But closed-form or not, it's still a well-defined function: if we give $\Phi$ an input $z$, it returns the accumulated area under the PDF from $-\infty$ up to $z$. That is to say, the integral converges and has a definite value for all $z \in \mathbf{R}$.</p>
 
 </div>
 </div>
