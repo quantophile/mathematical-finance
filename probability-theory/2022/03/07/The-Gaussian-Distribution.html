@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -1255,7 +1255,7 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><strong>Definition.</strong> (Gaussian Distribution) If $Z \sim \mathcal{N}(0,1)$, then</p>
+<p><strong>Definition 2.</strong> (Gaussian Distribution) If $Z \sim \mathcal{N}(0,1)$, then</p>
 <p>
 $$X = \mu + \sigma Z$$
 </p>
@@ -1302,6 +1302,70 @@ $$\frac{X - \mu}{\sigma} \sim \mathcal{N}(0,1)$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can use standardization to find the CDF and PDF of $X$ in terms of the standard normal CDF and PDF.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><strong>Theorem 2.</strong> (Normal PDF and CDF). Let $X \sim \mathcal{N}(\mu,\sigma^2)$. Then the CDF of $X$ is:</p>
+<p>
+$$F_X(x) = \Phi\left(\frac{x-\mu}{\sigma}\right)$$
+</p>
+<p>and the PDF of $X$ is</p>
+<p>
+$$f_X(x) = \frac{1}{\sigma}\phi\left(\frac{x-\mu}{\sigma}\right)$$
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Proof.</em></p>
+<p>For the CDF, we start from the definition $F_X(x) = P(X \leq x)$, standardize and use the CDF of the standard normal:</p>
+<p>
+$$
+\begin{aligned}
+F_X(x) &amp;= P(X \leq x)\\
+&amp;= P(\mu + \sigma Z \leq x)\\
+&amp;= P(Z \leq \frac{x - \mu}{\sigma})\\
+&amp;= \Phi\left(\frac{x - \mu}{\sigma}\right)
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then, we differentiate with respect to $x$ to get the PDF:</p>
+<p>
+$$
+\begin{aligned}
+F_X(x) &amp;= \Phi\left(\frac{x - \mu}{\sigma}\right)\\
+\frac{d}{dx}(F_X(x)) &amp;=\frac{d}{dx} \left[\Phi\left(\frac{x - \mu}{\sigma}\right)\right]\\
+f_X(x) &amp;= \frac{1}{\sigma}\phi\left(\frac{x - \mu}{\sigma}\right)
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also write out the PDF as:</p>
+<p>
+$$\phi(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+</p>
 
 </div>
 </div>
