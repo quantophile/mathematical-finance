@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      22 min read
+      23 min read
     
 </span></p>
 
@@ -1616,7 +1616,7 @@ $$(n-k)! \sim \sqrt{2\pi (n-k)} \left(\frac{n-k}{e}\right)^{(n-k)}$$
 $$
 \begin{aligned}
 {n \choose k} p^k q^{n-k} &amp;\sim \frac{\sqrt{2\pi n} \left(\frac{n}{e}\right)^n}{\sqrt{2\pi k} \left(\frac{k}{e}\right)^k \sqrt{2\pi (n-k)} \left(\frac{n-k}{e}\right)^{(n-k)} }p^k q^{n-k}\\
-&amp;= \sqrt{\frac{n}{k(n-k)}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k}
+&amp;= \sqrt{\frac{n}{2\pi k(n-k)}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k}
 \end{aligned}
 $$
 </p>
@@ -1628,7 +1628,7 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Step 3. Simplify step 2.</p>
-<p>We bound the cumulative gains after $n$ rounds fall by $\mu + a\sigma$ and $\mu + b\sigma$. That is:</p>
+<p>We are interested in the probability of the cumulative gains $X_1 + \ldots + X_n$ falling between $\mu + a\sigma$ and $\mu + b\sigma$. So, we can bound $2k - n$ by $\mu + a\sigma$ and $\mu + b\sigma$. That is:</p>
 <p>
 $$
 \mu + a\sigma \leq 2k - n \leq \mu + b\sigma\\
@@ -1681,7 +1681,74 @@ $$n-k \sim nq$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Therefore, we can write:</p>
 <p>
-$$\sqrt{\frac{n}{k(n-k)}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k} \sim \sqrt{\frac{1}{npq}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k}$$
+$$\sqrt{\frac{n}{2\pi k(n-k)}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k} \sim \sqrt{\frac{1}{2\pi npq}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Step 4. Use the Taylor's series for $\log (1 + t)\sim t - \frac{t^2}{2}$.</p>
+<p>We write $y_k = \frac{k - np}{\sqrt{npq}}$. Let's look at the quantities $\left(\frac{np}{k}\right)^k$ and $\left(\frac{nq}{n-k}\right)^{n-k}$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\frac{np}{k} = \frac{k - (k - np)}{k} =  \frac{k - \frac{(k - np)}{\sqrt{npq}}\cdot \sqrt{npq}}{k} = \frac{k - y_k \sqrt{npq}}{k} = 1-\frac{y_k \sqrt{npq}}{k}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\frac{nq}{n-k} = \frac{n - np}{n-k} = \frac{n - k + k - np}{n-k} = 1 + \frac{\frac{k - np}{\sqrt{npq}}\cdot\sqrt{npq}}{n -k} = 1 + \frac{y_k\cdot\sqrt{npq}}{n-k}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The log of these quantities can be approximated as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$
+\begin{aligned}
+\log \left(\frac{np}{k}\right)^k &amp;= k \log \left(1-\frac{y_k \sqrt{npq}}{k}\right)\\
+&amp;\sim k\left[-\frac{y_k \sqrt{npq}}{k} + \frac{npqy_k^2}{2k^2}\right]
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$
+\begin{aligned}
+\log \left(\frac{nq}{n-k}\right)^{n-k} &amp;= (n-k) \log \left(1+\frac{y_k \sqrt{npq}}{n-k}\right)\\
+&amp;\sim (n-k)\left[\frac{y_k \sqrt{npq}}{n-k} - \frac{npqy_k^2}{2(n-k)^2}\right]
+\end{aligned}
+$$
 </p>
 
 </div>
