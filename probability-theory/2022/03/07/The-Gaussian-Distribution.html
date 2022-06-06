@@ -1731,7 +1731,7 @@ $$\frac{nq}{n-k} = \frac{n - np}{n-k} = \frac{n - k + k - np}{n-k} = 1 + \frac{\
 $$
 \begin{aligned}
 \log \left(\frac{np}{k}\right)^k &amp;= k \log \left(1-\frac{y_k \sqrt{npq}}{k}\right)\\
-&amp;\sim k\left[-\frac{y_k \sqrt{npq}}{k} + \frac{npqy_k^2}{2k^2}\right]
+&amp;\sim k\left[-\frac{y_k \sqrt{npq}}{k} - \frac{npqy_k^2}{2k^2}\right]
 \end{aligned}
 $$
 </p>
@@ -1750,6 +1750,48 @@ $$
 \end{aligned}
 $$
 </p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\log\left(\frac{np}{k}\right)^k + \log\left(\frac{nq}{n-k}\right)^{n-k} \sim -\frac{npqy_k^2}{2k} - \frac{npqy_k^2}{2(n-k)}= -\frac{n^2 pq y_k^2}{2k(n-k)}$$
+</p>
+<p>Consequently,</p>
+<p>
+$$\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k} = e^{-\frac{n^2pqy_k^2}{2k(n-k)}}\sim e^{-\frac{n^2pqy_k^2}{2np\cdot nq}}= e^{-\frac{y_k^2}{2}}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Therefore,</p>
+<p>
+$$P(X_1+\ldots+X_n = 2k - n)=\sqrt{\frac{1}{2\pi npq}}e^{-\frac{y_k^2}{2}}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Step 5. Use an approximation for the Riemann integrals.</p>
+<p>We have:</p>
+<p>
+$$\mu + a\sigma \leq 2k - n \leq \mu + b\sigma$$
+</p>
+<p>So, it follows that the upper and lower bounds for $k$: are:</p>
+<p>
+$$np + a\sqrt{npq} \leq k \leq np + b\sqrt{npq}$$
+</p>
+<p>Therefore,</p>
 
 </div>
 </div>
