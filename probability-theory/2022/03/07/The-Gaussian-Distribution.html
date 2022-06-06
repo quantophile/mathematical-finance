@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      22 min read
     
 </span></p>
 
@@ -1543,6 +1543,146 @@ $$SD(S_n) = 2\sqrt{np(1-p)}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We want to ask for the probability that the long-term result is between $\mu + a\sigma$ and $\mu + b\sigma$, where $a,b\in\mathbf{R}$ are fixed.</p>
+<hr>
+<p><strong>Theorem 4.</strong> (DeMoivre-Laplace Theorem) If $a,b \in \mathbf{R}$, then for large $n$,</p>
+<p>
+$$\lim_{n \to \infty} P(\mu + a\sigma \leq X_1 + \ldots + X_n \leq \mu + b\sigma) = P(a \leq Z \leq b)$$
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Proof.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall the Stirling's formula. It says that $n!$ is asymtotically equal to $\sqrt{2\pi n} \left(\frac{n}{e}\right)^n$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Step 1. Calculate $P(X_1 + X_2 + \ldots + X_n = j)$.</p>
+<p>Let $k$ be the number of heads after $n$ rounds. Our cumulative gain after $n$ rounds is therefore given by:</p>
+<p>
+$$X_1 + X_2 + \ldots + X_n = k - (n-k) = 2k - n$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since, the number of heads(successed) obtained in $n$ independent Bernoulli trials is a Binomial random variable, we have:</p>
+<p>
+$$P(X_1 + \ldots + X_n = 2k - n) = {n \choose k}p^{k}q^{n-k}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Step 2. Break down ${n \choose k}$ with Stirling's formula.</p>
+<p>
+$$n! \sim \sqrt{2\pi n} \left(\frac{n}{e}\right)^n$$
+</p>
+<p>
+$$k! \sim \sqrt{2\pi k} \left(\frac{k}{e}\right)^k$$
+</p>
+<p>
+$$(n-k)! \sim \sqrt{2\pi (n-k)} \left(\frac{n-k}{e}\right)^{(n-k)}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$
+\begin{aligned}
+{n \choose k} p^k q^{n-k} &amp;\sim \frac{\sqrt{2\pi n} \left(\frac{n}{e}\right)^n}{\sqrt{2\pi k} \left(\frac{k}{e}\right)^k \sqrt{2\pi (n-k)} \left(\frac{n-k}{e}\right)^{(n-k)} }p^k q^{n-k}\\
+&amp;= \sqrt{\frac{n}{k(n-k)}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k}
+\end{aligned}
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Step 3. Simplify step 2.</p>
+<p>We bound the cumulative gains after $n$ rounds fall by $\mu + a\sigma$ and $\mu + b\sigma$. That is:</p>
+<p>
+$$
+\mu + a\sigma \leq 2k - n \leq \mu + b\sigma\\
+\Longleftrightarrow n(2p - 1) + 2a\sqrt{npq} \leq 2k - n \leq n(2p - 1) + 2b\sqrt{npq}\\
+\Longleftrightarrow 2np + 2a\sqrt{npq} \leq 2k \leq 2np + 2b\sqrt{npq}\\
+\Longleftrightarrow np + a\sqrt{npq} \leq k \leq np + b\sqrt{npq}\\
+\Longleftrightarrow 1 + a\sqrt{\frac{q}{np}} \leq \frac{k}{np} \leq 1 + b\sqrt{\frac{q}{np}}
+$$
+</p>
+<p>As $n \to \infty$, both the left hand limit and the right hand limit approaches unity. By the Squeeze theorem, $\lim \frac{k}{np}$ exists and further, $\lim_{n \to \infty} \frac{k}{np} = 1$. Consequently,</p>
+<p>
+$$k \sim np$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similarly,</p>
+<p>
+$$
+\mu + a\sigma \leq 2k - n \leq \mu + b\sigma\\
+\Longleftrightarrow n(2p - 1) + 2a\sqrt{npq} \leq 2k - n \leq n(2p - 1) + 2b\sqrt{npq}\\
+\Longleftrightarrow 2np + 2a\sqrt{npq} -2n \leq 2k - 2n \leq 2np + 2b\sqrt{npq} - 2n\\
+\Longleftrightarrow -2nq + 2a\sqrt{npq} \leq 2k - 2n \leq -2nq + 2b\sqrt{npq}\\
+\Longleftrightarrow 2nq - 2b\sqrt{npq} \leq 2n - 2k \leq 2nq - 2a\sqrt{npq}\\
+\Longleftrightarrow nq - b\sqrt{npq} \leq n-k \leq nq - a\sqrt{npq}\\
+\Longleftrightarrow 1 - b\sqrt{\frac{p}{nq}} \leq \frac{n-k}{nq} \leq 1 - a\sqrt{\frac{p}{nq}}\\
+$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As $n \to \infty$, both the left hand limit and the right hand limit approaches unity. By the Squeeze theorem, $\lim \frac{n-k}{nq}$ exists and further, $\lim_{n \to \infty} \frac{n-k}{nq} = 1$. Consequently,</p>
+<p>
+$$n-k \sim nq$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Therefore, we can write:</p>
+<p>
+$$\sqrt{\frac{n}{k(n-k)}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k} \sim \sqrt{\frac{1}{npq}}\left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-k}$$
+</p>
 
 </div>
 </div>
