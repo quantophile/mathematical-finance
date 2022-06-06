@@ -95,7 +95,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      23 min read
+      24 min read
     
 </span></p>
 
@@ -1791,7 +1791,32 @@ $$\mu + a\sigma \leq 2k - n \leq \mu + b\sigma$$
 <p>
 $$np + a\sqrt{npq} \leq k \leq np + b\sqrt{npq}$$
 </p>
+<p>Also, notice that:</p>
+<p>
+$$y_{k+1} - y_k = \frac{(k+1) - np}{\sqrt{npq}} - \frac{k - np}{\sqrt{npq}} = \frac{1}{\sqrt{npq}}$$
+</p>
 <p>Therefore,</p>
+<p>
+$$
+\begin{aligned}
+P(\mu + a\sigma \leq X_1 + \ldots + X_n \leq \mu + b\sigma) &amp;= \sum_{k=np+a\sqrt{npq}}^{np+b\sqrt{npq}}P(X_1 + X_2 + \ldots +X_n = 2k - n)\\
+&amp;=\sum_{k=np+a\sqrt{npq}}^{np+b\sqrt{npq}}\sqrt{\frac{1}{2\pi npq}}e^{-\frac{y_k^2}{2}}\\
+&amp;=\sum_{y_k=a}^{b}\sqrt{\frac{1}{2\pi}}e^{-\frac{y_k^2}{2}}(y_{k+1} - y_k)
+\end{aligned}
+$$
+</p>
+<p>As $n \to \infty$, the size of the subintervals $[y_k,y_{k+1}]$ approaches zero. Consequently, the above Riemann sum in the limit as $n \to \infty$, approaches the indefinite integral:</p>
+<p>
+$$\lim_{\text{ all }\Delta y_k \to 0}\sum_{y_k=a}^{b}\sqrt{\frac{1}{2\pi}}e^{-\frac{y_k^2}{2}}(\Delta y_k) =\sqrt{\frac{1}{2\pi}} \int_{a}^{b}e^{-\frac{y^2}{2}}dy = P(a \leq Z \leq b)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This closes the proof.</p>
 
 </div>
 </div>
